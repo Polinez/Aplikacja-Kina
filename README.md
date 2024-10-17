@@ -1,6 +1,6 @@
 # Aplikacja-Kina
 
-PL ---
+PL---
 
 Projekt Uniwersytecki w którym tworzymy aplikacje dla kina aby usprawnić sprzedaż biletów
 (W trakcie budowy)
