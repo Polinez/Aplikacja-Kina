@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppKina", "AppKina\AppKina.csproj", "{9E122DC4-C90E-4DA7-B3EF-B57B3828271B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E122DC4-C90E-4DA7-B3EF-B57B3828271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E122DC4-C90E-4DA7-B3EF-B57B3828271B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E122DC4-C90E-4DA7-B3EF-B57B3828271B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E122DC4-C90E-4DA7-B3EF-B57B3828271B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {849F2A0B-BAFB-4095-AABF-D8741F0E693D}
+	EndGlobalSection
+EndGlobal
