@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Repozytorium git\AplikacjaKina\AppKina\App.xaml
-11407045341
+31961336599
 
-61753888653
+81121867338
 198155382431
-MainWindow.xaml;
+Logowanie.xaml;MainWindow.xaml;Rejestracja.xaml;
 
-True
+False
 

@@ -1,0 +1,49 @@
+﻿<Window x:Class="AppKina.Logowanie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppKina"
+        mc:Ignorable="d"
+        Title="Logowanie" Height="450" Width="800">
+    <DockPanel Background="Black">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="logo" Source="C:\Users\przyb\OneDrive\Pulpit\Studia\Specjalistyczne oprogramowanie narzędziowe\AplikacjaKina\KinoLogo.png"
+               Grid.Column="1" Grid.ColumnSpan="2" Margin="42,-42,42,12" Grid.RowSpan="3"/>
+            <TextBlock Text="Logowanie" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White" FontSize="30" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Email:" Grid.Column="0" Grid.Row="3" Foreground="White" FontSize="25" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Margin="114,0,0,0" />
+            <TextBox x:Name="textBox_email"  Background="White" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="45"
+                     FontSize="25"/>
+            <TextBlock Text="Hasło:" Grid.Column="0" Grid.Row="4" Foreground="White" FontSize="25" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Margin="114,0,0,0"/>
+            <TextBox x:Name="textBox_password"  Background="White" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="45"
+                     FontSize="20"/>
+
+            <Button x:Name="buttom_zaloguj" Content="Zaloguj" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="200"
+                    Height="45" Background="#530622" Foreground="White" FontSize="25" BorderThickness="0"/>
+            <Button x:Name="button_powrót" Content="Powrót" Grid.Row="0" Background="Black" Foreground="White" FontSize="20"
+                    BorderThickness="0" Width="70" Height="35"/>
+            <!--<Image Source="C:\Users\przyb\OneDrive\Pulpit\Studia\Specjalistyczne oprogramowanie narzędziowe\AplikacjaKina\elementy garficzne\fale-kino (1).png"
+                   Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="2" Grid.RowSpan="6"/>-->
+        </Grid>
+        
+        <!--<ScrollBar Background="DarkGray"/>-->
+    </DockPanel>
+</Window>
