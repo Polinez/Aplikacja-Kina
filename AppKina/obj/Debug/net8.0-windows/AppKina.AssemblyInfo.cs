@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppKina")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fae1ec61221ed120673a327c8857fc8a23c43ee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+708653643e36c844158db323c0c4296d91bd2b72")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppKina")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppKina")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
