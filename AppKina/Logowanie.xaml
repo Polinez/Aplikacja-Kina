@@ -23,8 +23,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Image x:Name="logo" Source="C:\Users\przyb\OneDrive\Pulpit\Studia\Specjalistyczne oprogramowanie narzędziowe\AplikacjaKina\KinoLogo.png"
-               Grid.Column="1" Grid.ColumnSpan="2" Margin="42,-42,42,12" Grid.RowSpan="3"/>
+            <Image x:Name="logo" Grid.Column="1" Grid.ColumnSpan="2" Margin="42,-42,42,12" Grid.RowSpan="3"/>
             <TextBlock Text="Logowanie" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White" FontSize="30" 
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Text="Email:" Grid.Column="0" Grid.Row="3" Foreground="White" FontSize="25" HorizontalAlignment="Left"
