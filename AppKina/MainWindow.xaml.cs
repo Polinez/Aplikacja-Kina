@@ -45,6 +45,9 @@ namespace AppKina
             }
         }
 
-
+        private void Rozpocznij(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Rozpocznij");
+        }
     }
 }
