@@ -13,6 +13,9 @@
     <Compile Update="Rejestracja.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Strona glowna.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Logowanie.xaml">
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Rejestracja.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Strona glowna.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
