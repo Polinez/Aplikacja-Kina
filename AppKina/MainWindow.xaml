@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppKina"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="Black">
     <Grid>
+<<<<<<< HEAD
         <Button x:Name="LogBttn" Content="Logowanie" Click="Logowanie_Click" HorizontalAlignment="Left" Margin="293,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.2,1.183" />
         <Button x:Name="RejBttn" Content="Rejestracja" Click="Rejestracja_Click" HorizontalAlignment="Left" Margin="360,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.396,-0.262"/>
         <Button x:Name="MainBttn" Content="Strona główna" Click="Glowna_Click" HorizontalAlignment="Left" Margin="425,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.396,-0.262"/>
 
+=======
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="LogoWKole"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" />
+        <Button Content="Rozpocznij" FontSize="30" FontWeight="Bold" Foreground="White" Grid.Row="1" Background="Black" Width="200" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Rozpocznij"/>
+>>>>>>> 4a326a81a1f80181e22d676a0b8019f2550a52c0
     </Grid>
 </Window>
