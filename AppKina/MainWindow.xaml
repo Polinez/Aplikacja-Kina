@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="LogBttn" Content="Logowanie" Click="Logowanie_Click" HorizontalAlignment="Left" Margin="293,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.2,1.183" />
+        <Button x:Name="RejBttn" Content="Rejestracja" Click="Rejestracja_Click" HorizontalAlignment="Left" Margin="360,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.396,-0.262"/>
+        <Button x:Name="MainBttn" Content="Strona główna" Click="Glowna_Click" HorizontalAlignment="Left" Margin="425,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.396,-0.262"/>
 
     </Grid>
 </Window>
