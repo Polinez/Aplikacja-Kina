@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="LogowanieRejestracja" Height="450" Width="800">
     <Grid>
-        
+
+        <Button x:Name="btnLogowanie" Content="Logowanie" HorizontalAlignment="Left" Margin="209,296,0,0" VerticalAlignment="Top" Width="75" Click="btnLogowanie_Click"/>
+        <Button x:Name="btnRejestracja" Content="Rejestracja" HorizontalAlignment="Left" Margin="507,296,0,0" VerticalAlignment="Top" Width="75" Click="btnRejestracja_Click"/>
+        <Button x:Name="btnStronaGlowna" Content="Strona glowna" HorizontalAlignment="Left" Margin="351,296,0,0" VerticalAlignment="Top" Width="75" Click="btnStronaGlowna_Click"/>
+
     </Grid>
 </Window>
