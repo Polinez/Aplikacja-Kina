@@ -18,6 +18,7 @@ namespace AppKina
         {
             LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
             logowanieRejestracja.Show();
+            this.Close();
         }
     }
 }
