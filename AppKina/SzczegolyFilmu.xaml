@@ -1,0 +1,55 @@
+﻿<Window x:Class="AppKina.SzczegolyFilmu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppKina"
+        mc:Ignorable="d"
+        Title="SzczegolyFilmu" Height="450" Width="800" Background="Black" MinWidth="800" MinHeight="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <UniformGrid Columns="5" VerticalAlignment="Top" Height="45" Background="#FF530622" Grid.Row="0" Grid.ColumnSpan="2" >
+            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
+            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
+            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
+            <Button Content="Moje recenzje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
+            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
+        </UniformGrid>
+
+        <Image Source="pack://application:,,,/elementyGraficzne/joker.png"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="20"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20" >
+            
+            <TextBlock Text="Joker" 
+                       FontSize="30" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
+            
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <TextBlock Text="Dramat, Kryminał, Thriller" 
+                   FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
+
+                <TextBlock Text=" | " 
+                   FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="5,0"/>
+
+                <TextBlock Text="Czas trwania: 122 min"
+                   FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
+        </StackPanel>
+            
+            <TextBlock Text="Opis: Arthur Fleck (Joaquin Phoenix) to nieudany komik, który prowadzi nędzne życie w Gotham City. Jego jedyne związki z rzeczywistością to praca jako klaun wynajmowany do różnych imprez oraz opieka nad starszą matką. Arthur marzy o karierze komika stand-upowca, ale jego poczynania spotykają się z drwinami i agresją ze strony innych ludzi. Wszystko się zmienia, gdy w wyniku serii zdarzeń Arthur zaczyna odkrywać swoje mroczne alter ego - Joker."
+                       FontSize="15" Foreground="#FFBBBBBB" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap" Margin="5"/>
+            <TextBlock Text="Reżyseria: Todd Phillips"
+                        FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
+            <TextBlock Text="Obsada: Joaquin Phoenix, Robert De Niro, Zazie Beetz"
+                       FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap"/>
+            <Button Content="Zobacz seanse"
+                    Background="#FF530622" Foreground="White" FontSize="18" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="30,5"/>
+        </StackPanel>
+    </Grid>
+</Window>
