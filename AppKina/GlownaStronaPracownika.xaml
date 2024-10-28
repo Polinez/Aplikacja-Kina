@@ -25,7 +25,7 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="40" Background="#FF530622">
 
             <MenuItem Header="Zarządzanie" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" Margin="10">
-                <MenuItem Header="Dodaj film" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <MenuItem Header="Dodaj film" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Dodaj_film_Click"/>
                 <MenuItem Header="Dodaj seans" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <MenuItem Header="Usuń film" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <MenuItem Header="Usuń seans" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>

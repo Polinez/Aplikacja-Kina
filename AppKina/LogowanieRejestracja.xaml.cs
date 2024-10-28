@@ -33,5 +33,12 @@ namespace AppKina
             strona_Glowna.Show();
             this.Close();
         }
+
+        private void Admin_Click(object sender, RoutedEventArgs e)
+        {
+            GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
+            glownaStronaPracownika.Show();
+            this.Close();
+        }
     }
 }
