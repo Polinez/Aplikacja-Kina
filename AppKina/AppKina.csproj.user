@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="GlownaStronaPracownika.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Logowanie.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +24,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="GlownaStronaPracownika.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Logowanie.xaml">
       <SubType>Designer</SubType>
     </Page>
