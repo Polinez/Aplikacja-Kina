@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="elementyGraficzne\joker.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="elementyGraficzne\joker.png" />
+  </ItemGroup>
+
 </Project>

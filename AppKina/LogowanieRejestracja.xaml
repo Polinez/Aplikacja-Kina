@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppKina"
         mc:Ignorable="d"
-        Title="LogowanieRejestracja" Height="450" Width="800">
+        Title="LogowanieRejestracja" Height="450" Width="800" Background="Black" MinWidth="800" MinHeight="450">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Button x:Name="btnLogowanie" Content="Logowanie" HorizontalAlignment="Left" Margin="209,296,0,0" VerticalAlignment="Top" Width="75" Click="btnLogowanie_Click"/>
-        <Button x:Name="btnRejestracja" Content="Rejestracja" HorizontalAlignment="Left" Margin="507,296,0,0" VerticalAlignment="Top" Width="75" Click="btnRejestracja_Click"/>
-        <Button x:Name="btnStronaGlowna" Content="Strona glowna" HorizontalAlignment="Left" Margin="351,296,0,0" VerticalAlignment="Top" Width="75" Click="btnStronaGlowna_Click"/>
+
+        <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png"  HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,50" />
+        <Button  Content="Logowanie"     Height="50" Width="200"  HorizontalAlignment="Right" Margin="20"  VerticalAlignment="Center" Grid.Column="0"  Grid.Row="1"             Click="btnLogowanie_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Background="#FF530622" Foreground="White" BorderBrush="Black"/>
+        <Button  Content="Rejestracja"   Height="50" Width="200"  HorizontalAlignment="Left"  Margin="20"  VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"             Click="btnRejestracja_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Foreground="#FF530622" Background="White" BorderBrush="Black"/>
+        <Button  Content="Pomiń"         Height="50" Width="150"  HorizontalAlignment="Center" Margin="20" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="1"   Background="Black"       Click="btnStronaGlowna_Click" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" BorderBrush="Black" FontSize="14"/>
 
     </Grid>
 </Window>
