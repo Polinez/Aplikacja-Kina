@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <UniformGrid Columns="5" VerticalAlignment="Top" Height="45" Background="#FF530622" Grid.Row="0" Grid.ColumnSpan="2" >
+        <UniformGrid Columns="5" VerticalAlignment="Top" Height="45" Background="#FF530622" Grid.Row="0" Grid.ColumnSpan="2"  >
             <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Click="StronaGlowna_Click" />
             <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
             <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
