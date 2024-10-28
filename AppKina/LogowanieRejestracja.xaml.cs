@@ -16,12 +16,14 @@ namespace AppKina
         {
             Logowanie logowanie = new Logowanie();
             logowanie.Show();
+            this.Close();
         }
 
         private void btnRejestracja_Click(object sender, RoutedEventArgs e)
         {
             Rejestracja rejestracja = new Rejestracja();
             rejestracja.Show();
+            this.Close();
 
         }
 
@@ -29,6 +31,7 @@ namespace AppKina
         {
             Strona_glowna strona_Glowna = new Strona_glowna();
             strona_Glowna.Show();
+            this.Close();
         }
     }
 }
