@@ -19,6 +19,7 @@
 
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
 
+<<<<<<< Updated upstream
             <MenuItem Header="Zarządzanie" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" Margin="10">
                 <MenuItem Header="Dodaj film" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <MenuItem Header="Dodaj seans" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -28,7 +29,9 @@
             <MenuItem Header="Moje Konto" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" Margin="10"/>
             <MenuItem Header="Ustawienia" Foreground="White" Background="#FF530622" FontSize="16" FontFamily="Monsterrat" Margin="10"/>
         </Menu>
+=======
             <Grid Width="800" Height="170">
+>>>>>>> Stashed changes
 
                 <Image Source="C:\Users\ankaw\Desktop\projekt kino\Aplikacja-Kina\AppKina\elementyGraficzne\górna fala.png" Stretch="UniformToFill" />
 
