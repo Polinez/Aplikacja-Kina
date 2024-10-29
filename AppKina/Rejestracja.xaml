@@ -25,6 +25,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png"  Stretch="UniformToFill" Grid.ColumnSpan="4" Grid.RowSpan="9"/>
             <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png" Grid.Column="1" Grid.ColumnSpan="2" Margin="42,-34,42,4" Grid.RowSpan="3"/>
             <TextBlock Text="Rejestracja" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White" FontSize="25" 
                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
