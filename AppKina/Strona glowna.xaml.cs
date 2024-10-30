@@ -23,5 +23,17 @@ namespace AppKina
         {
             InitializeComponent();
         }
+
+        private void WiecejBttn1(object sender, RoutedEventArgs e)
+        {
+            SzczegolyFilmu szczegolyFil = new SzczegolyFilmu();
+            szczegolyFil.Show();
+
+        }
+        private void WiecejBttn2(object sender, RoutedEventArgs e)
+        {
+            SzczegolyFilmu szczegolyFil = new SzczegolyFilmu();
+            szczegolyFil.Show();
+        }
     }
 }
