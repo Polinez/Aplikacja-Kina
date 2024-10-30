@@ -33,9 +33,9 @@ namespace AppKina
 
         private void button_zarezerwuj_Click(object sender, RoutedEventArgs e)
         {
-            //Strona_glowna stronaGlowna = new Strona_glowna();
-            //stronaGlowna.Show();
-            //this.Close();
+            Zarezerwuj zarezerwuj = new Zarezerwuj();
+            zarezerwuj.Show();
+            this.Close();
         }
         private void button_mojeRezerwacje_Click(object sender, RoutedEventArgs e)
         {
