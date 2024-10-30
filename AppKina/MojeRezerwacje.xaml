@@ -8,37 +8,37 @@
         Title="MojeRezerwacje" Height="450" Width="800">
     <Grid Background="Black">
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" Height="50" Stretch="Uniform" VerticalAlignment="Top"
-Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center"/>
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center"/>
         <UniformGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Columns="4" VerticalAlignment="Center"
-     Height="40" Background="#FF530622">
+                     Height="40" Background="#FF530622">
             <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" 
-    FontFamily="Montsterrat" BorderThickness="0" Click="button_stronaGlowna_Click" Width="110"
-    Height="25"/>
+                    FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Click="button_stronaGlowna_Click" Width="110"
+                    Height="25"/>
             <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" 
-    FontFamily="Monsterrat" BorderThickness="0" Width="100" Height="25"
-    Click="button_zarezerwuj_Click"/>
+                    FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="100" Height="25"
+                    Click="button_zarezerwuj_Click"/>
             <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" 
-    FontFamily="Monsterrat" BorderThickness="0" Width="120" Height="25"
-    Click="button_mojeRezerwacje_Click"/>
+                    FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="120" Height="25"
+                    Click="button_mojeRezerwacje_Click"/>
             <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" 
-    FontFamily="Monsterrat" BorderThickness="0" Width="100" Height="25"
-    Click="button_mojeKonto_Click"/>
+                    FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="100" Height="25"
+                    Click="button_mojeKonto_Click"/>
         </UniformGrid>
 
         <Label Content="Moje rezerwacje:" Grid.Row="2" Grid.Column="0" Foreground="White" 
-       FontSize="23" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+               FontSize="23" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Variable Small Semibold"/>
 
         <Label Content="Numer rezerwacji" Grid.Row="3" Grid.Column="0" Foreground="White" 
+               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Variable Small Semibold"/>
+        <Label Content="Data" Grid.Row="3" Grid.Column="1" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
                FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Data" Grid.Row="3" Grid.Column="1" Foreground="White" 
-       FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Tytuł" Grid.Row="3" Grid.Column="2" Foreground="White" 
-       FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Miejsca zarezerwowane" Grid.Row="3" Grid.Column="3" Foreground="White" 
+        <Label Content="Tytuł" Grid.Row="3" Grid.Column="2" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
+               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Content="Miejsca zarezerwowane" Grid.Row="3" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
        FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

@@ -12,25 +12,25 @@
         <UniformGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Columns="4" VerticalAlignment="Center"
              Height="40" Background="#FF530622">
             <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" 
-            FontFamily="Montsterrat" BorderThickness="0" Click="button_stronaGlowna_Click" Width="110"
+            FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Click="button_stronaGlowna_Click" Width="110"
             Height="25"/>
             <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" 
-            FontFamily="Monsterrat" BorderThickness="0" Width="100" Height="25"
+            FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="100" Height="25"
             Click="button_zarezerwuj_Click"/>
             <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" 
-            FontFamily="Monsterrat" BorderThickness="0" Width="120" Height="25"
+            FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="120" Height="25"
             Click="button_mojeRezerwacje_Click"/>
             <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" 
-            FontFamily="Monsterrat" BorderThickness="0" Width="100" Height="25"
+            FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="100" Height="25"
             Click="button_mojeKonto_Click"/>
         </UniformGrid>
 
         <Label Content="Zarezerwuj" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Foreground="White" 
-               FontSize="25" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+               FontSize="25" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Segoe UI Variable Small Semibold"/>
 
-        <Label Content="Wybierz datę:" Grid.Row="4" Grid.Column="0" Foreground="white" FontSize="20"
+        <Label Content="Wybierz datę:" Grid.Row="4" Grid.Column="0" Foreground="white" FontSize="20" FontFamily="Segoe UI Variable Small Semibold"
                VerticalAlignment="Center" HorizontalAlignment="Left" Margin="200,0,0,0"/>
-        <Label Content="Wybierz godzinę:" Grid.Row="4" Grid.Column="1" Foreground="white" FontSize="20"
+        <Label Content="Wybierz godzinę:" Grid.Row="4" Grid.Column="1" Foreground="white" FontSize="20" FontFamily="Segoe UI Variable Small Semibold"
                VerticalAlignment="Center" HorizontalAlignment="Left" Margin="62,0,0,0"/>
 
         <TextBox x:Name="data" Grid.Row="5" Grid.Column="0" Background="#FF530622" Foreground="white"
@@ -39,7 +39,7 @@
                  FontSize="20" Height="40" Width="200" Margin="43,8,157,8" BorderThickness="0"/>
 
         <Button x:Name="dalej" Content="Dalej" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Foreground="white"
-                Background="#FF530622" Height="40" Width="250" FontSize="25" BorderThickness="0"
+                Background="#FF530622" Height="40" Width="250" FontSize="25" BorderThickness="0" FontFamily="Segoe UI Variable Small Semibold"
                 Click="button_dalej_Click"/>
 
         <Grid.ColumnDefinitions>
