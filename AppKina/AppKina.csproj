@@ -17,6 +17,8 @@
     <None Remove="elementyGraficzne\krzyzyk2.png" />
     <None Remove="elementyGraficzne\LogoLinia.png" />
     <None Remove="elementyGraficzne\plus2.png" />
+    <None Remove="elementyGraficzne\terrifier3.png" />
+    <None Remove="elementyGraficzne\venom.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,9 @@
     <Resource Include="elementyGraficzne\krzyzyk2.png" />
     <Resource Include="elementyGraficzne\LogoLinia.png" />
     <Resource Include="elementyGraficzne\plus2.png" />
+    <Resource Include="elementyGraficzne\terrifier3.png" />
+    <Resource Include="elementyGraficzne\venom.png" />
+
   </ItemGroup>
 
 </Project>
