@@ -10,18 +10,24 @@
 
   <ItemGroup>
     <None Remove="elementyGraficzne\fale-kino %281%29.png" />
+    <None Remove="elementyGraficzne\górna fala.png" />
     <None Remove="elementyGraficzne\joker.png" />
     <None Remove="elementyGraficzne\KinoLogo.png" />
     <None Remove="elementyGraficzne\KinoLogoKolo.png" />
+    <None Remove="elementyGraficzne\krzyzyk2.png" />
     <None Remove="elementyGraficzne\LogoLinia.png" />
+    <None Remove="elementyGraficzne\plus2.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="elementyGraficzne\fale-kino (1).png" />
+    <Resource Include="elementyGraficzne\górna fala.png" />
     <Resource Include="elementyGraficzne\joker.png" />
     <Resource Include="elementyGraficzne\KinoLogo.png" />
     <Resource Include="elementyGraficzne\KinoLogoKolo.png" />
+    <Resource Include="elementyGraficzne\krzyzyk2.png" />
     <Resource Include="elementyGraficzne\LogoLinia.png" />
+    <Resource Include="elementyGraficzne\plus2.png" />
   </ItemGroup>
 
 </Project>
