@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace AppKina
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Zarezerwuj.xaml
-    /// </summary>
     public partial class Zarezerwuj : Window
     {
         public Zarezerwuj()
@@ -33,15 +30,15 @@ namespace AppKina
 
         private void button_zarezerwuj_Click(object sender, RoutedEventArgs e)
         {
-            //Strona_glowna stronaGlowna = new Strona_glowna();
-            //stronaGlowna.Show();
-            //this.Close();
+            Zarezerwuj zarezerwuj = new Zarezerwuj();
+            zarezerwuj.Show();
+            this.Close();
         }
         private void button_mojeRezerwacje_Click(object sender, RoutedEventArgs e)
         {
-            //Strona_glowna stronaGlowna = new Strona_glowna();
-            //stronaGlowna.Show();
-            //this.Close();
+            MojeRezerwacje mojeRezerwacje = new MojeRezerwacje();
+            mojeRezerwacje.Show();
+            this.Close();
         }
 
         private void button_mojeKonto_Click(object sender, RoutedEventArgs e)
