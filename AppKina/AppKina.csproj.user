@@ -7,10 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="DodajFilm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GlownaStronaPracownika.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Logowanie.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MojeRezerwacje.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Rejestracja.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RezerwacjaSeansu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Strona glowna.xaml.cs">
@@ -19,21 +31,39 @@
     <Compile Update="SzczegolyFilmu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Zarezerwuj.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DodajFilm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GlownaStronaPracownika.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Logowanie.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MojeRezerwacje.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Rejestracja.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RezerwacjaSeansu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Strona glowna.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SzczegolyFilmu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Zarezerwuj.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

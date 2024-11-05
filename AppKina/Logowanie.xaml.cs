@@ -15,7 +15,16 @@ namespace AppKina
 
         private void buttom_zaloguj_Click(object sender, RoutedEventArgs e)
         {
+            Strona_glowna stronaGlowna = new Strona_glowna();
+            stronaGlowna.Show();
+            this.Close();
+        }
 
+        private void button_powrot_Click(object sender, RoutedEventArgs e)
+        {
+            LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
+            logowanieRejestracja.Show();
+            this.Close();
         }
     }
 

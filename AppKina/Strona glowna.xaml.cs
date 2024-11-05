@@ -11,14 +11,13 @@ namespace AppKina
         {
             InitializeComponent();
         }
-<<<<<<< Updated upstream
-=======
 
         private void WiecejBttn1(object sender, RoutedEventArgs e)
         {
             SzczegolyFilmu szczegolyFil = new SzczegolyFilmu();
             szczegolyFil.Show();
             this.Close();
+
 
         }
         private void WiecejBttn2(object sender, RoutedEventArgs e)
@@ -47,6 +46,5 @@ namespace AppKina
 
 
         }
->>>>>>> Stashed changes
     }
 }
