@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace AppKina
 {
@@ -23,5 +11,42 @@ namespace AppKina
         {
             InitializeComponent();
         }
+<<<<<<< Updated upstream
+=======
+
+        private void WiecejBttn1(object sender, RoutedEventArgs e)
+        {
+            SzczegolyFilmu szczegolyFil = new SzczegolyFilmu();
+            szczegolyFil.Show();
+            this.Close();
+
+        }
+        private void WiecejBttn2(object sender, RoutedEventArgs e)
+        {
+            SzczegolyFilmu szczegolyFil = new SzczegolyFilmu();
+            szczegolyFil.Show();
+            this.Close();
+        }
+
+        private void Rezerwuj_click(object sender, RoutedEventArgs e)
+        {
+            Zarezerwuj zarezerwuj = new Zarezerwuj();
+            zarezerwuj.Show();
+            this.Close();
+        }
+
+        private void MojeRezerwacje_click(object sender, RoutedEventArgs e)
+        {
+            MojeRezerwacje mojeRezerwacje = new MojeRezerwacje();
+            mojeRezerwacje.Show();
+            this.Close();
+        }
+
+        private void MojeKonto_click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+>>>>>>> Stashed changes
     }
 }

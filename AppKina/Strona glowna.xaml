@@ -14,6 +14,7 @@
             <Image Source="pack://application:,,,/LogoLinia.png" VerticalAlignment="Top" Height="50" Stretch="Fill"/>
 
             <!-- Górne menu -->
+<<<<<<< Updated upstream
             <UniformGrid Columns="6" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0">
                 <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
                 <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
@@ -21,6 +22,13 @@
                 <Button Content="Moje recenzje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
                 <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
                 <Button Content="🔍" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
+=======
+            <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0" Grid.ColumnSpan="2">
+                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8"/>
+                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
+                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeRezerwacje_click"/>
+                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
+>>>>>>> Stashed changes
             </UniformGrid>
 
             <!-- Główna zawartość -->
