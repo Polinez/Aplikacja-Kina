@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace AppKina
 {
-    /// <summary>
-    /// Logika interakcji dla klasy RezerwacjaSeansu.xaml
-    /// </summary>
     public partial class RezerwacjaSeansu : Window
     {
         public RezerwacjaSeansu()
@@ -46,9 +43,9 @@ namespace AppKina
 
         private void button_mojeKonto_Click(object sender, RoutedEventArgs e)
         {
-            //Strona_glowna stronaGlowna = new Strona_glowna();
-            //stronaGlowna.Show();
-            //this.Close();
+            MojeRezerwacje mojeRezerwacje = new MojeRezerwacje();
+            mojeRezerwacje.Show();
+            this.Close();
         }
 
         private void button_dalej_Click(object sender, RoutedEventArgs e)

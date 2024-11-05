@@ -18,7 +18,7 @@
             FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="100" Height="25"
             Click="button_zarezerwuj_Click"/>
             <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" 
-            FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="120" Height="25"
+            FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="130" Height="25"
             Click="button_mojeRezerwacje_Click"/>
             <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" 
             FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Width="100" Height="25"
@@ -38,9 +38,9 @@
         <TextBox x:Name="godzina" Grid.Row="5" Grid.Column="1" Background="#FF530622" Foreground="white"
                  FontSize="20" Height="40" Width="200" Margin="43,8,157,8" BorderThickness="0"/>
 
-        <Button x:Name="dalej" Content="Dalej" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Foreground="white"
+        <Button x:Name="dalej" Content="Dalej" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Foreground="white"
                 Background="#FF530622" Height="40" Width="250" FontSize="25" BorderThickness="0" FontFamily="Segoe UI Variable Small Semibold"
-                Click="button_dalej_Click"/>
+                Click="button_dalej_Click" Margin="275,43,275,28" Grid.RowSpan="2"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
