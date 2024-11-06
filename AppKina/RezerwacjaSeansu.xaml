@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppKina"
         mc:Ignorable="d"
-        Title="RezerwacjaSeansu" Height="450" Width="800">
+        Title="RezerwacjaSeansu" Height="450" Width="800" MinWidth="800" MinHeight="450">
     <Grid Background="black">
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" Height="50" Stretch="Uniform" VerticalAlignment="Top"
         Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
