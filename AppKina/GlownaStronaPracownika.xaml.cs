@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace AppKina
 {
@@ -22,6 +10,13 @@ namespace AppKina
         public GlownaStronaPracownika()
         {
             InitializeComponent();
+        }
+
+        private void powrot_click(object sender, RoutedEventArgs e)
+        {
+            LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
+            logowanieRejestracja.Show();
+            this.Close();
         }
     }
 }
