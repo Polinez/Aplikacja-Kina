@@ -7,69 +7,69 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DodajFilm.xaml.cs">
+    <Compile Update="Admin\DodajFilm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GlownaStronaPracownika.xaml.cs">
+    <Compile Update="Admin\GlownaStronaPracownika.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Logowanie.xaml.cs">
+    <Compile Update="Login\Logowanie.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MojeRezerwacje.xaml.cs">
+    <Compile Update="Reservation\MojeRezerwacje.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Rejestracja.xaml.cs">
+    <Compile Update="Login\Rejestracja.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RezerwacjaSeansu.xaml.cs">
+    <Compile Update="Reservation\RezerwacjaSeansu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SalaKinowa.xaml.cs">
+    <Compile Update="Reservation\SalaKinowa.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Strona glowna.xaml.cs">
+    <Compile Update="MainPage\Strona glowna.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SzczegolyFilmu.xaml.cs">
+    <Compile Update="MainPage\SzczegolyFilmu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Zarezerwuj.xaml.cs">
+    <Compile Update="Reservation\Zarezerwuj.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DodajFilm.xaml">
+    <Page Update="Admin\DodajFilm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GlownaStronaPracownika.xaml">
+    <Page Update="Admin\GlownaStronaPracownika.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Logowanie.xaml">
+    <Page Update="Login\Logowanie.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Login\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MojeRezerwacje.xaml">
+    <Page Update="Reservation\MojeRezerwacje.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Rejestracja.xaml">
+    <Page Update="Login\Rejestracja.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="RezerwacjaSeansu.xaml">
+    <Page Update="Reservation\RezerwacjaSeansu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SalaKinowa.xaml">
+    <Page Update="Reservation\SalaKinowa.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Strona glowna.xaml">
+    <Page Update="MainPage\Strona glowna.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SzczegolyFilmu.xaml">
+    <Page Update="MainPage\SzczegolyFilmu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Zarezerwuj.xaml">
+    <Page Update="Reservation\Zarezerwuj.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
