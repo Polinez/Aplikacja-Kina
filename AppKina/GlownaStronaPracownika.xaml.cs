@@ -12,10 +12,12 @@ namespace AppKina
             InitializeComponent();
         }
 
-        private void powrot_click(object sender, RoutedEventArgs e)
+
+        private void Dodaj_film_Click(object sender, RoutedEventArgs e)
         {
-            LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
-            logowanieRejestracja.Show();
+            DodajFilm dodajFilm = new DodajFilm();
+            dodajFilm.Show();
+
             this.Close();
         }
     }
