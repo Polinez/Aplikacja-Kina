@@ -36,9 +36,9 @@
                      FontSize="20"/>
 
             <Button x:Name="buttom_zaloguj" Content="Zaloguj" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="200"
-                    Height="45" Background="#530622" Foreground="White" FontSize="25" BorderThickness="0" Click="buttom_zaloguj_Click"/>
+                    Height="45" Background="#530622" Foreground="White" FontSize="25" Click="buttom_zaloguj_Click"/>
             <Button x:Name="button_powrót" Content="Powrót" Grid.Row="0" Background="Black" Foreground="White" FontSize="20"
-                    BorderThickness="0" Width="70" Height="35"/>
+                     Width="70" Height="35"/>
             <!--<Image Source="C:\Users\przyb\OneDrive\Pulpit\Studia\Specjalistyczne oprogramowanie narzędziowe\AplikacjaKina\elementy garficzne\fale-kino (1).png"
                    Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="2" Grid.RowSpan="6"/>-->
         </Grid>

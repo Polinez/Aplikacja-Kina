@@ -15,12 +15,12 @@
 
             <!-- Górne menu -->
             <UniformGrid Columns="6" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0">
-                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="8"/>
-                <Button Content="Moje recenzje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="🔍" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
+                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" Margin="6"/>
+                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" Margin="6"/>
+                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" Margin="6"/>
+                <Button Content="Moje recenzje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" Margin="6"/>
+                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" Margin="6"/>
+                <Button Content="🔍" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" Margin="6"/>
             </UniformGrid>
 
             <!-- Główna zawartość -->
