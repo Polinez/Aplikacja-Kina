@@ -9,60 +9,55 @@
     <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png" Stretch="Fill" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="4"/>
 
+        <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png" HorizontalAlignment="Center" Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" />
 
-            <Grid Width="800" Height="170">
-
-
-                <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png" Stretch="UniformToFill" />
-
-                <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png" Stretch="Fill" Width="340" Height="210" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            </Grid>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="150" Height="100" Background="#FF530622" Margin="10">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                        <Image Source="pack://application:,,,/elementyGraficzne/plus2.png" Width="110" Height="70"/>
-                        <TextBlock Text="Dodaj film" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Width="150" Height="100" Background="#FF530622" Margin="10">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                        <Image Source="pack://application:,,,/elementyGraficzne/plus2.png" Width="110" Height="70"/>
-                        <TextBlock Text="Dodaj seans" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
-                    </StackPanel>
-                </Button>
+        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Image Source="pack://application:,,,/elementyGraficzne/plus2.png" Width="110" Height="70"/>
+                <TextBlock Text="Dodaj film" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
             </StackPanel>
+        </Button>
 
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="150" Height="100" Background="#FF530622" Margin="10">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                        <Image Source="pack://application:,,,/elementyGraficzne/krzyzyk2.png" Width="110" Height="70"/>
-                        <TextBlock Text="Usuń film" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-
-
-                <Button Width="150" Height="100" Background="#FF530622" Margin="10">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                        <Image Source="pack://application:,,,/elementyGraficzne/krzyzyk2.png" Width="110" Height="70"/>
-                        <TextBlock Text="Usuń seans" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
-                    </StackPanel>
-                </Button>
+        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Image Source="pack://application:,,,/elementyGraficzne/plus2.png" Width="110" Height="70"/>
+                <TextBlock Text="Dodaj seans" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
             </StackPanel>
+        </Button>
 
-        </StackPanel>
+
+
+        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Image Source="pack://application:,,,/elementyGraficzne/krzyzyk2.png" Width="110" Height="70"/>
+                <TextBlock Text="Usuń film" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Image Source="pack://application:,,,/elementyGraficzne/krzyzyk2.png" Width="110" Height="70"/>
+                <TextBlock Text="Usuń seans" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
+
+            </StackPanel>
+        </Button>
+
+        <Button Click="powrot_click" Content="Powrót" Background="Black" Foreground="White" FontSize="20" Width="70" Height="35" Grid.Row="3" FontFamily="Segoe UI Variable Small Semibold"/>
 
     </Grid>
 </Window>

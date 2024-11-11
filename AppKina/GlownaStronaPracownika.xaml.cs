@@ -12,10 +12,12 @@ namespace AppKina
             InitializeComponent();
         }
 
+
         private void Dodaj_film_Click(object sender, RoutedEventArgs e)
         {
             DodajFilm dodajFilm = new DodajFilm();
             dodajFilm.Show();
+
             this.Close();
         }
     }
