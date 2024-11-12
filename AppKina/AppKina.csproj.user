@@ -10,7 +10,13 @@
     <Compile Update="Admin\DodajFilm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Admin\DodajSeans.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Admin\GlownaStronaPracownika.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin\UsunSeans.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login\Logowanie.xaml.cs">
@@ -42,7 +48,13 @@
     <Page Update="Admin\DodajFilm.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Admin\DodajSeans.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Admin\GlownaStronaPracownika.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin\UsunSeans.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login\Logowanie.xaml">
