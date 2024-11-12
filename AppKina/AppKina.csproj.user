@@ -10,6 +10,9 @@
     <Compile Update="DodajFilm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DodajSeans.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GlownaStronaPracownika.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="DodajFilm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DodajSeans.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GlownaStronaPracownika.xaml">
