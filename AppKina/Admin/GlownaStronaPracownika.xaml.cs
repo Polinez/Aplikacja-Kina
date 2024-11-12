@@ -20,5 +20,12 @@ namespace AppKina
 
             this.Close();
         }
+
+        private void powrot_click(object sender, RoutedEventArgs e)
+        {
+            LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
+            logowanieRejestracja.Show();
+            this.Close();
+        }
     }
 }
