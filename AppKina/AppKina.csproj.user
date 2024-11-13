@@ -16,6 +16,9 @@
     <Compile Update="Admin\GlownaStronaPracownika.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Admin\UsunFilm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Admin\UsunSeans.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin\GlownaStronaPracownika.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin\UsunFilm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin\UsunSeans.xaml">

@@ -40,7 +40,7 @@
             <Button x:Name="buttom_zaloguj" Content="Zaloguj" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="200"
 
                     Height="45" Background="#530622" Foreground="White" FontSize="25" FontFamily="Segoe UI Variable Small Semibold"
-                    BorderThickness="0" Click="buttom_zaloguj_Click"/>
+                    Click="buttom_zaloguj_Click"/>
             <Button x:Name="button_powrot" Content="Powrót" Grid.Row="0" Background="Black" Foreground="White" FontSize="20"
                     Width="70" Height="35" Click="button_powrot_Click" FontFamily="Segoe UI Variable Small Semibold"/>
 
