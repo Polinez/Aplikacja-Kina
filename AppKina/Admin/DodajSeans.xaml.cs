@@ -28,5 +28,16 @@ namespace AppKina.Admin
         {
 
         }
+
+        private void MojeKonto_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Ustawienia_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
