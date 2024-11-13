@@ -23,5 +23,10 @@ namespace AppKina.Admin
         {
             InitializeComponent();
         }
+
+        private void Rezerwuj_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
