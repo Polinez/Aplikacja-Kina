@@ -16,10 +16,10 @@
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" Grid.Row="0" VerticalAlignment="Top" Height="50"  />
 
         <UniformGrid Columns="4" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="#FF530622">
-            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="StronaGlowna_click"/>
-            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
-            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeRezerwacje_click"/>
-            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
+            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="StronaGlowna_click"/>
+            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="Rezerwuj_click"/>
+            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeRezerwacje_click"/>
+            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeKonto_click"/>
         </UniformGrid>
 
         <Grid Grid.Row="2" Background="#FFDEDEDE">

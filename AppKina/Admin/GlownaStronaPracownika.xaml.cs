@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AppKina.Admin;
+using System.Windows;
 
 namespace AppKina
 {
@@ -25,6 +26,32 @@ namespace AppKina
         {
             LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
             logowanieRejestracja.Show();
+            this.Close();
+        }
+
+        private void Dodaj_seans_click(object sender, RoutedEventArgs e)
+        {
+            DodajSeans dodajSeans = new DodajSeans();
+            dodajSeans.Show();
+
+            this.Close();
+        }
+
+
+
+        private void Usun_film_click(object sender, RoutedEventArgs e)
+        {
+            UsunFilm usunFilm = new UsunFilm();
+            usunFilm.Show();
+
+            this.Close();
+        }
+
+        private void Usun_seans_click(object sender, RoutedEventArgs e)
+        {
+            UsunSeans usunSeans = new UsunSeans();
+            usunSeans.Show();
+
             this.Close();
         }
     }
