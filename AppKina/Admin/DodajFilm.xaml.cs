@@ -36,5 +36,13 @@ namespace AppKina
             }
         }
 
+        private void anuluj_click(object sender, RoutedEventArgs e)
+        {
+            GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
+            glownaStronaPracownika.Show();
+
+            this.Close();
+        }
+
     }
 }
