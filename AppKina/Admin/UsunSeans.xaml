@@ -9,17 +9,43 @@
     <Grid Background="Black">
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" VerticalAlignment="Top" Height="50" Grid.ColumnSpan="2" />
 
-        <UniformGrid Columns="3" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0" Grid.ColumnSpan="2">
-            <Button Content="Zarządzanie" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
-            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
-            <Button Content="Ustawienia" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Ustawienia_click"/>
-        </UniformGrid>
-        <Grid Margin="0,90,0,0" Grid.ColumnSpan="2">
+        <Grid Margin="0,50,0,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400*"/>
-                <ColumnDefinition Width="273*"/>
-                <ColumnDefinition Width="127*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
+            <UniformGrid Grid.Column="2" Columns="1" Rows="2" Height="100" Width="170" HorizontalAlignment="Center">
+                <Button Content="Usuń seans" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTusun" />
+                <Button Content="Anuluj" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTanuluj" />
+            </UniformGrid>
+
+            <StackPanel VerticalAlignment="Center">
+                <UniformGrid Rows="6" Margin="40,0,0,0">
+                    <TextBlock Text="Lista seansów:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="0,0,0,30"/>
+
+                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
+
+                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
+
+                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
+
+                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
+
+                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
+                </UniformGrid>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Grid.Column="1">
+                <UniformGrid Rows="6" Margin="0,0,0,0" HorizontalAlignment="Left">
+                    <TextBlock Text="Godzina:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="20,0,0,30"/>
+                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
+                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
+                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
+                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
+                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
+                </UniformGrid>
+            </StackPanel>
 
         </Grid>
     </Grid>

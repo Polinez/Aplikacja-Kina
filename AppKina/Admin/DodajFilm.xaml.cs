@@ -35,5 +35,6 @@ namespace AppKina
                 MessageBox.Show("Wybrano plik: " + selectedFilePath); // Dla przykładu, wyświetlenie ścieżki w oknie
             }
         }
+
     }
 }

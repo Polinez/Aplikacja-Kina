@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace AppKina.Admin
 {
@@ -24,19 +12,16 @@ namespace AppKina.Admin
             InitializeComponent();
         }
 
-        private void Rezerwuj_click(object sender, RoutedEventArgs e)
+        private void BTdodaj(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void MojeKonto_click(object sender, RoutedEventArgs e)
+        private void BTanuluj(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Ustawienia_click(object sender, RoutedEventArgs e)
-        {
-
+            GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
+            glownaStronaPracownika.Show();
+            this.Close();
         }
     }
 }

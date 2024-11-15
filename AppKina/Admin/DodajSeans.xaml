@@ -9,18 +9,39 @@
     <Grid Background="Black">
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" VerticalAlignment="Top" Height="50" Grid.ColumnSpan="2" />
 
-        <UniformGrid Columns="3" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0" Grid.ColumnSpan="2">
-            <Button Content="Zarządzanie" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
-            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
-            <Button Content="Ustawienia" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Ustawienia_click"/>
-        </UniformGrid>
-        <Grid Margin="0,90,0,0" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="129*"/>
-                <ColumnDefinition Width="271*"/>
-                <ColumnDefinition Width="400*"/>
-            </Grid.ColumnDefinitions>
 
+        <Grid Margin="0,50,0,0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center">
+                <UniformGrid Rows="10" Margin="40,40,0,40">
+
+                    <TextBlock Text="Wybór filmu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3" Margin="0,0,0,0"/>
+                    <TextBox x:Name="TBwybor" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+
+                    <TextBlock Text="Data:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+                    <TextBox x:Name="TBdata" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+
+                    <TextBlock Text="Godzina rozpoczęcia:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+                    <TextBox x:Name="TBgodzina" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+
+                    <TextBlock Text="Format seansu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+                    <TextBox x:Name="TBformat" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+
+                    <TextBlock Text="Cena:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+
+                    <TextBox x:Name="TBcena" Text="" Background="#FF530622" BorderThickness="0" Height="25" TextWrapping="Wrap" Foreground="White"/>
+                </UniformGrid>
+            </StackPanel>
+            
+            <UniformGrid Grid.Column="1" Grid.ColumnSpan="2" Columns="1" Rows="2" Height="100" Width="170">
+                <Button Content="Dodaj seans" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTdodaj" />
+                <Button Content="Anuluj" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTanuluj" />
+            </UniformGrid>
+             
         </Grid>
     </Grid>
 </Window>
