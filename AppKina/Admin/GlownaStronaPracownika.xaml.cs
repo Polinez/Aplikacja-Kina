@@ -51,7 +51,6 @@ namespace AppKina
         {
             UsunSeans usunSeans = new UsunSeans();
             usunSeans.Show();
-
             this.Close();
         }
     }
