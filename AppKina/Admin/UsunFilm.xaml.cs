@@ -3,26 +3,21 @@
 namespace AppKina.Admin
 {
     /// <summary>
-    /// Logika interakcji dla klasy DodajSeans.xaml
+    /// Logika interakcji dla klasy UsunFilm.xaml
     /// </summary>
-    public partial class DodajSeans : Window
+    public partial class UsunFilm : Window
     {
-        public DodajSeans()
+        public UsunFilm()
         {
             InitializeComponent();
         }
 
-        private void BTdodaj(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BTanuluj(object sender, RoutedEventArgs e)
+        private void anuluj_click(object sender, RoutedEventArgs e)
         {
             GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
             glownaStronaPracownika.Show();
+
             this.Close();
         }
-
     }
 }

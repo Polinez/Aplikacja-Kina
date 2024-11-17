@@ -10,39 +10,31 @@
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <Grid Background="Black">
             
-
-            <!-- logo-->
             <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" VerticalAlignment="Top" Height="50" Grid.ColumnSpan="2" />
 
-            <!-- Górne menu -->
-
-
             <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0" Grid.ColumnSpan="2">
-                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8"/>
-                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
-                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeRezerwacje_click"/>
-                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
+
+                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8"/>
+                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="Rezerwuj_click"/>
+                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeRezerwacje_click"/>
+                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeKonto_click"/>
+
             </UniformGrid>
 
-            <!-- Główna zawartość -->
             <Grid Margin="0,100,0,0" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="358*"/>
-                    <ColumnDefinition Width="267*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- Sekcja repertuaru -->
-                <StackPanel Grid.Column="0" Margin="20,20,20,20" Grid.ColumnSpan="3">
+                <StackPanel Grid.Column="0" Margin="20,20,20,20" >
                     <TextBlock Text="REPERTUAR" Foreground="White" FontSize="22" FontWeight="Bold"/>
                     <TextBlock Text="Dzisiaj | Jutro | Data" Foreground="Gray" FontSize="16" Margin="0,5,0,15"/>
 
                     <!-- Film 1 -->
                     <StackPanel Orientation="Horizontal" Margin="0,10">
-                        <Border Width="100" Height="150" Background="Gray" Margin="0,0,10,0" HorizontalAlignment="Left">
-                            <!--<TextBlock Text="Obraz 1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
-                            <Image Source="pack://application:,,,/elementyGraficzne/joker.png" Stretch="Fill"/>
-                        </Border>
+                        <Image Width="100" Height="150" Source="pack://application:,,,/elementyGraficzne/joker.png" Stretch="Fill" Margin="0,0,10,0" HorizontalAlignment="Left"/>
                         <StackPanel>
                             <TextBlock Text="JOKER" FontWeight="Bold" FontSize="18" Foreground="White"/>
                             <TextBlock Text="Dramat | Kryminał" Foreground="Gray" FontSize="14"/>
@@ -53,12 +45,9 @@
 
                     <!-- Film 2 -->
                     <StackPanel Orientation="Horizontal" Margin="0,10">
-                        <Border Width="100" Height="150" Background="Gray" Margin="0,0,10,0" HorizontalAlignment="Left">
-                            <Image Source="pack://application:,,,/elementyGraficzne/terrifier3.png" Stretch="Fill"/>
-                            <!--<TextBlock Text="Obraz 2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
-                        </Border>
+                        <Image Width="100" Height="150" Margin="0,0,10,0" HorizontalAlignment="Left" Source="pack://application:,,,/elementyGraficzne/terrifier3.png" Stretch="Fill"/>
                         <StackPanel x:Name="Wiecej2">
-                            <TextBlock Text="TERRIFIER 3"  FontWeight="Bold" FontSize="18" Foreground="White"/>
+                            <TextBlock Text="TERRIFIER 3" FontWeight="Bold" FontSize="18" Foreground="White"/>
                             <TextBlock Text="Horror" Foreground="Gray" FontSize="14"/>
                             <TextBlock Text="Żądny mordu klaun Art, z pomocą nieczystych sił, powraca, by siać śmierć, zadawać ból i sycić się ludzkim cierpieniem." Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
                             <Button Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" BorderBrush="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn2"/>
@@ -72,11 +61,9 @@
 
                     <!-- Film rekomendowany -->
                     <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
-
-                        <Border Width="150" Height="220" Background="Gray" HorizontalAlignment="Center">
-                            <Image Source="pack://application:,,,/elementyGraficzne/venom.png" Stretch="Fill"/>
-                            <!--<TextBlock Text="Obraz 3" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
-                        </Border>
+                        
+                        <Image Width="150" Height="220" HorizontalAlignment="Center" Source="pack://application:,,,/elementyGraficzne/venom.png" Stretch="Fill"/>
+                        
                         <TextBlock Text="VENOM 3" FontWeight="Bold" FontSize="18" Foreground="White" TextAlignment="Center"/>
                         <TextBlock Text="Film akcji | Sci-Fi" Foreground="Gray" FontSize="14" TextAlignment="Center"/>
                         <TextBlock Text="Eddie i Venom uciekają, ścigani przez siły z ich obu światów. Zacieśniająca się sieć niebezpieczeństw zmusza ich do podjęcia druzgocącej decyzji, która zakończy ich wspólną podróż." Foreground="White" FontSize="12" TextAlignment="Center" TextWrapping="Wrap"/>
@@ -85,5 +72,4 @@
             </Grid>
         </Grid>
     </ScrollViewer>
-
 </Window>

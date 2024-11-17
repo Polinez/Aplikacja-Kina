@@ -25,14 +25,16 @@
 
         <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png" HorizontalAlignment="Center" Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" />
 
-        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Click="Dodaj_film_Click">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <Image Source="pack://application:,,,/elementyGraficzne/plus2.png" Width="110" Height="70"/>
                 <TextBlock Text="Dodaj film" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
             </StackPanel>
         </Button>
 
-        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+
+        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Click="Dodaj_seans_click">
+
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <Image Source="pack://application:,,,/elementyGraficzne/plus2.png" Width="110" Height="70"/>
                 <TextBlock Text="Dodaj seans" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
@@ -41,7 +43,7 @@
 
 
 
-        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+        <Button Click="Usun_film_click" Width="150" Height="100" Background="#FF530622" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <Image Source="pack://application:,,,/elementyGraficzne/krzyzyk2.png" Width="110" Height="70"/>
                 <TextBlock Text="Usuń film" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
@@ -49,7 +51,8 @@
         </Button>
 
 
-        <Button Width="150" Height="100" Background="#FF530622" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
+        <Button Click="Usun_seans_click" Width="150" Height="100" Background="#FF530622" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
+
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <Image Source="pack://application:,,,/elementyGraficzne/krzyzyk2.png" Width="110" Height="70"/>
                 <TextBlock Text="Usuń seans" Foreground="White" FontSize="20" FontFamily="Segoe UI Variable Small Semibold" TextAlignment="Center"/>
