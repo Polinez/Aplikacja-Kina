@@ -7,7 +7,7 @@ namespace WpfApp
 {
     public class DatabaseHelper
     {
-        private const string DatabaseFileName = "KinoDB.db";  // Zmieniona nazwa bazy danych
+        private const string DatabaseFileName = "KinoDB.db";  // Zmieniona nazwa bazy danych, plik jest w folderze bin/Debug/net8.0/KinoDB.db      
 
         // Metoda do inicjalizacji bazy danych
         public static void InitializeDatabase()
@@ -33,9 +33,17 @@ namespace WpfApp
                             );
                         ";
                         command.ExecuteNonQuery();
+
+                        // Dodajemy domyślnych użytkowników
+                        command.CommandText = @"
+                            INSERT INTO Users (Username, Email, Password) VALUES
+                            ('admin', 'admin@admin.pl', 'admin'),
+                            ('test', 'test@test.pl', 'test');
+                        ";
+                        command.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Baza danych została utworzona.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Baza danych została utworzona i wypełniona domyślnymi danymi.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
