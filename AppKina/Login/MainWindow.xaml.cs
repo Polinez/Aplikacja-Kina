@@ -1,4 +1,5 @@
 using System.Windows;
+using WpfApp;
 
 
 
@@ -12,6 +13,8 @@ namespace AppKina
         public MainWindow()
         {
             InitializeComponent();
+
+            DatabaseHelper.InitializeDatabase(); // tworzenie bazy danych z pliku Baza/DatabaseHelper.cs
         }
 
         private void Rozpocznij(object sender, RoutedEventArgs e)

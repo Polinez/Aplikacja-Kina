@@ -34,8 +34,8 @@
                      FontSize="25" FontFamily="Segoe UI Variable Small Semibold"/>
             <TextBlock Text="Hasło:" Grid.Column="0" Grid.Row="4" Foreground="White" FontSize="25" HorizontalAlignment="Left"
                        VerticalAlignment="Center" Margin="111,0,0,0" FontFamily="Segoe UI Variable Small Semibold"/>
-            <TextBox x:Name="textBox_password"  Background="White" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="45"
-                     FontSize="20"/>
+            <PasswordBox x:Name="textBox_password" Background="White" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="45"
+             FontSize="20"/>
 
             <Button x:Name="buttom_zaloguj" Content="Zaloguj" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="200"
 
