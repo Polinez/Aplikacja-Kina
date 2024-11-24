@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using System;
 using System.Windows;
 
 namespace AppKina
@@ -75,13 +74,14 @@ namespace AppKina
                 var command = connection.CreateCommand();
                 command.CommandText = @"
                     INSERT INTO Users (Username, Email, Password)
-                    VALUES (@Username, @Email, @Password);
+                    VALUES (@Username, @Email, @Password, @Role);
                 ";
 
                 // Dodajemy parametry
                 command.Parameters.AddWithValue("@Username", $"{imie} {nazwisko}"); // Używamy imienia i nazwiska jako nazwy użytkownika
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", haslo); // Pamiętaj, że hasło w prawdziwej aplikacji powinno być haszowane!
+                command.Parameters.AddWithValue("@Role", "user");//domyslnie tworzy usera 
 
                 command.ExecuteNonQuery(); // Wykonanie komendy wstawiającej dane
             }

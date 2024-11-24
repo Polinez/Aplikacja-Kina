@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using System;
 using System.Windows;
 
 namespace AppKina
@@ -36,8 +35,15 @@ namespace AppKina
             // Próba logowania użytkownika
             try
             {
-                bool isLoggedIn = LoginUser(email, haslo);
-                if (isLoggedIn)
+                string Role = LoginUser(email, haslo);
+                if (Role == "admin")
+                {
+                    MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
+                    glownaStronaPracownika.Show();
+                    this.Close();
+                }
+                else if (Role == "user")
                 {
                     MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                     Strona_glowna strona_glowna = new Strona_glowna();
@@ -56,7 +62,7 @@ namespace AppKina
         }
 
         // Metoda do logowania użytkownika
-        private bool LoginUser(string email, string haslo)
+        private string LoginUser(string email, string haslo)
         {
             using (var connection = new SqliteConnection($"Data Source=KinoDB.db"))
             {
@@ -64,7 +70,7 @@ namespace AppKina
 
                 var command = connection.CreateCommand();
                 command.CommandText = @"
-                    SELECT COUNT(*) 
+                    SELECT Role 
                     FROM Users 
                     WHERE Email = @Email AND Password = @Password;
                 ";
@@ -73,7 +79,7 @@ namespace AppKina
                 command.Parameters.AddWithValue("@Password", haslo);
 
                 var result = command.ExecuteScalar(); // Zwraca liczbę pasujących rekordów
-                return Convert.ToInt32(result) > 0;
+                return result != null ? result.ToString() : null;
             }
         }
     }
