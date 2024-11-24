@@ -35,7 +35,8 @@ Aplikacja używa klasy `DatabaseHelper`, która automatycznie tworzy plik bazy d
 bin/Debug/net8.0/KinoDB.db
 ```
 
-plik jest baza danych ktora jest lokalna domyslna wesja naszej aplikacji.
+plik jest baza danych ktora jest lokalna domyslna wesja naszej aplikacji, aby łatwiej zarzadzać bazą polecam instalacje [DB Browser](https://sqlitebrowser.org).
+
 
 ENG ---
 
