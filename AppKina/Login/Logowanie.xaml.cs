@@ -14,8 +14,8 @@ namespace AppKina
         private void button_powrot_Click(object sender, RoutedEventArgs e)
         {
             // Powrót do strony rejestracji
-            Rejestracja rejestracja = new Rejestracja();
-            rejestracja.Show();
+            LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
+            logowanieRejestracja.Show();
             this.Close();
         }
 

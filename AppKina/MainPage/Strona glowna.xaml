@@ -14,10 +14,10 @@
 
             <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0" Grid.ColumnSpan="2">
 
-                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8"/>
-                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="Rezerwuj_click"/>
-                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeRezerwacje_click"/>
-                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeKonto_click"/>
+                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5"/>
+                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="Rezerwuj_click"/>
+                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeRezerwacje_click"/>
+                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeKonto_click"/>
 
             </UniformGrid>
 
@@ -39,7 +39,7 @@
                             <TextBlock Text="JOKER" FontWeight="Bold" FontSize="18" Foreground="White"/>
                             <TextBlock Text="Dramat | Kryminał" Foreground="Gray" FontSize="14"/>
                             <TextBlock Text="Strudzony życiem komik popada w obłęd i staje się psychopatycznym mordercą." Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
-                            <Button x:Name="Wiecej1" Content="Czytaj więcej" HorizontalAlignment="Left" BorderBrush="Black" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn1"/>
+                            <Button x:Name="Wiecej1" Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn1"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -50,7 +50,7 @@
                             <TextBlock Text="TERRIFIER 3" FontWeight="Bold" FontSize="18" Foreground="White"/>
                             <TextBlock Text="Horror" Foreground="Gray" FontSize="14"/>
                             <TextBlock Text="Żądny mordu klaun Art, z pomocą nieczystych sił, powraca, by siać śmierć, zadawać ból i sycić się ludzkim cierpieniem." Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
-                            <Button Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" BorderBrush="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn2"/>
+                            <Button Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn2"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

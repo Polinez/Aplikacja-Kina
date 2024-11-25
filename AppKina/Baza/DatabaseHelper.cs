@@ -45,10 +45,7 @@ namespace WpfApp
 
                     MessageBox.Show("Baza danych została utworzona i wypełniona domyślnymi danymi.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                else
-                {
-                    MessageBox.Show("Baza danych już istnieje.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+
             }
             catch (Exception ex)
             {

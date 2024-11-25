@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using AppKina.MainPage;
+﻿using AppKina.MainPage;
+using System.Windows;
 
 namespace AppKina
 {
@@ -38,6 +38,13 @@ namespace AppKina
         {
             Account account = new Account();
             account.Show();
+            this.Close();
+        }
+
+        private void click_zobacz_seanse(object sender, RoutedEventArgs e)
+        {
+            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu();
+            rezerwacjaSeansu.Show();
             this.Close();
         }
     }

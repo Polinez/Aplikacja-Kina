@@ -21,10 +21,10 @@
 
 
         <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622" Grid.Row="1" Grid.ColumnSpan="2">
-            <Button Content="Strona główna" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="StronaGlowna_Click"/>
-            <Button Content="Zarezerwuj" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="Rezerwuj_click"/>
-            <Button Content="Moje rezerwacje" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeRezerwacje_click"/>
-            <Button Content="Moje konto" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="8" Click="MojeKonto_click"/>
+            <Button Content="Strona główna" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="StronaGlowna_Click"/>
+            <Button Content="Zarezerwuj" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="Rezerwuj_click"/>
+            <Button Content="Moje rezerwacje" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeRezerwacje_click"/>
+            <Button Content="Moje konto" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeKonto_click"/>
         </UniformGrid>
 
         <!-- Zawartość strony "Moje Konto" -->

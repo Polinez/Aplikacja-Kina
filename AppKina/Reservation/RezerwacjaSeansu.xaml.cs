@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AppKina.MainPage;
+using System.Windows;
 
 namespace AppKina
 {
@@ -31,8 +32,8 @@ namespace AppKina
 
         private void button_mojeKonto_Click(object sender, RoutedEventArgs e)
         {
-            MojeRezerwacje mojeRezerwacje = new MojeRezerwacje();
-            mojeRezerwacje.Show();
+            Account account = new Account();
+            account.Show();
             this.Close();
         }
 

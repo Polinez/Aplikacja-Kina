@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AppKina.MainPage;
+using System.Windows;
 
 namespace AppKina
 {
@@ -29,9 +30,9 @@ namespace AppKina
 
         private void button_mojeKonto_Click(object sender, RoutedEventArgs e)
         {
-            //Strona_glowna stronaGlowna = new Strona_glowna();
-            //stronaGlowna.Show();
-            //this.Close();
+            Account account = new Account();
+            account.Show();
+            this.Close();
         }
 
         private void button_dalej_Click(object sender, RoutedEventArgs e)
