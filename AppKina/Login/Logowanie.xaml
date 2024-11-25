@@ -37,7 +37,7 @@
             <PasswordBox x:Name="textBox_password" VerticalContentAlignment="Center" Background="White" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="45"
              FontSize="20"/>
 
-            <Button x:Name="buttom_zaloguj" Content="Zaloguj" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="200"
+            <Button x:Name="buttom_zaloguj" IsDefault="True" Content="Zaloguj" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="200"
 
                     Height="45" Background="#530622" Foreground="White" FontSize="25" FontFamily="Segoe UI Variable Small Semibold"
                     Click="buttom_zaloguj_Click"/>
