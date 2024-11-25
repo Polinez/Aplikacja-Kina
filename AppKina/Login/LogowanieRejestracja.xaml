@@ -8,31 +8,19 @@
         Title="LogowanieRejestracja" Height="450" Width="800" Background="Black" MinWidth="800" MinHeight="450">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <!-- Większa przestrzeń na obrazki -->
-            <RowDefinition Height="2*"/>
-            <!-- Większa przestrzeń na przyciski -->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Image Source="pack://application:,,,/elementyGraficzne/CzarneLogo.png"  HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,50" />
+        <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png"  Stretch="UniformToFill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        
+        <Button  Content="Logowanie"     Height="50" Width="200"  HorizontalAlignment="Right" Margin="20"  VerticalAlignment="Center" Grid.Column="0"  Grid.Row="1"             Click="btnLogowanie_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Background="#FF530622" Foreground="White"/>
+        <Button  Content="Rejestracja"   Height="50" Width="200"  HorizontalAlignment="Left"  Margin="20"  VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"             Click="btnRejestracja_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Foreground="#FF530622" Background="White"/>
 
-        <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png" Stretch="UniformToFill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,50"/>
-
-        <!-- Przycisk Logowanie -->
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="50" Grid.Column="0" Grid.Row="1" Click="btnLogowanie_Click" Background="#FF530622" Foreground="White">
-            <Viewbox Stretch="Uniform">
-                <TextBlock Text="Logowanie" FontFamily="Segoe UI Variable Small Semibold" />
-            </Viewbox>
-        </Button>
-
-        <!-- Przycisk Rejestracja -->
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="50" Grid.Column="1" Grid.Row="1" Click="btnRejestracja_Click" Background="White" Foreground="#FF530622">
-            <Viewbox Stretch="UniformToFill">
-                <TextBlock Text="Rejestracja" FontFamily="Segoe UI Variable Small Semibold" />
-            </Viewbox>
-        </Button>
+        
     </Grid>
 </Window>
