@@ -15,9 +15,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <Image Source="pack://application:,,,/elementyGraficzne/CzarneLogo.png"  HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,50" />
         <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png"  Stretch="UniformToFill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png"  HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,50" />
+        
         <Button  Content="Logowanie"     Height="50" Width="200"  HorizontalAlignment="Right" Margin="20"  VerticalAlignment="Center" Grid.Column="0"  Grid.Row="1"             Click="btnLogowanie_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Background="#FF530622" Foreground="White"/>
         <Button  Content="Rejestracja"   Height="50" Width="200"  HorizontalAlignment="Left"  Margin="20"  VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"             Click="btnRejestracja_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Foreground="#FF530622" Background="White"/>
 
