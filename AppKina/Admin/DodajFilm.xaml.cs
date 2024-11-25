@@ -1,5 +1,7 @@
-﻿using Microsoft.Win32;
+﻿using AppKina.Admin;
+using Microsoft.Win32;
 using System.Windows;
+using WpfApp;
 
 namespace AppKina
 {
@@ -8,6 +10,8 @@ namespace AppKina
     /// </summary>
     public partial class DodajFilm : Window
     {
+        // Zmienna do przechowywania ścieżki wybranego plakatu
+        private string sciezkaPlakatu;
         public DodajFilm()
         {
             InitializeComponent();
@@ -28,11 +32,8 @@ namespace AppKina
             if (result == true)
             {
                 // Ścieżka do wybranego pliku
-                string selectedFilePath = openFileDialog.FileName;
+                sciezkaPlakatu = openFileDialog.FileName;
 
-                // Możesz teraz wykorzystać wybraną ścieżkę, np. wyświetlić w TextBlocku
-                // lub załadować obraz do Image itp.
-                MessageBox.Show("Wybrano plik: " + selectedFilePath); // Dla przykładu, wyświetlenie ścieżki w oknie
             }
         }
 
@@ -42,6 +43,58 @@ namespace AppKina
             glownaStronaPracownika.Show();
 
             this.Close();
+        }
+
+        private void DodajFilm_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Walidacja i konwersja danych wejściowych
+                string tytul = TBtytul.Text;
+                string gatunek = TBgatunek.Text;
+                string rezyser = TBRezyser.Text;
+                string obsada = TBObsada.Text;
+                string opis = TBopis.Text;
+                int czasTrwania = 0;
+
+                if (string.IsNullOrWhiteSpace(tytul) ||
+                    string.IsNullOrWhiteSpace(gatunek) ||
+                    string.IsNullOrWhiteSpace(rezyser) ||
+                    string.IsNullOrWhiteSpace(obsada) ||
+                    string.IsNullOrWhiteSpace(opis) ||
+                    !int.TryParse(TBczasTrwania.Text, out czasTrwania) ||
+                    czasTrwania <= 0)
+                {
+                    MessageBox.Show("Proszę poprawnie wypełnić wszystkie pola.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Tworzenie nowego obiektu klasy Film
+                Film nowyFilm = new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu);
+
+
+                // Przykład dodania obiektu do bazy danych lub kolekcji
+                // Zapis filmu do bazy danych
+                if (DatabaseHelper.AddFilm(nowyFilm))
+                {
+                    MessageBox.Show("Film został dodany pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+
+                // Opcjonalne czyszczenie formularza
+                TBtytul.Clear();
+                TBgatunek.Clear();
+                TBRezyser.Clear();
+                TBObsada.Clear();
+                TBczasTrwania.Clear();
+                TBopis.Clear();
+                sciezkaPlakatu = null;
+            }
+            catch (Exception ex)
+            {
+                // Obsługa błędów
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
     }
