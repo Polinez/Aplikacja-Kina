@@ -13,16 +13,15 @@
             <UniformGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Columns="4" VerticalAlignment="Center"
                          Height="40" Background="#FF530622">
                 <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" 
-                        FontFamily="Montsterrat" Click="button_stronaGlowna_Click" Width="110"
-                        Height="25"/>
+                        FontFamily="Montsterrat" Click="button_stronaGlowna_Click" Margin="5"/>
                 <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" 
-                        FontFamily="Monsterrat" Width="100" Height="25"
+                        FontFamily="Monsterrat" Margin="5"
                         Click="button_zarezerwuj_Click"/>
                 <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" 
-                        FontFamily="Monsterrat" Width="120" Height="25"
+                        FontFamily="Monsterrat" Margin="5"
                         Click="button_mojeRezerwacje_Click"/>
                 <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" 
-                        FontFamily="Monsterrat"  Width="100" Height="25"
+                        FontFamily="Monsterrat"  Margin="5"
                         Click="button_mojeKonto_Click"/>
             </UniformGrid>
 

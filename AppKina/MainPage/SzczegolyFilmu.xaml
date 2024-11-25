@@ -18,10 +18,10 @@
 
 
         <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622"  Grid.ColumnSpan="2">
-            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="StronaGlowna_Click"/>
-            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
-            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeRezerwacje_click"/>
-            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
+            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="StronaGlowna_Click"/>
+            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="Rezerwuj_click"/>
+            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeRezerwacje_click"/>
+            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeKonto_click"/>
         </UniformGrid>
 
         <Image Source="pack://application:,,,/elementyGraficzne/joker.png"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="20"/>
@@ -49,7 +49,7 @@
             <TextBlock Text="Obsada: Joaquin Phoenix, Robert De Niro, Zazie Beetz"
                        FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap"/>
             <Button Content="Zobacz seanse"
-                    Background="#FF530622" Foreground="White" FontSize="18" FontFamily="Segoe UI Variable Small Semibold" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="30,5"/>
+                    Background="#FF530622" Foreground="White" Width="150" Height="35" FontSize="18" FontFamily="Segoe UI Variable Small Semibold" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="30,5" Click="click_zobacz_seanse"/>
         </StackPanel>
     </Grid>
 </Window>

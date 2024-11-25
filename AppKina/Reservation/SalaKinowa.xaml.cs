@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AppKina.MainPage;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -63,7 +64,9 @@ namespace AppKina
 
         private void MojeKonto_click(object sender, RoutedEventArgs e)
         {
-            // Do something
+            Account account = new Account();
+            account.Show();
+            this.Close();
         }
 
         private void StronaGlowna_click(object sender, RoutedEventArgs e)
