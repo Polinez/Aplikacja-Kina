@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="elementyGraficzne\CzarneLogo.png" />
     <None Remove="elementyGraficzne\fale-kino %281%29.png" />
     <None Remove="elementyGraficzne\górna fala.png" />
     <None Remove="elementyGraficzne\joker.png" />
@@ -23,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="elementyGraficzne\CzarneLogo.png" />
     <Resource Include="elementyGraficzne\fale-kino (1).png" />
     <Resource Include="elementyGraficzne\górna fala.png" />
     <Resource Include="elementyGraficzne\joker.png" />
