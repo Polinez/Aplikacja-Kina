@@ -20,7 +20,8 @@
         
         <Button  Content="Logowanie"     Height="50" Width="200"  HorizontalAlignment="Right" Margin="20"  VerticalAlignment="Center" Grid.Column="0"  Grid.Row="1"             Click="btnLogowanie_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Background="#FF530622" Foreground="White"/>
         <Button  Content="Rejestracja"   Height="50" Width="200"  HorizontalAlignment="Left"  Margin="20"  VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"             Click="btnRejestracja_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Foreground="#FF530622" Background="White"/>
+        <Button  Content="Admin" Click="Admin_Click" Grid.Row="0" Grid.Column="1" Height="50" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20"/>
+        <Button  Content="Użytkownik" Click="Uzytkownik_Click" Grid.Row="0" Grid.Column="0" Height="50" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20"/>
 
-        
     </Grid>
 </Window>

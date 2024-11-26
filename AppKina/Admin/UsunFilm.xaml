@@ -30,23 +30,13 @@
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" Height="50" Grid.ColumnSpan="3" />
 
         <TextBlock Text="Lista filmów:" Grid.Row="2" FontSize="35" VerticalAlignment="Center" Margin="25,0,25,0" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
-       
-        <TextBlock Text="Tytuł" Grid.ColumnSpan="2" VerticalAlignment="Center" Padding="200,2" HorizontalAlignment="Center" FontSize="25" Grid.Row="3" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
 
-        <TextBlock Text="Tytuł" Grid.ColumnSpan="2" VerticalAlignment="Center" Padding="200,2" HorizontalAlignment="Center" FontSize="25" Grid.Row="4" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
-
-        <TextBlock Text="Tytuł" Grid.ColumnSpan="2" VerticalAlignment="Center" Padding="200,2" HorizontalAlignment="Center" FontSize="25" Grid.Row="5" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
-
-        <TextBlock Text="Tytuł" Grid.ColumnSpan="2" VerticalAlignment="Center" Padding="200,2" HorizontalAlignment="Center" FontSize="25" Grid.Row="6" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
-
-        <TextBlock Text="Tytuł" Grid.ColumnSpan="2" VerticalAlignment="Center" Padding="200,2" HorizontalAlignment="Center" FontSize="25" Grid.Row="7" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
-
-        <TextBlock Text="Tytuł" Grid.ColumnSpan="2" VerticalAlignment="Center" Padding="200,2" HorizontalAlignment="Center" FontSize="25" Grid.Row="8" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
-
-        <Button Content="Usuń film" Grid.Column="2" Grid.Row="4" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150"/>
+        <Button x:Name="usunFilm" Content="Usuń film" Grid.Column="2" Click="click_usun_film" Grid.Row="4" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150"/>
 
         <Button Click="anuluj_click" Content="Anuluj" Grid.Column="2" Grid.Row="6" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150"/>
 
+        <ListBox x:Name="FilmListBox" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="7" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+                 Margin="10"/>
 
 
 
