@@ -7,66 +7,82 @@ namespace WpfApp
 {
     public class DatabaseHelper
     {
-        private const string DatabaseFileName = "KinoDB.db";  // Zmieniona nazwa bazy danych, plik jest w folderze bin/Debug/net8.0/KinoDB.db      
+        private const string DatabaseFileName = "KinoDB.db";
 
-        // Metoda do inicjalizacji bazy danych
+        /// <summary>
+        /// Inicjalizuje bazę danych.
+        /// </summary>
         public static void InitializeDatabase()
         {
             try
             {
-                // Sprawdzamy, czy plik bazy danych istnieje
                 if (!File.Exists(DatabaseFileName))
                 {
-                    // Tworzymy bazę danych
-                    using (var connection = new SqliteConnection($"Data Source={DatabaseFileName}"))
-                    {
-                        connection.Open();
-
-                        // Tworzymy tabelę użytkowników
-                        var command = connection.CreateCommand();
-                        command.CommandText = @"
-                            CREATE TABLE Users (
-                                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                                Username TEXT NOT NULL UNIQUE,
-                                Email TEXT NOT NULL UNIQUE,
-                                Password TEXT NOT NULL,
-                                Role TEXT NOT NULL DEFAULT 'user' -- Domyślna rola
-                            );
-                        ";
-                        command.ExecuteNonQuery();
-
-                        // Dodajemy domyślnych użytkowników
-                        command.CommandText = @"
-                            INSERT INTO Users (Username, Email, Password, Role) VALUES
-                            ('admin', 'admin@admin.pl', 'admin', 'admin'),
-                            ('test', 'test@test.pl', 'test', 'user');
-                        ";
-                        command.ExecuteNonQuery();
-
-                        // Tworzymy tabelę filmów
-                        CreateMoviesTable(connection);
-                    }
-
-                    MessageBox.Show("Baza danych została utworzona i wypełniona domyślnymi danymi.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CreateDatabase();
+                    MessageBox.Show("Baza danych została utworzona i wypełniona domyślnymi danymi.",
+                                    "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    // Jeżeli baza już istnieje, upewniamy się, że tabela filmów istnieje
-                    using (var connection = GetConnection())
-                    {
-                        connection.Open();
-                        CreateMoviesTable(connection);
-                    }
+                    EnsureMoviesTableExists();
                 }
             }
             catch (Exception ex)
             {
-                // W przypadku błędu, pokazujemy komunikat z wyjątkiem
-                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                ShowError($"Wystąpił błąd: {ex.Message}");
             }
         }
 
-        // Metoda do tworzenia tabeli filmów
+        /// <summary>
+        /// Tworzy bazę danych z tabelami i domyślnymi danymi.
+        /// </summary>
+        private static void CreateDatabase()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                CreateUsersTable(connection);
+                SeedUsers(connection);
+                CreateMoviesTable(connection);
+            }
+        }
+
+        /// <summary>
+        /// Tworzy tabelę użytkowników.
+        /// </summary>
+        private static void CreateUsersTable(SqliteConnection connection)
+        {
+            var command = connection.CreateCommand();
+            command.CommandText = @"
+                CREATE TABLE Users (
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Username TEXT NOT NULL UNIQUE,
+                    Email TEXT NOT NULL UNIQUE,
+                    Password TEXT NOT NULL,
+                    Role TEXT NOT NULL DEFAULT 'user'
+                );
+            ";
+            command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Dodaje domyślnych użytkowników do tabeli.
+        /// </summary>
+        private static void SeedUsers(SqliteConnection connection)
+        {
+            var command = connection.CreateCommand();
+            command.CommandText = @"
+                INSERT INTO Users (Username, Email, Password, Role) VALUES
+                ('admin', 'admin@admin.pl', 'admin', 'admin'),
+                ('test', 'test@test.pl', 'test', 'user');
+            ";
+            command.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Tworzy tabelę filmów, jeśli nie istnieje.
+        /// </summary>
         private static void CreateMoviesTable(SqliteConnection connection)
         {
             try
@@ -79,26 +95,36 @@ namespace WpfApp
                         Genre TEXT NOT NULL,
                         Director TEXT NOT NULL,
                         Cast TEXT NOT NULL,
-                        Duration INTEGER NOT NULL, -- czas trwania w minutach
+                        Duration INTEGER NOT NULL,
                         Description TEXT,
-                        PosterPath TEXT -- ścieżka do plakatu filmu
+                        PosterPath TEXT
                     );
                 ";
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Wystąpił błąd podczas tworzenia tabeli filmów: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                ShowError($"Wystąpił błąd podczas tworzenia tabeli filmów: {ex.Message}");
             }
         }
 
-        // Metoda do połączenia z bazą danych
-        public static SqliteConnection GetConnection()
+        /// <summary>
+        /// Sprawdza istnienie tabeli filmów w istniejącej bazie danych.
+        /// </summary>
+        private static void EnsureMoviesTableExists()
         {
-            return new SqliteConnection($"Data Source={DatabaseFileName}");
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                CreateMoviesTable(connection);
+            }
         }
 
-        // Metoda do dodawania filmu do bazy danych
+        /// <summary>
+        /// Dodaje film do bazy danych.
+        /// </summary>
+        /// <param name="film">Obiekt reprezentujący film.</param>
+        /// <returns>True, jeśli dodano film; w przeciwnym razie False.</returns>
         public static bool AddFilm(Film film)
         {
             try
@@ -109,9 +135,9 @@ namespace WpfApp
                     var command = connection.CreateCommand();
 
                     command.CommandText = @"
-                INSERT INTO Movies (Title, Genre, Director, Cast, Duration, Description, PosterPath) 
-                VALUES (@Title, @Genre, @Director, @Cast, @Duration, @Description, @PosterPath);
-            ";
+                        INSERT INTO Movies (Title, Genre, Director, Cast, Duration, Description, PosterPath) 
+                        VALUES (@Title, @Genre, @Director, @Cast, @Duration, @Description, @PosterPath);
+                    ";
 
                     command.Parameters.AddWithValue("@Title", film.Tytul);
                     command.Parameters.AddWithValue("@Genre", film.Gatunek);
@@ -124,17 +150,31 @@ namespace WpfApp
                     command.ExecuteNonQuery();
                 }
 
-                return true; // Sukces
+                return true;
             }
             catch (Exception ex)
             {
-                // Obsługa błędów, można logować wyjątek lub wyświetlać komunikat
-                MessageBox.Show($"Wystąpił błąd podczas dodawania filmu do bazy danych: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false; // Błąd
+                ShowError($"Wystąpił błąd podczas dodawania filmu do bazy danych: {ex.Message}");
+                return false;
             }
         }
 
+        /// <summary>
+        /// Tworzy nowe połączenie z bazą danych.
+        /// </summary>
+        /// <returns>Obiekt SqliteConnection.</returns>
+        public static SqliteConnection GetConnection()
+        {
+            return new SqliteConnection($"Data Source={DatabaseFileName}");
+        }
 
-
+        /// <summary>
+        /// Wyświetla komunikat o błędzie.
+        /// </summary>
+        /// <param name="message">Treść komunikatu.</param>
+        private static void ShowError(string message)
+        {
+            MessageBox.Show(message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
