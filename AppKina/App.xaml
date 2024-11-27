@@ -27,5 +27,59 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+
+        <!-- Styl globalny dla ListBox -->
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <!-- Styl globalny dla ListBoxItem -->
+        <Style TargetType="ListBoxItem">
+            <!-- Domyślne właściwości -->
+            <Setter Property="Foreground" Value="White"/>
+            <!-- Biały tekst -->
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+
+            <!-- Szablon -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+
+                        <!-- Triggers -->
+                        <ControlTemplate.Triggers>
+                            <!-- Na najechaniu myszką -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <!-- Biała ramka -->
+                                <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
+                                <!-- Czerwone tło -->
+                            </Trigger>
+                            <!-- Na zaznaczeniu -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <!-- Biała ramka -->
+                                <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
+                                <!-- Czerwone tło -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>
