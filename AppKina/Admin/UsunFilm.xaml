@@ -31,9 +31,9 @@
 
         <TextBlock Text="Lista filmów:" Grid.Row="2" FontSize="35" VerticalAlignment="Center" Margin="25,0,25,0" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" />
 
-        <Button x:Name="usunFilm" Content="Usuń film" Grid.Column="2" Click="click_usun_film" Grid.Row="4" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150"/>
+        <Button x:Name="usunFilm" Content="Usuń film" Grid.Column="2" Click="click_usun_film" Grid.Row="8" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150"/>
 
-        <Button Click="anuluj_click" Content="Anuluj" Grid.Column="2" Grid.Row="6" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150"/>
+        <Button Click="powrot_click" Content="Powrót" Grid.Column="2" Grid.Row="1" Background="Black" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150" HorizontalAlignment="Right" Margin="3"/>
 
         <ListBox x:Name="FilmListBox" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="7" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
                  Margin="10"/>

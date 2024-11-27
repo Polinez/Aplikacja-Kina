@@ -37,7 +37,7 @@ namespace AppKina
             }
         }
 
-        private void anuluj_click(object sender, RoutedEventArgs e)
+        private void powrot_click(object sender, RoutedEventArgs e)
         {
             GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
             glownaStronaPracownika.Show();
@@ -96,6 +96,7 @@ namespace AppKina
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
     }
 }
