@@ -37,43 +37,16 @@
         <Label Content="Miejsca zarezerwowane" Grid.Row="3" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
                FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
+        <ListBox x:Name="listBox_ReservationID"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="0" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+                 Margin="10"/>
+        <ListBox x:Name="listBox_ReservationDate"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="1" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+         Margin="10"/>
+        <ListBox x:Name="listBox_MovieTitle"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="2" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+         Margin="10"/>
+        <ListBox x:Name="listBox_ReservatedSeats"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="3" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+         Margin="10"/>
 
-        <Label Content="28484643" Grid.Column="0" Grid.Row="4" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="94759294" Grid.Column="0" Grid.Row="5" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="98274925" Grid.Column="0" Grid.Row="6" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="64374836" Grid.Column="0" Grid.Row="7" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <Label Content="2023-12-15" Grid.Column="1" Grid.Row="4" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="2023-10-13" Grid.Column="1" Grid.Row="5" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="2023-05-07" Grid.Column="1" Grid.Row="6" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="2022-09-23" Grid.Column="1" Grid.Row="7" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-        <Label Content="Joker" Grid.Column="2" Grid.Row="4" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Terrifier" Grid.Column="2" Grid.Row="5" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Pewnego razu w Hollywood" Grid.Column="2" Grid.Row="6" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="Venom 2" Grid.Column="2" Grid.Row="7" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-        <Label Content="7E, 8E" Grid.Column="3" Grid.Row="4" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="5H, 6H" Grid.Column="3" Grid.Row="5" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="12F" Grid.Column="3" Grid.Row="6" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Content="9G, 10G" Grid.Column="3" Grid.Row="7" FontFamily="Segoe UI Variable Small Semibold"
-               Foreground="white" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="130"/>

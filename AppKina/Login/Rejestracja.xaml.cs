@@ -73,17 +73,19 @@ namespace AppKina
                 // Tworzymy komendę SQL do wstawienia danych
                 var command = connection.CreateCommand();
                 command.CommandText = @"
-                    INSERT INTO Users (Username, Email, Password)
+                    INSERT INTO Users (Username, Email, Password, Role)
                     VALUES (@Username, @Email, @Password, @Role);
                 ";
 
                 // Dodajemy parametry
-                command.Parameters.AddWithValue("@Username", $"{imie} {nazwisko}"); // Używamy imienia i nazwiska jako nazwy użytkownika
+                string username = string.Concat(imie, " ", nazwisko);
+                command.Parameters.AddWithValue("@Username", username); // Używamy imienia i nazwiska jako nazwy użytkownika
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Password", haslo); // Pamiętaj, że hasło w prawdziwej aplikacji powinno być haszowane!
-                command.Parameters.AddWithValue("@Role", "user");//domyslnie tworzy usera 
+                command.Parameters.AddWithValue("@Role", "user"); //domyslnie tworzy usera 
 
                 command.ExecuteNonQuery(); // Wykonanie komendy wstawiającej dane
+                connection.Close();
             }
         }
     }
