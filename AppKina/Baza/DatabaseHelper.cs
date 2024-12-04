@@ -1,5 +1,6 @@
 ﻿using AppKina.Admin;
 using Microsoft.Data.Sqlite;
+using System.IO;
 using System.Windows;
 
 namespace WpfApp
@@ -13,23 +14,23 @@ namespace WpfApp
         /// </summary>
         public static void InitializeDatabase()
         {
-            //try
-            //{
-            //    if (!File.Exists(DatabaseFileName))
-            //    {
-            //        CreateDatabase();
-            //        MessageBox.Show("Baza danych została utworzona i wypełniona domyślnymi danymi.",
-            //                        "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    }
-            //    else
-            //    {
-            //        EnsureMoviesTableExists();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ShowError($"Wystąpił błąd: {ex.Message}");
-            //}
+            try
+            {
+                if (!File.Exists(DatabaseFileName))
+                {
+                    CreateDatabase();
+                    MessageBox.Show("Baza danych została utworzona i wypełniona domyślnymi danymi.",
+                                    "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    EnsureMoviesTableExists();
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowError($"Wystąpił błąd: {ex.Message}");
+            }
         }
 
         /// <summary>
@@ -191,7 +192,7 @@ namespace WpfApp
                     StartTime TEXT NOT NULL,
                     Format TEXT NOT NULL,
                     Price REAL NOT NULL,
-                    FOREIGN KEY(MovieID) REFERENCES Movies(ID)
+                    FOREIGN KEY(MovieID) REFERENCES Movies(ID) ON DELETE CASCADE
                 );
             ";
                 command.ExecuteNonQuery();
@@ -199,6 +200,51 @@ namespace WpfApp
             catch (Exception ex)
             {
                 ShowError($"Wystąpił błąd podczas tworzenia tabeli Seanse: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Dodaje seans do tabeli Seanse.
+        /// </summary>
+        /// <param name="seans">Obiekt reprezentujący seans.</param>
+        /// <returns>True, jeśli dodano seans; w przeciwnym razie False.</returns>
+        /// 
+        public class Seans
+        {
+            public int MovieID { get; set; }
+            public string Date { get; set; }
+            public string StartTime { get; set; }
+            public string Format { get; set; }
+            public double Price { get; set; }
+        }
+        public static bool AddSeans(Seans seans)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+
+                    command.CommandText = @"
+                INSERT INTO Seanse (MovieID, Date, StartTime, Format, Price)
+                VALUES (@MovieID, @Date, @StartTime, @Format, @Price);
+            ";
+
+                    command.Parameters.AddWithValue("@MovieID", seans.MovieID);
+                    command.Parameters.AddWithValue("@Date", seans.Date);
+                    command.Parameters.AddWithValue("@StartTime", seans.StartTime);
+                    command.Parameters.AddWithValue("@Format", seans.Format);
+                    command.Parameters.AddWithValue("@Price", seans.Price);
+
+                    command.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ShowError($"Wystąpił błąd podczas dodawania seansu do bazy danych: {ex.Message}");
+                return false;
             }
         }
         public static bool IsSeansTimeAvailable(int movieID, string date, TimeSpan startTime, TimeSpan movieDuration) //funckja rozwiązująca problemy z nakładaniem się seansów
@@ -210,9 +256,9 @@ namespace WpfApp
                     connection.Open();
                     var command = connection.CreateCommand();
                     command.CommandText = @"
-                        SELECT StartTime FROM Seanse
-                        WHERE Date = @Date
-                    ";
+                SELECT StartTime FROM Seanse
+                WHERE Date = @Date
+            ";
                     command.Parameters.AddWithValue("@Date", date);
 
                     using (var reader = command.ExecuteReader())
@@ -235,87 +281,32 @@ namespace WpfApp
                 return false;
             }
         }
-        public static bool AddSeans(int movieID, string date, string startTime, string format, double price) //metoda dodająca seans
+        public static List<Movie> GetAllMovies()
         {
-            try
+            var movies = new List<Movie>();
+            using (var connection = GetConnection())
             {
-                using (var connection = GetConnection())
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT ID, Title, Genre, Duration FROM Movies";
+                using (var reader = command.ExecuteReader())
                 {
-                    connection.Open();
-                    var command = connection.CreateCommand();
-                    command.CommandText = @"
-                        INSERT INTO Seanse (MovieID, Date, StartTime, Format, Price)
-                        VALUES (@MovieID, @Date, @StartTime, @Format, @Price);
-                    ";
-
-                    command.Parameters.AddWithValue("@MovieID", movieID);
-                    command.Parameters.AddWithValue("@Date", date);
-                    command.Parameters.AddWithValue("@StartTime", startTime);
-                    command.Parameters.AddWithValue("@Format", format);
-                    command.Parameters.AddWithValue("@Price", price);
-
-                    command.ExecuteNonQuery();
+                    while (reader.Read())
+                    {
+                        movies.Add(new Movie
+                        {
+                            ID = reader.GetInt32(0),
+                            Title = reader.GetString(1),
+                            Genre = reader.GetString(2),
+                            Duration = reader.GetInt32(3)
+                        });
+                    }
                 }
-                return true;
             }
-            catch (Exception ex)
-            {
-                ShowError($"Wystąpił błąd podczas dodawania seansu: {ex.Message}");
-                return false;
-            }
+            return movies;
         }
-        //public class Movie
-        //{
-        //    public int ID { get; set; }
-        //    public string Title { get; set; }
-        //    public string Genre { get; set; }
-        //    public string Director { get; set; }
-        //    public string Cast { get; set; }
-        //    public int Duration { get; set; } // czas trwania w minutach
-        //    public string Description { get; set; }
-        //    public string PosterPath { get; set; }
-        //}
 
 
-        //public static List<Movie> GetAllMovies() //import  id filmu z Movies do wyboru w seansie - nie działa na razie
-        //{
-        //    var movies = new List<Movie>();
-
-        //    try
-        //    {
-        //        using (var connection = GetConnection())
-        //        {
-        //            connection.Open();
-
-        //            var command = connection.CreateCommand();
-        //            command.CommandText = "SELECT ID, Title, Genre, Director, Cast, Duration, Description, PosterPath FROM Movies";
-
-        //            using (var reader = command.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    movies.Add(new Movie
-        //                    {
-        //                        ID = reader.GetInt32(0),
-        //                        Title = reader.GetString(1),
-        //                        Genre = reader.GetString(2),
-        //                        Director = reader.GetString(3),
-        //                        Cast = reader.GetString(4),
-        //                        Duration = reader.GetInt32(5),
-        //                        Description = reader.IsDBNull(6) ? null : reader.GetString(6),
-        //                        PosterPath = reader.IsDBNull(7) ? null : reader.GetString(7),
-        //                    });
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ShowError($"Wystąpił błąd podczas pobierania filmów: {ex.Message}");
-        //    }
-
-        //    return movies;
-        //}
 
 
 

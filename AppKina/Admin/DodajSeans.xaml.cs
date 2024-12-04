@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using WpfApp;
+using static WpfApp.DatabaseHelper;
 
 namespace AppKina.Admin
 {
@@ -12,14 +13,19 @@ namespace AppKina.Admin
         {
             InitializeComponent();
 
-            // Załaduj listę filmów
-            //var movies = DatabaseHelper.GetAllMovies();
-            //LBMovies.ItemsSource = movies;
+            try
+            {
+                // Załaduj listę filmów
+                var movies = DatabaseHelper.GetAllMovies();
+                LBMovies.ItemsSource = movies;
 
-            //Przykładowe Filmy bo import nie działa
-            LBMovies.ItemsSource = new List<string> { "Venom 3", "Alicaj w krainie czarów", "Faceci w czerni 4" };
-            // Formaty seansów
-            LBFormat.ItemsSource = new List<string> { "2D", "3D", "IMAX" };
+                // Formaty seansów
+                LBFormat.ItemsSource = new List<string> { "2D", "3D", "IMAX" };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas ładowania danych: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void BTdodaj(object sender, RoutedEventArgs e)
@@ -34,29 +40,61 @@ namespace AppKina.Admin
                     return;
                 }
 
-                var date = TBdata.Text;
-                var startTime = TimeSpan.Parse(TBgodzina.Text);
+                if (string.IsNullOrWhiteSpace(TBdata.Text) || !DateTime.TryParse(TBdata.Text, out var parsedDate))
+                {
+                    MessageBox.Show("Wprowadź poprawną datę w formacie YYYY-MM-DD!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(TBgodzina.Text) || !TimeSpan.TryParse(TBgodzina.Text, out var startTime))
+                {
+                    MessageBox.Show("Wprowadź poprawną godzinę w formacie HH:MM!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 var format = (string)LBFormat.SelectedItem;
-                if (!double.TryParse(TBcena.Text, out var price))
+                if (format == null)
+                {
+                    MessageBox.Show("Wybierz format seansu!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(TBcena.Text) || !double.TryParse(TBcena.Text, out var price))
                 {
                     MessageBox.Show("Wprowadź poprawną cenę!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
+                // Obliczenie końca seansu
                 var movieDuration = TimeSpan.FromMinutes(selectedMovie.Duration);
+                var endTime = startTime.Add(movieDuration);
 
-                // Walidacja konfliktów czasowych
-                if (!DatabaseHelper.IsSeansTimeAvailable(selectedMovie.ID, date, startTime, movieDuration))
+                // Walidacja czasów seansów
+                if (!DatabaseHelper.IsSeansTimeAvailable(selectedMovie.ID, parsedDate.ToString("yyyy-MM-dd"), startTime, endTime))
                 {
                     MessageBox.Show("Czas seansu koliduje z innym seansem!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                // Dodanie seansu
-                if (DatabaseHelper.AddSeans(selectedMovie.ID, date, startTime.ToString(), format, price))
+                // Utworzenie obiektu seansu
+                var seans = new Seans
+                {
+                    MovieID = selectedMovie.ID,
+                    Date = parsedDate.ToString("yyyy-MM-dd"),
+                    StartTime = startTime.ToString(@"hh\:mm"),
+                    Format = format,
+                    Price = price
+                };
+
+                // Dodanie seansu do bazy
+                if (DatabaseHelper.AddSeans(seans))
                 {
                     MessageBox.Show("Seans został dodany pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close(); // Zamknięcie okna po dodaniu
+                    TBcena.Text = "";
+                    TBdata.Text = "";
+                    TBgodzina.Text = "";
+                    LBFormat.Text = "";
+                    LBMovies.Text = "";
                 }
             }
             catch (Exception ex)
@@ -67,7 +105,7 @@ namespace AppKina.Admin
 
         private void BTanuluj(object sender, RoutedEventArgs e)
         {
-            GlownaStronaPracownika glownaStronaPracownika = new GlownaStronaPracownika();
+            var glownaStronaPracownika = new GlownaStronaPracownika();
             glownaStronaPracownika.Show();
             this.Close();
         }
