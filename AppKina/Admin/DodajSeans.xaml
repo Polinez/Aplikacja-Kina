@@ -20,7 +20,7 @@
                 <UniformGrid Rows="10" Margin="40,40,0,40">
 
                     <TextBlock Text="Wybór filmu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3" Margin="0,0,0,0"/>
-                    <TextBox x:Name="TBwybor" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+                    <ComboBox x:Name="LBMovies" DisplayMemberPath="Title"/>
 
                     <TextBlock Text="Data:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
                     <TextBox x:Name="TBdata" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
@@ -29,7 +29,7 @@
                     <TextBox x:Name="TBgodzina" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
 
                     <TextBlock Text="Format seansu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-                    <TextBox x:Name="TBformat" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+                    <ComboBox x:Name="LBFormat"/>
 
                     <TextBlock Text="Cena:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
 
