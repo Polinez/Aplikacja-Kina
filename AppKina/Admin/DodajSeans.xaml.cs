@@ -40,11 +40,12 @@ namespace AppKina.Admin
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(TBdata.Text) || !DateTime.TryParse(TBdata.Text, out var parsedDate))
+                if (TBdata.SelectedDate == null)
                 {
-                    MessageBox.Show("Wprowadź poprawną datę w formacie YYYY-MM-DD!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Wprowadź poprawną datę!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
+                var parsedDate = TBdata.SelectedDate.Value;
 
                 if (string.IsNullOrWhiteSpace(TBgodzina.Text) || !TimeSpan.TryParse(TBgodzina.Text, out var startTime))
                 {
@@ -103,7 +104,7 @@ namespace AppKina.Admin
             }
         }
 
-        private void BTanuluj(object sender, RoutedEventArgs e)
+        private void BTpowrot(object sender, RoutedEventArgs e)
         {
             var glownaStronaPracownika = new GlownaStronaPracownika();
             glownaStronaPracownika.Show();
