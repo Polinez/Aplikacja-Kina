@@ -23,10 +23,10 @@
                     <ComboBox x:Name="LBMovies" DisplayMemberPath="Title"/>
 
                     <TextBlock Text="Data:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-                    <TextBox x:Name="TBdata" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+                    <DatePicker x:Name="TBdata" Text="" BorderThickness="0" Height="25" Foreground="#FF530622" ToolTip="Wpisz datę w formacie: YYYY-MM-DD" Background="#FF530622"/>
 
                     <TextBlock Text="Godzina rozpoczęcia:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-                    <TextBox x:Name="TBgodzina" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+                    <TextBox x:Name="TBgodzina" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" ToolTip="Podaj godzinę w formacie: HH:MM"/>
 
                     <TextBlock Text="Format seansu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
                     <ComboBox x:Name="LBFormat"/>
@@ -36,12 +36,12 @@
                     <TextBox x:Name="TBcena" Text="" Background="#FF530622" BorderThickness="0" Height="25" TextWrapping="Wrap" Foreground="White"/>
                 </UniformGrid>
             </StackPanel>
-            
-            <UniformGrid Grid.Column="1" Grid.ColumnSpan="2" Columns="1" Rows="2" Height="100" Width="170">
+            <Button Content="Powrót" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTpowrot" Background="Black" Margin="5"/>
+
+            <UniformGrid Grid.Column="1" Grid.ColumnSpan="2" Columns="1" Rows="1" Height="50" Width="150">
                 <Button Content="Dodaj seans" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTdodaj" />
-                <Button Content="Anuluj" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTanuluj" />
             </UniformGrid>
-             
+
         </Grid>
     </Grid>
 </Window>
