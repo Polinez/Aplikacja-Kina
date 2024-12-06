@@ -43,5 +43,12 @@ namespace AppKina
             salaKinowa.Show();
             this.Close();
         }
+
+        private void button_powrot_Click(object sender, RoutedEventArgs e)
+        {
+            Zarezerwuj zarezerwuj = new Zarezerwuj();
+            zarezerwuj.Show();
+            this.Close();
+        }
     }
 }

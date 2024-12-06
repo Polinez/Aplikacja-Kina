@@ -11,6 +11,7 @@ namespace AppKina
         public MojeRezerwacje()
         {
             InitializeComponent();
+            ShowReservations();
         }
 
         private void button_stronaGlowna_Click(object sender, RoutedEventArgs e)
@@ -40,25 +41,29 @@ namespace AppKina
             this.Close();
         }
 
-        private void ZaladujFilmy()
+        private void ShowReservations()
         {
-            listBox_MovieTitle.Items.Clear();
+            listBox_Reservations.Items.Clear();
             try
             {
-                using (var polaczenie = new SqliteConnection(databasePath))
+                using (var connection = new SqliteConnection(databasePath))
                 {
-                    polaczenie.Open();
-                    string zapytanie = "SELECT Title FROM Movies";
-                    using (var komenda = new SqliteCommand(zapytanie, polaczenie))
+                    connection.Open();
+                    string zapytanie = "SELECT Reservations.ID, Date, Seanse.MovieID FROM Reservations JOIN Seanse ON Reservations.ProjectionID=Seanse.ID";
+                    using (var komenda = new SqliteCommand(zapytanie, connection))
                     using (var reader = komenda.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             string nazwaFilmu = reader.GetString(0);
-                            listBox_MovieTitle.Items.Add(nazwaFilmu);
+                            listBox_Reservations.Items.Add(nazwaFilmu);
+                        }
+                        if (listBox_Reservations.Items.Count == 0) 
+                        {
+                            MessageBox.Show("Nie masz żadnych rezerwacji.");
                         }
                     }
-                    polaczenie.Close();
+                    connection.Close();
                 }
             }
             catch (Exception ex)
