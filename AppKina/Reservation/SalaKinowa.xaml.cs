@@ -50,8 +50,8 @@ namespace AppKina
 
         private void Rezerwuj_click(object sender, RoutedEventArgs e)
         {
-            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu();
-            rezerwacjaSeansu.Show();
+            Zarezerwuj zarezerwuj = new Zarezerwuj();
+            zarezerwuj.Show();
             this.Close();
         }
 

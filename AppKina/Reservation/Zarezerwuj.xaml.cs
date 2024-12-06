@@ -1,4 +1,5 @@
 ﻿using AppKina.MainPage;
+using AppKina.Reservation;
 using Microsoft.Data.Sqlite;
 using System.Windows;
 
@@ -45,7 +46,7 @@ namespace AppKina
                 MessageBox.Show("Wybierz film aby przejść dalej.");
                 return;
             }
-            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu();
+            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu(listBox_MovieTitles.SelectedItem.ToString());
             rezerwacjaSeansu.Show();
             this.Close();
         }

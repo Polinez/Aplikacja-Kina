@@ -1,13 +1,19 @@
-﻿using AppKina.MainPage;
+﻿using AppKina.Admin;
+using AppKina.MainPage;
+using AppKina.Reservation;
+using Microsoft.Data.Sqlite;
 using System.Windows;
+using WpfApp;
 
 namespace AppKina
 {
     public partial class RezerwacjaSeansu : Window
     {
-        public RezerwacjaSeansu()
+        private const string databasePath = @"Data Source=KinoDB.db";
+        public RezerwacjaSeansu(string title)
         {
             InitializeComponent();
+            loadProjections(title);
         }
 
         private void button_stronaGlowna_Click(object sender, RoutedEventArgs e)
@@ -49,6 +55,53 @@ namespace AppKina
             Zarezerwuj zarezerwuj = new Zarezerwuj();
             zarezerwuj.Show();
             this.Close();
+        }
+
+        //private void comboBox_date()
+        //{
+        //    try
+        //    {
+        //        loadProjections();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        private void loadProjections(string title)
+        {
+            try
+            {
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+                    
+                    string query = $"SELECT Seanse.Date FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Title={title}";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        List<string> dates = new List<string>();
+                        while (reader.Read())
+                        {
+                            string date = reader.GetString(2);
+                            dates.Add(date);
+                            listBox_date.Items.Add(date);
+                        }
+                        if (dates.Count == 0)
+                        {
+                            MessageBox.Show("Nie ma dostępnych seansów na wybrany film");
+                            return;
+                        }
+                        
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
