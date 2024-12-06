@@ -1,5 +1,7 @@
-﻿using AppKina.MainPage;
+﻿using AppKina.Admin;
+using AppKina.MainPage;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace AppKina
 {
@@ -11,6 +13,19 @@ namespace AppKina
         public SzczegolyFilmu()
         {
             InitializeComponent();
+        }
+        public SzczegolyFilmu(Film szczegolyFilmu) : this()
+        {
+            // Ustaw dane filmu w interfejsie użytkownika
+            UstawSzczegolyFilmu(szczegolyFilmu);
+        }
+        private void UstawSzczegolyFilmu(Film film)
+        {
+            // Zakładam, że w interfejsie masz kontrolki jak np. TextBlock do wyświetlania danych
+            TytulTB.Text = film.Tytul;
+            GatunekTB.Text = film.Gatunek;
+            OpisTB.Text = film.Opis;
+            zdjeieIM.Source = new BitmapImage(new Uri(film.SciezkaPlakatu, UriKind.RelativeOrAbsolute));
         }
 
         private void StronaGlowna_Click(object sender, RoutedEventArgs e)

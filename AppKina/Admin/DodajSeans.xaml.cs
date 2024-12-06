@@ -33,7 +33,7 @@ namespace AppKina.Admin
             try
             {
                 // Pobranie danych z formularza
-                var selectedMovie = (Movie)LBMovies.SelectedItem;
+                var selectedMovie = (Film)LBMovies.SelectedItem;
                 if (selectedMovie == null)
                 {
                     MessageBox.Show("Wybierz film!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -67,7 +67,7 @@ namespace AppKina.Admin
                 }
 
                 // Obliczenie końca seansu
-                var movieDuration = TimeSpan.FromMinutes(selectedMovie.Duration);
+                var movieDuration = TimeSpan.FromMinutes(selectedMovie.CzasTrwania);
                 var endTime = startTime.Add(movieDuration);
 
                 // Walidacja czasów seansów

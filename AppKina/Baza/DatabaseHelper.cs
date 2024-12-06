@@ -208,14 +208,7 @@ namespace WpfApp
         /// <param name="seans">Obiekt reprezentujący seans.</param>
         /// <returns>True, jeśli dodano seans; w przeciwnym razie False.</returns>
         /// 
-        public class Seans
-        {
-            public int MovieID { get; set; }
-            public string Date { get; set; }
-            public string StartTime { get; set; }
-            public string Format { get; set; }
-            public double Price { get; set; }
-        }
+       
         public static bool AddSeans(Seans seans)
         {
             try
@@ -281,24 +274,26 @@ namespace WpfApp
                 return false;
             }
         }
-        public static List<Movie> GetAllMovies()
+        public static List<Film> GetAllMovies()
         {
-            var movies = new List<Movie>();
+            var movies = new List<Film>();
             using (var connection = GetConnection())
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT ID, Title, Genre, Duration FROM Movies";
+                command.CommandText = "SELECT ID, Title, Genre, Duration,Description,PosterPath FROM Movies";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        movies.Add(new Movie
+                        movies.Add(new Film
                         {
                             ID = reader.GetInt32(0),
-                            Title = reader.GetString(1),
-                            Genre = reader.GetString(2),
-                            Duration = reader.GetInt32(3)
+                            Tytul = reader.GetString(1),
+                            Gatunek = reader.GetString(2),
+                            CzasTrwania = reader.GetInt32(3),
+                            Opis = reader.GetString(4),
+                            SciezkaPlakatu = reader.GetString(5)
                         });
                     }
                 }

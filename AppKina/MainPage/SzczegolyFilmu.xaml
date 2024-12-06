@@ -24,15 +24,15 @@
             <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeKonto_click"/>
         </UniformGrid>
 
-        <Image Source="pack://application:,,,/elementyGraficzne/joker.png"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="20"/>
+        <Image x:Name="zdjeieIM" Source="pack://application:,,,/elementyGraficzne/joker.png"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="20"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="20" >
             
-            <TextBlock Text="Joker" 
+            <TextBlock x:Name="TytulTB" Text="Joker" 
                        FontSize="30" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
             
         <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <TextBlock Text="Dramat, Kryminał, Thriller" 
+                <TextBlock x:Name="GatunekTB" Text="Dramat, Kryminał, Thriller" 
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
 
                 <TextBlock Text=" | " 
@@ -42,7 +42,7 @@
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
         </StackPanel>
             
-            <TextBlock Text="Opis: Arthur Fleck (Joaquin Phoenix) to nieudany komik, który prowadzi nędzne życie w Gotham City. Jego jedyne związki z rzeczywistością to praca jako klaun wynajmowany do różnych imprez oraz opieka nad starszą matką. Arthur marzy o karierze komika stand-upowca, ale jego poczynania spotykają się z drwinami i agresją ze strony innych ludzi. Wszystko się zmienia, gdy w wyniku serii zdarzeń Arthur zaczyna odkrywać swoje mroczne alter ego - Joker."
+            <TextBlock x:Name="OpisTB" Text="Opis: Arthur Fleck (Joaquin Phoenix) to nieudany komik, który prowadzi nędzne życie w Gotham City. Jego jedyne związki z rzeczywistością to praca jako klaun wynajmowany do różnych imprez oraz opieka nad starszą matką. Arthur marzy o karierze komika stand-upowca, ale jego poczynania spotykają się z drwinami i agresją ze strony innych ludzi. Wszystko się zmienia, gdy w wyniku serii zdarzeń Arthur zaczyna odkrywać swoje mroczne alter ego - Joker."
                        FontSize="15" Foreground="#FFBBBBBB" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap" Margin="5"/>
             <TextBlock Text="Reżyseria: Todd Phillips"
                         FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>

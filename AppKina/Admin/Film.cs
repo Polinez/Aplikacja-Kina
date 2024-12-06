@@ -2,6 +2,7 @@
 {
     public class Film
     {
+        public int ID { get; set; }
         // Tytuł filmu
         public string Tytul { get; set; }
 

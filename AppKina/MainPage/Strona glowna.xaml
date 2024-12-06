@@ -28,32 +28,31 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Sekcja repertuaru -->
-                <StackPanel Grid.Column="0" Margin="20,20,20,20" >
+                <StackPanel x:Name="MainMoviesStackPanel" Grid.Column="0" Margin="20">
                     <TextBlock Text="REPERTUAR" Foreground="White" FontSize="22" FontWeight="Bold"/>
                     <TextBlock Text="Dzisiaj | Jutro | Data" Foreground="Gray" FontSize="16" Margin="0,5,0,15"/>
 
-                    <!-- Film 1 -->
-                    <StackPanel Orientation="Horizontal" Margin="0,10">
-                        <Image Width="100" Height="150" Source="pack://application:,,,/elementyGraficzne/joker.png" Stretch="Fill" Margin="0,0,10,0" HorizontalAlignment="Left"/>
-                        <StackPanel>
-                            <TextBlock Text="JOKER" FontWeight="Bold" FontSize="18" Foreground="White"/>
-                            <TextBlock Text="Dramat | Kryminał" Foreground="Gray" FontSize="14"/>
-                            <TextBlock Text="Strudzony życiem komik popada w obłęd i staje się psychopatycznym mordercą." Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
-                            <Button x:Name="Wiecej1" Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn1"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Film 2 -->
-                    <StackPanel Orientation="Horizontal" Margin="0,10">
-                        <Image Width="100" Height="150" Margin="0,0,10,0" HorizontalAlignment="Left" Source="pack://application:,,,/elementyGraficzne/terrifier3.png" Stretch="Fill"/>
-                        <StackPanel x:Name="Wiecej2">
-                            <TextBlock Text="TERRIFIER 3" FontWeight="Bold" FontSize="18" Foreground="White"/>
-                            <TextBlock Text="Horror" Foreground="Gray" FontSize="14"/>
-                            <TextBlock Text="Żądny mordu klaun Art, z pomocą nieczystych sił, powraca, by siać śmierć, zadawać ból i sycić się ludzkim cierpieniem." Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
-                            <Button Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" Click="WiecejBttn2"/>
-                        </StackPanel>
-                    </StackPanel>
+                    <ItemsControl ItemsSource="{Binding Filmy}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,10">
+                                    <Image Width="100" Height="150" Source="{Binding SciezkaPlakatu}" Stretch="Fill" Margin="0,0,10,0" />
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Tytul}" FontWeight="Bold" FontSize="18" Foreground="White"/>
+                                        <TextBlock Text="{Binding Gatunek}" Foreground="Gray" FontSize="14"/>
+                                        <TextBlock Text="{Binding Opis}" Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
+                                        <Button Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" 
+                                                Command="{Binding DataContext.WiecejCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                                CommandParameter="{Binding}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </StackPanel>
+
+
+               
 
                 <!-- Sekcja rekomendacji -->
                 <StackPanel Grid.Column="3" Margin="20,20,20,20">
