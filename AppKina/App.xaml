@@ -81,11 +81,11 @@
             </Setter>
         </Style>
 
-        <!-- Styl globalny dla ComboBox -->
+        <!-- Styl globalny dla ComboBox --><!--
         <Style TargetType="ComboBox">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FF530622"/>
-            <!-- Czerwone tło -->
+            --><!-- Czerwone tło --><!--
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -95,18 +95,18 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
                         <Grid>
-                            <!-- Główna ramka -->
+                            --><!-- Główna ramka --><!--
                             <Border x:Name="ComboBoxBorder"
                       Background="{TemplateBinding Background}"
                       BorderBrush="White"
                       BorderThickness="1"/>
-                            <!-- Wyświetlana zawartość -->
+                            --><!-- Wyświetlana zawartość --><!--
                             <ContentPresenter HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="5"
                                 Content="{TemplateBinding SelectionBoxItem}"
                                 ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
-                            <!-- Strzałka ComboBoxa -->
+                            --><!-- Strzałka ComboBoxa --><!--
                             <Popup Name="Popup"
                      Placement="Bottom"
                      IsOpen="{TemplateBinding IsDropDownOpen}"
@@ -126,9 +126,9 @@
             </Setter>
         </Style>
 
-        <!-- Styl globalny dla ComboBoxItem -->
+        --><!-- Styl globalny dla ComboBoxItem --><!--
         <Style TargetType="ComboBoxItem">
-            <!-- Domyślne właściwości -->
+            --><!-- Domyślne właściwości --><!--
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -137,7 +137,7 @@
             <Setter Property="Padding" Value="10"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 
-            <!-- Szablon -->
+            --><!-- Szablon --><!--
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBoxItem">
@@ -149,14 +149,14 @@
                                 VerticalAlignment="Center"/>
                         </Border>
 
-                        <!-- Triggers -->
+                        --><!-- Triggers --><!--
                         <ControlTemplate.Triggers>
-                            <!-- Na najechaniu myszką -->
+                            --><!-- Na najechaniu myszką --><!--
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
                             </Trigger>
-                            <!-- Na zaznaczeniu -->
+                            --><!-- Na zaznaczeniu --><!--
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
@@ -165,7 +165,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
 
 
     </Application.Resources>
