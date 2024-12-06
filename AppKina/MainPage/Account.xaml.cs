@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace AppKina.MainPage
 {
@@ -19,14 +7,32 @@ namespace AppKina.MainPage
     /// </summary>
     public partial class Account : Window
     {
+        public static string UserEmail { get; set; }
+
         public Account()
         {
             InitializeComponent();
+            WyswietlEmail();  // Wyświetl e-mail użytkownika po otwarciu okna
         }
+
+        private void WyswietlEmail()
+        {
+            // Sprawdzamy, czy e-mail jest dostępny w statycznej zmiennej UserEmail
+            if (!string.IsNullOrEmpty(UserEmail))
+            {
+                UserEmailTextBlock.Text = UserEmail;  // Wyświetlamy e-mail w kontrolce TextBlock
+            }
+            else
+            {
+                UserEmailTextBlock.Text = "Brak zalogowanego użytkownika";  // Komunikat, gdy nikt nie jest zalogowany
+            }
+        }
+
+
 
         private void StronaGlowna_Click(object sender, RoutedEventArgs e)
         {
-           Strona_glowna strona_Glowna = new Strona_glowna();
+            Strona_glowna strona_Glowna = new Strona_glowna();
             strona_Glowna.Show();
             this.Close();
         }
@@ -57,9 +63,17 @@ namespace AppKina.MainPage
 
         private void Wyloguj_click(object sender, RoutedEventArgs e)
         {
+            // Zresetuj statyczną zmienną przechowującą e-mail
+            UserEmail = null;
+
+            // Zaktualizuj kontrolkę
+            UserEmailTextBlock.Text = "Nie jesteś zalogowany.";
+
+            // Przejdź do okna logowania
             LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
             logowanieRejestracja.Show();
             this.Close();
         }
     }
 }
+

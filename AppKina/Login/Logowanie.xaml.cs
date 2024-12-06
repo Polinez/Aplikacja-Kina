@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using AppKina.MainPage;
+using Microsoft.Data.Sqlite;
 using System.Windows;
 
 namespace AppKina
@@ -46,6 +47,10 @@ namespace AppKina
                 else if (Role == "user")
                 {
                     MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Zapisujemy e-mail do statycznej zmiennej w Account
+                    Account.UserEmail = email;
+
                     Strona_glowna strona_glowna = new Strona_glowna();
                     strona_glowna.Show();
                     this.Close();
@@ -60,6 +65,8 @@ namespace AppKina
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
 
         // Metoda do logowania użytkownika
         private string LoginUser(string email, string haslo)
