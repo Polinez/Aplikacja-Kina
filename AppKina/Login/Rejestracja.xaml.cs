@@ -32,8 +32,8 @@ namespace AppKina
             string imie = textBox_imie.Text.Trim();
             string nazwisko = textBox_nazwisko.Text.Trim();
             string email = textBox_nowyEmail.Text.Trim();
-            string haslo = textBox_noweHaslo.Text.Trim();
-            string powtorzHaslo = textBox_powtorzNoweHaslo.Text.Trim();
+            string haslo = textBox_noweHaslo.ToString();
+            string powtorzHaslo = textBox_powtorzNoweHaslo.ToString();
 
             // Walidacja danych
             if (string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(haslo) || string.IsNullOrEmpty(powtorzHaslo))
