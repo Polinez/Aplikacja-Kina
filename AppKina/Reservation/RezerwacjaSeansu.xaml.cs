@@ -13,7 +13,11 @@ namespace AppKina
         public RezerwacjaSeansu(string title)
         {
             InitializeComponent();
-            loadProjections(title);
+            string date = loadProjectionDates(title);
+            if (date != null)
+            {
+                loadProjectionTime(title, date);
+            }
         }
 
         private void button_stronaGlowna_Click(object sender, RoutedEventArgs e)
@@ -57,19 +61,7 @@ namespace AppKina
             this.Close();
         }
 
-        //private void comboBox_date()
-        //{
-        //    try
-        //    {
-        //        loadProjections();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-
-        private void loadProjections(string title)
+        private string loadProjectionDates(string title)
         {
             try
             {
@@ -77,23 +69,60 @@ namespace AppKina
                 {
                     connection.Open();
                     
-                    string query = $"SELECT Seanse.Date FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Title={title}";
+                    string query = $"SELECT Seanse.Date FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Movies.Title='{title}'";
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
                     {
                         List<string> dates = new List<string>();
                         while (reader.Read())
                         {
-                            string date = reader.GetString(2);
+                            string date = reader.GetString(0);
                             dates.Add(date);
                             listBox_date.Items.Add(date);
                         }
                         if (dates.Count == 0)
                         {
                             MessageBox.Show("Nie ma dostępnych seansów na wybrany film");
-                            return;
+                            return string.Empty;
                         }
                         
+                    }
+                    
+                    connection.Close();
+                    //return listBox_date.SelectedItem.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return listBox_date.SelectedItem.ToString();
+        }
+
+        private void loadProjectionTime(string title, string date)
+        {
+            try
+            {
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Seanse.StartTime FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Movies.Title='{title}' AND Seanse.Date='{date}'";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        List<string> times = new List<string>();
+                        while (reader.Read())
+                        {
+                            string time = reader.GetString(0);
+                            times.Add(time);
+                            listBox_date.Items.Add(time);
+                        }
+                        if (times.Count == 0)
+                        {
+                            MessageBox.Show("Nie ma dostępnych seansów na wybrany film");
+                        }
+
                     }
                     connection.Close();
                 }

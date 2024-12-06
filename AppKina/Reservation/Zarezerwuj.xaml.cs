@@ -46,9 +46,13 @@ namespace AppKina
                 MessageBox.Show("Wybierz film aby przejść dalej.");
                 return;
             }
-            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu(listBox_MovieTitles.SelectedItem.ToString());
-            rezerwacjaSeansu.Show();
-            this.Close();
+            else
+            {
+                string title = listBox_MovieTitles.SelectedItem.ToString();
+                RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu(title);
+                rezerwacjaSeansu.Show();
+                this.Close();
+            }
         }
 
         private void ShowMovies()
@@ -82,5 +86,6 @@ namespace AppKina
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }
