@@ -46,6 +46,7 @@ namespace WpfApp
                 SeedUsers(connection);
                 CreateMoviesTable(connection);
                 CreateSeanseTable(connection);
+                CreateReservationsTable(connection);
             }
         }
 
@@ -118,6 +119,29 @@ namespace WpfApp
             {
                 connection.Open();
                 CreateMoviesTable(connection);
+            }
+        }
+
+        private static void CreateReservationsTable(SqliteConnection connection)
+        {
+            try
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+                    CREATE TABLE IF NOT EXISTS Reservations (
+                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        UserID INT NOT NULL,
+                        ProjectionID INT NOT NULL,
+                        Seats INT NOT NULL,
+                        FOREIGN KEY(UserID) REFERENCES User(ID),
+                        FOREIGN KEY(ProjectionID) REFERENCES Seanse(ID)
+                    );
+                ";
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ShowError($"Wystąpił błąd podczas tworzenia tabeli filmów: {ex.Message}");
             }
         }
 
