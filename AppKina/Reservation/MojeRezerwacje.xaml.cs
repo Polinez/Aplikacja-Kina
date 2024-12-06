@@ -61,7 +61,6 @@ namespace AppKina
                         if (listBox_Reservations.Items.Count == 0) 
                         {
                             MessageBox.Show("Nie masz żadnych rezerwacji.");
-                            this.Close();
                         }
                     }
                     connection.Close();

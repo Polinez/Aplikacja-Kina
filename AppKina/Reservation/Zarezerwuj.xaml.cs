@@ -40,6 +40,11 @@ namespace AppKina
 
         private void button_dalej_Click(object sender, RoutedEventArgs e)
         {
+            if (listBox_MovieTitles.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz film aby przejść dalej.");
+                return;
+            }
             RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu();
             rezerwacjaSeansu.Show();
             this.Close();
@@ -65,7 +70,7 @@ namespace AppKina
                         if (listBox_MovieTitles.Items.Count == 0)
                         {
                             MessageBox.Show("Nie ma żadnych dostępnych filmów");
-                            this.Close();
+                            return;
                         }
                     }
                     connection.Close();
