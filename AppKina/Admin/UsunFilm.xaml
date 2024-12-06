@@ -35,7 +35,7 @@
 
         <Button Click="powrot_click" Content="Powrót" Grid.Column="2" Grid.Row="1" Background="Black" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="24" Height="40" Width="150" HorizontalAlignment="Right" Margin="3"/>
 
-        <ListBox x:Name="FilmListBox" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="7" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+        <ListBox x:Name="FilmListBox" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="6"  Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
                  Margin="10"/>
 
 
