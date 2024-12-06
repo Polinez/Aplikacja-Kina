@@ -25,6 +25,9 @@
             Click="button_mojeKonto_Click"/>
         </UniformGrid>
 
+        <Button x:Name="button_powrot" Content="Powrót" Grid.Row="2" Grid.Column="0" Foreground="White" Background="Black" FontFamily="Segoe UI Variable Small Semibold"
+                FontSize="20" HorizontalAlignment="Left" Margin="30,0,0,0" Click="button_powrot_Click"/>
+
         <Label Content="Zarezerwuj" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Foreground="White" 
                FontSize="25" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Segoe UI Variable Small Semibold"/>
 
