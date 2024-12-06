@@ -32,8 +32,8 @@ namespace AppKina
             string imie = textBox_imie.Text.Trim();
             string nazwisko = textBox_nazwisko.Text.Trim();
             string email = textBox_nowyEmail.Text.Trim();
-            string haslo = textBox_noweHaslo.Text.Trim();
-            string powtorzHaslo = textBox_powtorzNoweHaslo.Text.Trim();
+            string haslo = textBox_noweHaslo.Password.Trim();
+            string powtorzHaslo = textBox_powtorzNoweHaslo.Password.Trim();
 
             // Walidacja danych
             if (string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(haslo) || string.IsNullOrEmpty(powtorzHaslo))
@@ -53,8 +53,8 @@ namespace AppKina
             {
                 AddUserToDatabase(imie, nazwisko, email, haslo);
                 MessageBox.Show("Rejestracja zakończona sukcesem!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-                Strona_glowna strona_glowna = new Strona_glowna();
-                strona_glowna.Show();
+                LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
+                logowanieRejestracja.Show();
                 this.Close();
             }
             catch (Exception ex)
