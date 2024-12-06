@@ -53,8 +53,8 @@ namespace AppKina
             {
                 AddUserToDatabase(imie, nazwisko, email, haslo);
                 MessageBox.Show("Rejestracja zakończona sukcesem!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-                Strona_glowna strona_glowna = new Strona_glowna();
-                strona_glowna.Show();
+                LogowanieRejestracja logowanieRejestracja = new LogowanieRejestracja();
+                logowanieRejestracja.Show();
                 this.Close();
             }
             catch (Exception ex)
