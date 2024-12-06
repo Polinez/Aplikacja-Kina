@@ -37,14 +37,8 @@
         <Label Content="Miejsca zarezerwowane" Grid.Row="3" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
                FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <ListBox x:Name="listBox_ReservationID"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="0" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
+        <ListBox x:Name="listBox_Reservations"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="4"  Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
                  Margin="10"/>
-        <ListBox x:Name="listBox_ReservationDate"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="1" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
-         Margin="10"/>
-        <ListBox x:Name="listBox_MovieTitle"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="2" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
-         Margin="10"/>
-        <ListBox x:Name="listBox_ReservatedSeats"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="3" Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
-         Margin="10"/>
 
 
         <Grid.ColumnDefinitions>

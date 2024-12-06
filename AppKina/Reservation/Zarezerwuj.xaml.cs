@@ -1,13 +1,16 @@
 ﻿using AppKina.MainPage;
+using Microsoft.Data.Sqlite;
 using System.Windows;
 
 namespace AppKina
 {
     public partial class Zarezerwuj : Window
     {
+        private const string databasePath = @"Data Source=KinoDB.db";
         public Zarezerwuj()
         {
             InitializeComponent();
+            ShowMovies();
         }
 
         private void button_stronaGlowna_Click(object sender, RoutedEventArgs e)
@@ -40,6 +43,38 @@ namespace AppKina
             RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu();
             rezerwacjaSeansu.Show();
             this.Close();
+        }
+
+        private void ShowMovies()
+        {
+            listBox_MovieTitles.Items.Clear();
+            try
+            {
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+                    string zapytanie = "SELECT Title FROM Movies";
+                    using (var komenda = new SqliteCommand(zapytanie, connection))
+                    using (var reader = komenda.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string nazwaFilmu = reader.GetString(0);
+                            listBox_MovieTitles.Items.Add(nazwaFilmu);
+                        }
+                        if (listBox_MovieTitles.Items.Count == 0)
+                        {
+                            MessageBox.Show("Nie ma żadnych dostępnych filmów");
+                            this.Close();
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
