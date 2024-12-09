@@ -3,20 +3,35 @@ using AppKina.MainPage;
 using AppKina.Reservation;
 using Microsoft.Data.Sqlite;
 using System.Windows;
+using System.Windows.Controls;
 using WpfApp;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppKina
 {
     public partial class RezerwacjaSeansu : Window
     {
         private const string databasePath = @"Data Source=KinoDB.db";
+        private string title;
         public RezerwacjaSeansu(string title)
         {
-            InitializeComponent();
-            string date = loadProjectionDates(title);
-            if (date != null)
+            try
             {
-                loadProjectionTime(title, date);
+                InitializeComponent();
+                loadProjectionDates(title);
+                this.title = title;
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboBox_date_SelectionChanged(object sender, SelectionChangedEventArgs scea) 
+        {
+            if (comboBox_date.SelectedItem != null)
+            {
+                loadProjectionTime(title, comboBox_date.SelectedItem.ToString());
             }
         }
 
@@ -49,9 +64,17 @@ namespace AppKina
 
         private void button_dalej_Click(object sender, RoutedEventArgs e)
         {
-            SalaKinowa salaKinowa = new SalaKinowa();
-            salaKinowa.Show();
-            this.Close();
+            if (comboBox_date.SelectedItem != null && comboBox_time.SelectedItem != null)
+            {
+                SalaKinowa salaKinowa = new SalaKinowa();
+                salaKinowa.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wybierz datę i godzinę seansu.");
+                return;
+            }
         }
 
         private void button_powrot_Click(object sender, RoutedEventArgs e)
@@ -61,7 +84,7 @@ namespace AppKina
             this.Close();
         }
 
-        private string loadProjectionDates(string title)
+        private void loadProjectionDates(string title)
         {
             try
             {
@@ -78,25 +101,25 @@ namespace AppKina
                         {
                             string date = reader.GetString(0);
                             dates.Add(date);
-                            listBox_date.Items.Add(date);
                         }
+                        
+                        dates.Sort();
+                        comboBox_date.ItemsSource= dates;
+                        
                         if (dates.Count == 0)
                         {
                             MessageBox.Show("Nie ma dostępnych seansów na wybrany film");
-                            return string.Empty;
+                            return;
                         }
-                        
                     }
                     
                     connection.Close();
-                    //return listBox_date.SelectedItem.ToString();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            return listBox_date.SelectedItem.ToString();
         }
 
         private void loadProjectionTime(string title, string date)
@@ -106,7 +129,7 @@ namespace AppKina
                 using (var connection = new SqliteConnection(databasePath))
                 {
                     connection.Open();
-
+                    
                     string query = $"SELECT Seanse.StartTime FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Movies.Title='{title}' AND Seanse.Date='{date}'";
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -116,11 +139,14 @@ namespace AppKina
                         {
                             string time = reader.GetString(0);
                             times.Add(time);
-                            listBox_date.Items.Add(time);
                         }
+
+                        times.Sort();
+                        comboBox_time.ItemsSource = times;
+
                         if (times.Count == 0)
                         {
-                            MessageBox.Show("Nie ma dostępnych seansów na wybrany film");
+                            MessageBox.Show("Nie ma dostępnych seansów w tym dniu na wybrany film");
                         }
 
                     }
@@ -132,5 +158,6 @@ namespace AppKina
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

@@ -49,9 +49,16 @@ namespace AppKina
             else
             {
                 string title = listBox_MovieTitles.SelectedItem.ToString();
-                RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu(title);
-                rezerwacjaSeansu.Show();
-                this.Close();
+                if (AnyProjection(title) > 0)
+                {
+                    RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu(title);
+                    rezerwacjaSeansu.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Nie ma seansów");
+                }
             }
         }
 
@@ -87,5 +94,36 @@ namespace AppKina
             }
         }
 
+        private int AnyProjection(string title)
+        {
+            try
+            {
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    List<string> projections = new List<string>();
+
+                    string query = $"SELECT Seanse.ID FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Movies.Title='{title}'";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string projection = reader.GetString(0);
+                            projections.Add(projection);
+                        }
+
+                    }
+                    connection.Close();
+                    return projections.Count;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+        }
     }
 }
