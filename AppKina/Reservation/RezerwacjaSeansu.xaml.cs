@@ -13,6 +13,7 @@ namespace AppKina
     {
         private const string databasePath = @"Data Source=KinoDB.db";
         private string title;
+        private int projectionID;
         public RezerwacjaSeansu(string title)
         {
             try
@@ -66,7 +67,8 @@ namespace AppKina
         {
             if (comboBox_date.SelectedItem != null && comboBox_time.SelectedItem != null)
             {
-                SalaKinowa salaKinowa = new SalaKinowa();
+                GetProjectionID();
+                SalaKinowa salaKinowa = new SalaKinowa(projectionID);
                 salaKinowa.Show();
                 this.Close();
             }
@@ -159,5 +161,32 @@ namespace AppKina
             }
         }
 
+        private void GetProjectionID()
+        {
+            try
+            {
+                string date = comboBox_date.ToString();
+                string time = comboBox_time.ToString();
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Seanse.ID FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Movies.Title='{title}' AND Seanse.Date='{date}' AND Seanse.StartTime='{time}'";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            projectionID = int.Parse(reader.GetString(0));
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
