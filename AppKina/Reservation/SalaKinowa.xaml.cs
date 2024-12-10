@@ -1,4 +1,7 @@
-﻿using AppKina.MainPage;
+﻿using AppKina.Admin;
+using AppKina.MainPage;
+using Microsoft.Data.Sqlite;
+using System.ComponentModel.DataAnnotations;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -10,10 +13,18 @@ namespace AppKina
     /// </summary>
     public partial class SalaKinowa : Window
     {
-        public SalaKinowa()
+        private const string databasePath = @"Data Source=KinoDB.db";
+        private int projectionID;
+        private string userEmail = Account.UserEmail;
+        private int userID;
+        private string? seats;
+        public SalaKinowa(int projectionID)
         {
             InitializeComponent();
             GenerateSeats();
+            this.projectionID = projectionID;
+            seats = null;
+            GetUserID();
         }
 
         private void GenerateSeats()
@@ -79,23 +90,81 @@ namespace AppKina
         private void Zarezerwuj_click(object sender, RoutedEventArgs e)
         {
             // Zbieranie wybranych miejsc i logika rezerwacji
-            var selectedSeats = new List<int>();
+            var selectedSeats = new List<string>();
             foreach (CheckBox seat in SeatGrid.Children)
             {
                 if (seat.IsChecked == true)
                 {
-                    selectedSeats.Add(int.Parse(seat.Content.ToString()));
+                    selectedSeats.Add(seat.Content.ToString());
                 }
             }
 
             if (selectedSeats.Count > 0)
             {
-                // Przetwarzanie rezerwacji
-                MessageBox.Show("Wybrane miejsca: " + string.Join(", ", selectedSeats));
+                seats = string.Join(", ", selectedSeats);
+                MessageBox.Show("Wybrane miejsca: " + seats);
+                AddReservationToDatabase();
+
+                Strona_glowna strona_Glowna = new Strona_glowna();
+                strona_Glowna.Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Proszę wybrać miejsca.");
+            }
+        }
+
+        private void AddReservationToDatabase()
+        {
+            try
+            {
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+
+                    command.CommandText = @"INSERT INTO Reservations (UserID, ProjectionID, Seats) VALUES (@UserID, @ProjectionID, @Seats)";
+
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    command.Parameters.AddWithValue("@ProjectionID", projectionID);
+                    command.Parameters.AddWithValue("@Seats", seats);
+
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetUserID()
+        {
+            try
+            {
+                
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Users.ID FROM Users WHERE Users.Email='{userEmail}'";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            userID = int.Parse(reader.GetString(0));
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
