@@ -132,7 +132,7 @@ namespace WpfApp
                         ID INTEGER PRIMARY KEY AUTOINCREMENT,
                         UserID INT NOT NULL,
                         ProjectionID INT NOT NULL,
-                        Seats INT NOT NULL,
+                        Seats TEXT NOT NULL,
                         FOREIGN KEY(UserID) REFERENCES User(ID),
                         FOREIGN KEY(ProjectionID) REFERENCES Seanse(ID)
                     );
