@@ -58,7 +58,10 @@ namespace AppKina.MainPage
 
         private void ZmienHaslo_click(object sender, RoutedEventArgs e)
         {
-            //function that changes password
+            ZmianaHasla zmianaHasla = new ZmianaHasla();
+            zmianaHasla.Show();
+            ZmianaHasla.Email = UserEmail;  // Przypisz e-mail do zmiennej statycznej w ZmianaHasla
+            this.Close();
         }
 
         private void Wyloguj_click(object sender, RoutedEventArgs e)
