@@ -133,7 +133,7 @@ namespace WpfApp
                         UserID INT NOT NULL,
                         ProjectionID INT NOT NULL,
                         Seats TEXT NOT NULL,
-                        FOREIGN KEY(UserID) REFERENCES User(ID),
+                        FOREIGN KEY(UserID) REFERENCES Users(ID),
                         FOREIGN KEY(ProjectionID) REFERENCES Seanse(ID)
                     );
                 ";

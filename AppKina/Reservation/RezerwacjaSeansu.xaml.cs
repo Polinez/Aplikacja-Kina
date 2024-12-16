@@ -165,8 +165,8 @@ namespace AppKina
         {
             try
             {
-                string date = comboBox_date.ToString();
-                string time = comboBox_time.ToString();
+                string date = comboBox_date.SelectedItem.ToString();
+                string time = comboBox_time.SelectedItem.ToString();
                 using (var connection = new SqliteConnection(databasePath))
                 {
                     connection.Open();
