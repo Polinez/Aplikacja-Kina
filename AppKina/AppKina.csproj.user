@@ -28,6 +28,9 @@
     <Compile Update="MainPage\Account.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MainPage\ZmianaHasla.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Reservation\MojeRezerwacje.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainPage\Account.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainPage\ZmianaHasla.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Reservation\MojeRezerwacje.xaml">
