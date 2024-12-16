@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppKina"
         mc:Ignorable="d"
-        Title="MojeRezerwacje" Height="450" Width="800" MinWidth="800" MinHeight="450">
-    <Grid Background="Black">
+        Title="MojeRezerwacje" Height="450" Width="800" MinWidth="800" MinHeight="450" MaxHeight="450" MaxWidth="800">
+    <Grid Background="Black" HorizontalAlignment="Center" Width="800">
         <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" Height="50" Stretch="Uniform" VerticalAlignment="Top"
                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center"/>
         <UniformGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Columns="4" VerticalAlignment="Top"
@@ -25,25 +25,43 @@
                     Click="button_mojeKonto_Click"/>
         </UniformGrid>
 
-        <Label Content="Moje rezerwacje:" Grid.Row="2" Grid.Column="0" Foreground="White" 
+        <Label Content="Moje rezerwacje:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,90,0"  Foreground="White" 
                FontSize="23" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Variable Small Semibold"/>
 
         <Label Content="Numer rezerwacji" Grid.Row="3" Grid.Column="0" Foreground="White" 
                FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Variable Small Semibold"/>
         <Label Content="Data" Grid.Row="3" Grid.Column="1" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
-               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,0,0,0"/>
         <Label Content="Tytuł" Grid.Row="3" Grid.Column="2" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
-               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,0,0,0"/>
         <Label Content="Miejsca zarezerwowane" Grid.Row="3" Grid.Column="3" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"
-               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+               FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"/>
 
         <ListBox x:Name="listBox_Reservations"  Grid.Row="4" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="4"  Background="#FF530622" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" FontSize="18"
-                 Margin="10"/>
+                 Margin="10" VerticalContentAlignment="Center">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" x:Name="column_reservationID"/>
+                            <ColumnDefinition Width="150" x:Name="column_dateTime"/>
+                            <ColumnDefinition Width="250" x:Name="column_title"/>
+                            <ColumnDefinition Width="210" x:Name="column_seats"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0" Text="{Binding id}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding dateTime}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding title}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text="{Binding seats}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="110"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>

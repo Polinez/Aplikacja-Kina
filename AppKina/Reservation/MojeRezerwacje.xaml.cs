@@ -8,9 +8,12 @@ namespace AppKina
     public partial class MojeRezerwacje : Window
     {
         private const string databasePath = @"Data Source=KinoDB.db";
+        private string userEmail = Account.UserEmail;
+        private int userID;
         public MojeRezerwacje()
         {
             InitializeComponent();
+            GetUserID();
             ShowReservations();
         }
 
@@ -49,18 +52,51 @@ namespace AppKina
                 using (var connection = new SqliteConnection(databasePath))
                 {
                     connection.Open();
-                    string zapytanie = "SELECT Reservations.ID, Date, Seanse.MovieID FROM Reservations JOIN Seanse ON Reservations.ProjectionID=Seanse.ID";
+                    string zapytanie = $"SELECT Reservations.ID, Seanse.Date, Seanse.StartTime, Movies.Title, Reservations.Seats FROM Reservations JOIN Seanse ON Reservations.ProjectionID=Seanse.ID JOIN Movies ON Seanse.MovieID=Movies.ID WHERE Reservations.UserID={userID}";
                     using (var komenda = new SqliteCommand(zapytanie, connection))
                     using (var reader = komenda.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            string nazwaFilmu = reader.GetString(0);
-                            listBox_Reservations.Items.Add(nazwaFilmu);
+
+                            listBox_Reservations.Items.Add(new Reservation.ReservationClass
+                            {
+                                id = int.Parse(reader.GetString(0)),
+                                dateTime = reader.GetString(1) + " " + reader.GetString(2),
+                                title = reader.GetString(3),
+                                seats = reader.GetString(4)
+                            });
                         }
                         if (listBox_Reservations.Items.Count == 0) 
                         {
                             MessageBox.Show("Nie masz żadnych rezerwacji.");
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetUserID()
+        {
+            try
+            {
+
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Users.ID FROM Users WHERE Users.Email='{userEmail}'";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            userID = int.Parse(reader.GetString(0));
                         }
                     }
                     connection.Close();

@@ -13,7 +13,7 @@ namespace AppKina
     /// </summary>
     public partial class SalaKinowa : Window
     {
-        private const string databasePath = @"Data Source=KinoDB.db";
+        private const string databasePath = $"Data Source=KinoDB.db";
         private int projectionID;
         private string userEmail = Account.UserEmail;
         private int userID;
