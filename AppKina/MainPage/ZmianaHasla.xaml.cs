@@ -38,7 +38,9 @@ namespace AppKina.MainPage
 
         private void MojeKonto_click(object sender, RoutedEventArgs e)
         {
-            //nic ma sie nie dziac
+            Account account = new Account();
+            account.Show();
+            this.Close();
         }
 
 
