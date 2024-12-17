@@ -103,7 +103,15 @@ namespace AppKina
             {
                 seats = string.Join(", ", selectedSeats);
                 MessageBox.Show("Wybrane miejsca: " + seats);
-                AddReservationToDatabase();
+                try
+                {
+                    AddReservationToDatabase();
+                    MessageBox.Show("Rezerwacja została złożona. Szczegóły rezerwacji możesz sprawdzić w zakładce \"Moje rezerwacje\"", "Rezerwacja przebiegła pomyślnie",MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex) 
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
                 Strona_glowna strona_Glowna = new Strona_glowna();
                 strona_Glowna.Show();
