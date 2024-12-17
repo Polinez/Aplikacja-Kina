@@ -23,5 +23,12 @@ namespace AppKina.Admin
             glownaStronaPracownika.Show();
             this.Close();
         }
+
+        private void BTpowrot(object sender, RoutedEventArgs e)
+        {
+            var glownaStronaPracownika = new GlownaStronaPracownika();
+            glownaStronaPracownika.Show();
+            this.Close();
+        }
     }
 }

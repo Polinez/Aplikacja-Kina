@@ -11,40 +11,21 @@
 
         <Grid Margin="0,50,0,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
-            <UniformGrid Grid.Column="2" Columns="1" Rows="2" Height="100" Width="170" HorizontalAlignment="Center">
-                <Button Content="Usuń seans" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTusun" />
-                <Button Content="Anuluj" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTanuluj" />
+            <Button Content="Powrót" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTpowrot" Background="Black" Margin="5"/>
+
+            <UniformGrid Grid.Column="1" Columns="1" Rows="1" Height="50" Width="150" HorizontalAlignment="Center">
+                <Button Content="Usuń seans" HorizontalAlignment="Center" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Height="35" Width="140" Click="BTusun" />
             </UniformGrid>
 
             <StackPanel VerticalAlignment="Center">
-                <UniformGrid Rows="6" Margin="40,0,0,0">
-                    <TextBlock Text="Lista seansów:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="0,0,0,30"/>
+                <StackPanel  Margin="40,0,0,0">
+                    <TextBlock Text="Lista seansów:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="0,0,0,0"/>
 
-                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
-
-                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
-
-                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
-
-                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
-
-                    <TextBox Text="Tytuł" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" Margin="0,0,0,30"/>
-                </UniformGrid>
-            </StackPanel>
-            <StackPanel VerticalAlignment="Center" Grid.Column="1">
-                <UniformGrid Rows="6" Margin="0,0,0,0" HorizontalAlignment="Left">
-                    <TextBlock Text="Godzina:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="20,0,0,30"/>
-                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
-                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
-                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
-                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
-                    <ListBox Height="25" Margin="20,0,0,30" MaxWidth="150" MinWidth="150"/>
-                </UniformGrid>
+                    <ListBox x:Name="LBSeans" Margin="10" MinHeight="200" Background="Aqua"/>
+                </StackPanel>
             </StackPanel>
 
         </Grid>
