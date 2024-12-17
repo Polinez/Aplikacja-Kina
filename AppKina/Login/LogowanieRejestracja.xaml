@@ -1,0 +1,27 @@
+﻿<Window x:Class="AppKina.LogowanieRejestracja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppKina"
+        mc:Ignorable="d"
+        Title="LogowanieRejestracja" Height="450" Width="800" Background="Black" MinWidth="800" MinHeight="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="pack://application:,,,/elementyGraficzne/CzarneLogo.png"  HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,50" />
+        <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png"  Stretch="UniformToFill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        
+        <Button  Content="Logowanie"     Height="50" Width="200"  HorizontalAlignment="Right" Margin="20"  VerticalAlignment="Center" Grid.Column="0"  Grid.Row="1"             Click="btnLogowanie_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Background="#FF530622" Foreground="White"/>
+        <Button  Content="Rejestracja"   Height="50" Width="200"  HorizontalAlignment="Left"  Margin="20"  VerticalAlignment="Center" Grid.Column="1"  Grid.Row="1"             Click="btnRejestracja_Click" FontFamily="Segoe UI Variable Small Semibold" FontSize="22" Foreground="#FF530622" Background="White"/>
+        <Button  Content="Admin" Click="Admin_Click" Grid.Row="0" Grid.Column="1" Height="50" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20"/>
+        <Button  Content="Użytkownik" Click="Uzytkownik_Click" Grid.Row="0" Grid.Column="0" Height="50" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20"/>
+
+    </Grid>
+</Window>

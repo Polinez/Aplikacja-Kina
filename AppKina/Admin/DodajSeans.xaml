@@ -1,0 +1,47 @@
+﻿<Window x:Class="AppKina.Admin.DodajSeans"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppKina.Admin"
+        mc:Ignorable="d"
+        Title="DodajSeans" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid Background="Black">
+        <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" VerticalAlignment="Top" Height="50" Grid.ColumnSpan="2" />
+
+
+        <Grid Margin="0,50,0,0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center">
+                <UniformGrid Rows="10" Margin="40,40,0,40">
+
+                    <TextBlock Text="Wybór filmu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3" Margin="0,0,0,0"/>
+                    <ComboBox x:Name="LBMovies" DisplayMemberPath="Tytul" Background="#FF530622" Foreground="#FF530622"/>
+
+                    <TextBlock Text="Data:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+                    <DatePicker x:Name="TBdata" Text="" BorderThickness="0" Height="25" Foreground="#FF530622" ToolTip="Wpisz datę w formacie: YYYY-MM-DD" Background="#FF530622"/>
+
+                    <TextBlock Text="Godzina rozpoczęcia:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+                    <TextBox x:Name="TBgodzina" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" ToolTip="Podaj godzinę w formacie: HH:MM"/>
+
+                    <TextBlock Text="Format seansu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+                    <ComboBox x:Name="LBFormat"/>
+
+                    <TextBlock Text="Cena:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
+
+                    <TextBox x:Name="TBcena" Text="" Background="#FF530622" BorderThickness="0" Height="25" TextWrapping="Wrap" Foreground="White"/>
+                </UniformGrid>
+            </StackPanel>
+            <Button Content="Powrót" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTpowrot" Background="Black" Margin="5"/>
+
+            <UniformGrid Grid.Column="1" Grid.ColumnSpan="2" Columns="1" Rows="1" Height="50" Width="150">
+                <Button Content="Dodaj seans" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTdodaj" />
+            </UniformGrid>
+
+        </Grid>
+    </Grid>
+</Window>

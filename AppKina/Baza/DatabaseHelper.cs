@@ -305,11 +305,14 @@ namespace WpfApp
             {
                 connection.Open();
                 var command = connection.CreateCommand();
+
                 command.CommandText = "SELECT ID, Title, Genre, Director, \"Cast\", Duration, Description, PosterPath FROM Movies";
+
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+
                         string tytul = reader.GetString(1);
                         string gatunek = reader.GetString(2);
                         string rezyser = reader.GetString(3);
@@ -322,6 +325,7 @@ namespace WpfApp
 
                         movies.Add(new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu));
                     }
+
 
                 }
             }

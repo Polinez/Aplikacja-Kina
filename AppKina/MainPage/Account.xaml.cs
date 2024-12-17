@@ -58,6 +58,7 @@ namespace AppKina.MainPage
 
         private void ZmienHaslo_click(object sender, RoutedEventArgs e)
         {
+
             if (string.IsNullOrEmpty(UserEmail))
             {
                 MessageBox.Show("Nie jestes zalogowany");
@@ -69,6 +70,7 @@ namespace AppKina.MainPage
                 ZmianaHasla.Email = UserEmail;  // Przypisz e-mail do zmiennej statycznej w ZmianaHasla
                 this.Close();
             }
+
         }
 
         private void Wyloguj_click(object sender, RoutedEventArgs e)

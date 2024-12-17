@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
@@ -7,96 +7,102 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-    <Compile Update="Logowanie.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Rejestracja.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Strona glowna.xaml.cs">
-=======
+    <!-- Sekcja Compile -->
     <Compile Update="Admin\DodajFilm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin\DodajSeans.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Admin\GlownaStronaPracownika.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Logowanie\Logowanie.xaml.cs">
+    <Compile Update="Admin\UsunFilm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Rezerwuj\MojeRezerwacje.xaml.cs">
+    <Compile Update="Admin\UsunSeans.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Logowanie\Rejestracja.xaml.cs">
+    <Compile Update="Login\Logowanie.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Rezerwuj\RezerwacjaSeansu.xaml.cs">
+    <Compile Update="Login\Rejestracja.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Rezerwuj\SalaKinowa.xaml.cs">
+    <Compile Update="MainPage\Account.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainPage\Strona glowna.xaml.cs">
->>>>>>> Stashed changes
+    <Compile Update="MainPage\ZmianaHasla.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MainPage\SzczegolyFilmu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< Updated upstream
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Logowanie.xaml">
-=======
-    <Compile Update="Rezerwuj\Zarezerwuj.xaml.cs">
+    <Compile Update="MainPage\Strona glowna.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Reservation\MojeRezerwacje.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Reservation\RezerwacjaSeansu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Reservation\SalaKinowa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Reservation\Zarezerwuj.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <!-- Sekcja Page -->
     <Page Update="Admin\DodajFilm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin\DodajSeans.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin\GlownaStronaPracownika.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Logowanie\Logowanie.xaml">
->>>>>>> Stashed changes
+    <Page Update="Admin\UsunFilm.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Logowanie\MainWindow.xaml">
+    <Page Update="Admin\UsunSeans.xaml">
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< Updated upstream
-    <Page Update="Rejestracja.xaml">
+    <Page Update="Login\Logowanie.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Strona glowna.xaml">
-=======
-    <Page Update="Rezerwuj\MojeRezerwacje.xaml">
+    <Page Update="Login\Rejestracja.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Logowanie\Rejestracja.xaml">
+    <Page Update="Login\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Rezerwuj\RezerwacjaSeansu.xaml">
+    <Page Update="MainPage\Account.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Rezerwuj\SalaKinowa.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainPage\Strona glowna.xaml">
->>>>>>> Stashed changes
+    <Page Update="MainPage\ZmianaHasla.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainPage\SzczegolyFilmu.xaml">
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< Updated upstream
-=======
-    <Page Update="Rezerwuj\Zarezerwuj.xaml">
+    <Page Update="MainPage\Strona glowna.xaml">
       <SubType>Designer</SubType>
     </Page>
->>>>>>> Stashed changes
+    <Page Update="Reservation\MojeRezerwacje.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Reservation\RezerwacjaSeansu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Reservation\SalaKinowa.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Reservation\Zarezerwuj.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

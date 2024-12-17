@@ -1,0 +1,56 @@
+﻿<Window x:Class="AppKina.Zarezerwuj"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppKina"
+        mc:Ignorable="d"
+        Title="Zarezerwuj" Height="450" Width="800" MinWidth="800" MinHeight="450">
+    <DockPanel>
+        <Grid Background="Black">
+            <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" Height="50" VerticalAlignment="Top"
+                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <UniformGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Columns="4" VerticalAlignment="Top"
+                         Height="40" Background="#FF530622">
+                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" 
+                        FontFamily="Montsterrat" Click="button_stronaGlowna_Click" Margin="5"/>
+                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" 
+                        FontFamily="Monsterrat" Margin="5"
+                        Click="button_zarezerwuj_Click"/>
+                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" 
+                        FontFamily="Monsterrat" Margin="5"
+                        Click="button_mojeRezerwacje_Click"/>
+                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" 
+                        FontFamily="Monsterrat"  Margin="5"
+                        Click="button_mojeKonto_Click"/>
+            </UniformGrid>
+
+            <Label Content="Zarezerwuj" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Foreground="White" 
+                   FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <ListBox x:Name="listBox_MovieTitles" Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="3" Grid.RowSpan="4" FontFamily="Segoe UI Variable Small Semibold"
+                    Background="#FF530622" Foreground="White" FontSize="18" Margin="10" Width="600"/>
+            
+
+            <Button x:Name="Dalej" Content="Dalej" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" 
+                    Background="#FF530622" Foreground="white" Width="200" Height="40" FontSize="20"
+                    Click="button_dalej_Click"/>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -16,27 +16,29 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <UniformGrid Columns="5" VerticalAlignment="Top" Height="45" Background="#FF530622" Grid.Row="0" Grid.ColumnSpan="2" >
-            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Click="StronaGlowna_Click" />
-            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
-            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
-            <Button Content="Moje recenzje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
-            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" />
+
+
+        <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622"  Grid.ColumnSpan="2">
+            <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="StronaGlowna_Click"/>
+            <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="Rezerwuj_click"/>
+            <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeRezerwacje_click"/>
+            <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeKonto_click"/>
         </UniformGrid>
 
-        <Image Source="pack://application:,,,/elementyGraficzne/joker.png"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="20"/>
+        <Image x:Name="zdjeieIM" Source="pack://application:,,,/elementyGraficzne/joker.png"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="20"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="20" >
             
-            <TextBlock Text="Joker" 
+            <TextBlock x:Name="TytulTB" Text="Joker" 
                        FontSize="30" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
             
         <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <TextBlock Text="Dramat, Kryminał, Thriller" 
+                <TextBlock x:Name="GatunekTB" Text="Dramat, Kryminał, Thriller" 
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
 
                 <TextBlock Text=" | " 
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="5,0"/>
+
 
                 <TextBlock x:Name="czasTrwaniaTB" Text="Czas trwania: 122 min"
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
@@ -50,6 +52,7 @@
                        FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap"/>
             <Button Content="Zobacz seanse"
                     Background="#FF530622" Foreground="White" FontSize="18" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="30,5"/>
+
         </StackPanel>
     </Grid>
 </Window>

@@ -5,72 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppKina"
         mc:Ignorable="d"
-        Title="Strona_glowna" Height="450" Width="800">
-    
+
+        Title="Strona_glowna" Height="600" Width="800" MinWidth="800" MinHeight="450">
+
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <Grid Background="Black">
+            
+            <Image Source="pack://application:,,,/elementyGraficzne/LogoLinia.png" VerticalAlignment="Top" Height="50" Grid.ColumnSpan="2" />
 
-            <!-- logo-->
-            <Image Source="pack://application:,,,/LogoLinia.png" VerticalAlignment="Top" Height="50" Stretch="Fill"/>
-
-            <!-- Górne menu -->
-<<<<<<< Updated upstream
-            <UniformGrid Columns="6" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0">
-                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="8"/>
-                <Button Content="Moje recenzje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-                <Button Content="🔍" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Monsterrat" BorderThickness="0" Margin="10"/>
-=======
             <UniformGrid Columns="4" VerticalAlignment="Top" Height="40" Background="#FF530622" Margin="0,50,0,0" Grid.ColumnSpan="2">
-                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8"/>
-                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="Rezerwuj_click"/>
-                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeRezerwacje_click"/>
-                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" BorderThickness="0" Margin="8" Click="MojeKonto_click"/>
->>>>>>> Stashed changes
+
+                <Button Content="Strona główna" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5"/>
+                <Button Content="Zarezerwuj" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="Rezerwuj_click"/>
+                <Button Content="Moje rezerwacje" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeRezerwacje_click"/>
+                <Button Content="Moje konto" Foreground="White" Background="Transparent" FontSize="16" FontFamily="Segoe UI Variable Small Semibold" Margin="5" Click="MojeKonto_click"/>
+
             </UniformGrid>
 
-            <!-- Główna zawartość -->
-            <Grid Margin="0,100,0,0">
+            <Grid Margin="0,100,0,0" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="41*"/>
-                    <ColumnDefinition Width="358*"/>
-                    <ColumnDefinition Width="267*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- Sekcja repertuaru -->
-                <StackPanel Grid.Column="0" Margin="20,20,20,20" Grid.ColumnSpan="3">
+                <StackPanel x:Name="MainMoviesStackPanel" Grid.Column="0" Margin="20">
                     <TextBlock Text="REPERTUAR" Foreground="White" FontSize="22" FontWeight="Bold"/>
-                    <TextBlock Text="Dzisiaj | Jutro | Data" Foreground="Gray" FontSize="16" Margin="0,5,0,15"/>
 
-                    <!-- Film 1 -->
-                    <StackPanel Orientation="Horizontal" Margin="0,10">
-                        <Border Width="100" Height="150" Background="Gray" Margin="0,0,10,0" HorizontalAlignment="Left">
-                            <TextBlock Text="Obraz 1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <StackPanel>
-                            <TextBlock Text="FILM 1" FontWeight="Bold" FontSize="18" Foreground="White"/>
-                            <TextBlock Text="Dokument" Foreground="Gray" FontSize="14"/>
-                            <TextBlock Text="Krótki opis..." Foreground="White" FontSize="12"/>
-                            <TextBlock Text="Czytaj więcej" Foreground="Gray" FontSize="12" FontStyle="Italic"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Film 2 -->
-                    <StackPanel Orientation="Horizontal" Margin="0,10">
-                        <Border Width="100" Height="150" Background="Gray" Margin="0,0,10,0" HorizontalAlignment="Left">
-                            <TextBlock Text="Obraz 2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <StackPanel>
-                            <TextBlock Text="FILM 2" FontWeight="Bold" FontSize="18" Foreground="White"/>
-                            <TextBlock Text="Dokument" Foreground="Gray" FontSize="14"/>
-                            <TextBlock Text="Krótki opis" Foreground="White" FontSize="12"/>
-                            <TextBlock Text="Czytaj więcej" Foreground="Gray" FontSize="12" FontStyle="Italic"/>
-                        </StackPanel>
-                    </StackPanel>
+                    <ItemsControl ItemsSource="{Binding Filmy}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,10">
+                                    <Image Width="100" Height="150" Source="{Binding SciezkaPlakatu}" Stretch="Fill" Margin="0,0,10,0" />
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Tytul}" FontWeight="Bold" FontSize="18" Foreground="White"/>
+                                        <TextBlock Text="{Binding Gatunek}" Foreground="Gray" FontSize="14"/>
+                                        <TextBlock Text="{Binding Opis}" Foreground="White" FontSize="12" TextWrapping="Wrap" MaxWidth="420"/>
+                                        <Button Content="Czytaj więcej" HorizontalAlignment="Left" Background="Black" Foreground="Gray" FontSize="12" FontStyle="Italic" 
+                                                Command="{Binding DataContext.WiecejCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                                CommandParameter="{Binding}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </StackPanel>
+
+
+               
+
 
                 <!-- Sekcja rekomendacji -->
                 <StackPanel Grid.Column="3" Margin="20,20,20,20">
@@ -78,16 +61,17 @@
 
                     <!-- Film rekomendowany -->
                     <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
-                        <Border Width="150" Height="220" Background="Gray" HorizontalAlignment="Center">
-                            <TextBlock Text="Obraz 3" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <TextBlock Text="TYTUŁ FILMU" FontWeight="Bold" FontSize="18" Foreground="White" TextAlignment="Center"/>
-                        <TextBlock Text="Film akcji" Foreground="Gray" FontSize="14" TextAlignment="Center"/>
-                        <TextBlock Text="A BASE Jumping and Wingsuit Flying documentary directed and produced by..." Foreground="White" FontSize="12" TextAlignment="Center"/>
+
+                        
+                        <Image Width="150" Height="220" HorizontalAlignment="Center" Source="pack://application:,,,/elementyGraficzne/venom.png" Stretch="Fill"/>
+                        
+                        <TextBlock Text="VENOM 3" FontWeight="Bold" FontSize="18" Foreground="White" TextAlignment="Center"/>
+                        <TextBlock Text="Film akcji | Sci-Fi" Foreground="Gray" FontSize="14" TextAlignment="Center"/>
+                        <TextBlock Text="Eddie i Venom uciekają, ścigani przez siły z ich obu światów. Zacieśniająca się sieć niebezpieczeństw zmusza ich do podjęcia druzgocącej decyzji, która zakończy ich wspólną podróż." Foreground="White" FontSize="12" TextAlignment="Center" TextWrapping="Wrap"/>
+
                     </StackPanel>
                 </StackPanel>
             </Grid>
         </Grid>
     </ScrollViewer>
-
 </Window>

@@ -1,4 +1,9 @@
 ﻿using System.Windows;
+﻿using AppKina.Admin;
+using AppKina.MainPage;
+using System.Windows;
+using System.Windows.Media.Imaging;
+
 
 namespace AppKina
 {
@@ -7,13 +12,11 @@ namespace AppKina
     /// </summary>
     public partial class SzczegolyFilmu : Window
     {
-        //public static Film Film { get; set; }
         public SzczegolyFilmu()
         {
             InitializeComponent();
         }
-<<<<<<< Updated upstream
-=======
+
         public SzczegolyFilmu(Film szczegolyFilmu) : this()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace AppKina
             ObsadaTB.Text = "Obsada: " + film.Obsada;
             czasTrwaniaTB.Text = "Czas trwania: " + film.CzasTrwania + " min";
         }
->>>>>>> Stashed changes
+
 
         private void StronaGlowna_Click(object sender, RoutedEventArgs e)
         {
@@ -39,5 +42,34 @@ namespace AppKina
             strona_Glowna.Show();
             this.Close();
         }
+
+        private void Rezerwuj_click(object sender, RoutedEventArgs e)
+        {
+            Zarezerwuj zarezerwuj = new Zarezerwuj();
+            zarezerwuj.Show();
+            this.Close();
+        }
+
+        private void MojeRezerwacje_click(object sender, RoutedEventArgs e)
+        {
+            MojeRezerwacje mojeRezerwacje = new MojeRezerwacje();
+            mojeRezerwacje.Show();
+            this.Close();
+        }
+
+        private void MojeKonto_click(object sender, RoutedEventArgs e)
+        {
+            Account account = new Account();
+            account.Show();
+            this.Close();
+        }
+
+        private void click_zobacz_seanse(object sender, RoutedEventArgs e)
+        {
+            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu("tytuł"); //dodać przekazywanie tytułu danego filmu
+            rezerwacjaSeansu.Show();
+            this.Close();
+        }
+
     }
 }
