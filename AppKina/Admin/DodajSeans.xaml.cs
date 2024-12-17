@@ -91,10 +91,17 @@ namespace AppKina.Admin
                 double Price = price;
 
                 // Utworzenie obiektu seansu
-                var seans = new Seans(MovieID, Date, StartTime, Format, Price);
+                //var seans = new Seans(MovieID, Date, StartTime, Format, Price);
 
 
-
+                var seans = new Seans
+                {
+                    MovieID = MovieID,
+                    Date = Date,
+                    StartTime = StartTime,
+                    Format = Format,
+                    Price = Price
+                };
                 // Dodanie seansu do bazy
                 if (AddSeans(seans))
                 {
