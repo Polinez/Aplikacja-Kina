@@ -61,7 +61,7 @@
 
             <Button x:Name="buttom_zarejestruj" Content="Zarejestruj" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
                     Width="200" Height="38" Background="#530622" Foreground="White" FontSize="25" Margin="0,0,95,0"
-                    FontFamily="Segoe UI Variable Small Semibold" HorizontalAlignment="Center" Click="button_zarezerwuj_Click"/>
+                    FontFamily="Segoe UI Variable Small Semibold" HorizontalAlignment="Center" Click="button_zarejestruj_Click"/>
             <Button x:Name="button_powrót" Content="Powrót" Grid.Row="0" Background="Black" Foreground="White" FontSize="20"
                     Width="70" Height="35" IsDefault="True" Click="button_powrot_Click" FontFamily="Segoe UI Variable Small Semibold"/>
           
