@@ -1,5 +1,6 @@
 ﻿using AppKina.Admin;
 using AppKina.MainPage;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -16,6 +17,7 @@ namespace AppKina
         {
             InitializeComponent();
             LoadMovies();
+            PokazLosowyFilm();
         }
 
         /// <summary>
@@ -132,6 +134,53 @@ namespace AppKina
             Account account = new Account();
             account.Show();
             this.Close();
+
+        }
+
+        // Funkcja do wyświetlania losowego filmu
+        private void PokazLosowyFilm()
+        {
+            try
+            {
+                // Pobieranie losowego ID filmu
+                int randomFilmId = DatabaseHelper.GetRandomMovieId();
+
+                if (randomFilmId != -1)
+                {
+                    // Pobieranie filmu na podstawie wylosowanego ID
+                    Film losowyFilm = DatabaseHelper.GetMovieById(randomFilmId);
+
+                    if (losowyFilm != null)
+                    {
+                        // Wyświetlanie szczegółów filmu
+                        tytul_textblock.Text = losowyFilm.Tytul;
+                        gatunek_textblock.Text = losowyFilm.Gatunek;
+                        opis_textblock.Text = losowyFilm.Opis;
+
+                        // Wczytanie plakatu filmu
+                        if (!string.IsNullOrEmpty(losowyFilm.SciezkaPlakatu) && File.Exists(losowyFilm.SciezkaPlakatu))
+                        {
+                            plakat_image.Source = new BitmapImage(new Uri(losowyFilm.SciezkaPlakatu, UriKind.RelativeOrAbsolute));
+                        }
+                        else
+                        {
+                            plakat_image.Source = new BitmapImage(new Uri("path_to_default_image.jpg", UriKind.RelativeOrAbsolute));
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie udało się znaleźć losowego filmu.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Brak filmów w bazie danych.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
     }
