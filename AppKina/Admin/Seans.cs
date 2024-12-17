@@ -14,15 +14,15 @@
         {
             return $"ID filmu: {MovieID}, Data: {Date}, Godzina rozpoczęcia: {StartTime}, Format: {Format}, Cena: {Price}";
         }
-        public Seans(int movieID, string date, string startTime, string format, double price)
-        {
-            MovieID = movieID;
-            Date = date;
-            StartTime = startTime;
-            Format = format;
-            Price = price;
+        //public Seans(int movieID, string date, string startTime, string format, double price)
+        //{
+        //    MovieID = movieID;
+        //    Date = date;
+        //    StartTime = startTime;
+        //    Format = format;
+        //    Price = price;
 
-        }
+        //}
     }
 
 }
