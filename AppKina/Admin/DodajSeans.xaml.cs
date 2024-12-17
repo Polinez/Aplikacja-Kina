@@ -95,9 +95,6 @@ namespace AppKina.Admin
 
 
 
-
-
-
                 // Dodanie seansu do bazy
                 if (AddSeans(seans))
                 {
@@ -121,11 +118,12 @@ namespace AppKina.Admin
             glownaStronaPracownika.Show();
             this.Close();
         }
+
+
         public static bool MovieExists(int movieID)
         {
             try
             {
-                MessageBox.Show(movieID.ToString());
                 using (var connection = GetConnection())
                 {
                     connection.Open();

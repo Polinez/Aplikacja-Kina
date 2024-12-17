@@ -253,7 +253,7 @@ namespace WpfApp
 
                         var film = new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu)
                         {
-                            ID = id // Ustawienie ID pobranego z bazy
+                            ID = id
                         };
 
                         movies.Add(film);
