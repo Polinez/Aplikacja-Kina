@@ -19,7 +19,7 @@ namespace AppKina
         }
 
         // Obsługa kliknięcia przycisku "Zarejestruj"
-        private void button_zarezerwuj_Click(object sender, RoutedEventArgs e)
+        private void button_zarejestruj_Click(object sender, RoutedEventArgs e)
         {
             // Sprawdzamy, czy użytkownik zaakceptował regulamin
             if (checkbox_Regulamin.IsChecked == false)
@@ -32,8 +32,8 @@ namespace AppKina
             string imie = textBox_imie.Text.Trim();
             string nazwisko = textBox_nazwisko.Text.Trim();
             string email = textBox_nowyEmail.Text.Trim();
-            string haslo = textBox_noweHaslo.ToString();
-            string powtorzHaslo = textBox_powtorzNoweHaslo.ToString();
+            string haslo = textBox_noweHaslo.Password.ToString();
+            string powtorzHaslo = textBox_powtorzNoweHaslo.Password.ToString();
 
 
             // Walidacja danych
