@@ -17,14 +17,14 @@
             <Button Content="Powrót" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"  Height="35" Width="140" Click="BTpowrot" Background="Black" Margin="5"/>
 
             <UniformGrid Grid.Column="1" Columns="1" Rows="1" Height="50" Width="150" HorizontalAlignment="Center">
-                <Button Content="Usuń seans" HorizontalAlignment="Center" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Height="35" Width="140" Click="BTusun" />
+                <Button x:Name="usunSeans" Content="Usuń seans" HorizontalAlignment="Center" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Height="35" Width="140" Click="BTusun" />
             </UniformGrid>
 
             <StackPanel VerticalAlignment="Center">
                 <StackPanel  Margin="40,0,0,0">
                     <TextBlock Text="Lista seansów:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="0,0,0,0"/>
 
-                    <ListBox x:Name="LBSeans" Margin="10" MinHeight="200" Background="Aqua"/>
+                    <ListBox x:Name="LBSeans" Margin="10" MinHeight="200" SelectionChanged="SeansListBox_wybor" />
                 </StackPanel>
             </StackPanel>
 
