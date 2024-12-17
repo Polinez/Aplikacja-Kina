@@ -16,6 +16,7 @@ namespace AppKina
         }
         public SzczegolyFilmu(Film szczegolyFilmu) : this()
         {
+            InitializeComponent();
             // Ustaw dane filmu w interfejsie użytkownika
             UstawSzczegolyFilmu(szczegolyFilmu);
         }
@@ -24,8 +25,11 @@ namespace AppKina
             // Zakładam, że w interfejsie masz kontrolki jak np. TextBlock do wyświetlania danych
             TytulTB.Text = film.Tytul;
             GatunekTB.Text = film.Gatunek;
-            OpisTB.Text = film.Opis;
+            OpisTB.Text = "Opis: " + film.Opis;
             zdjeieIM.Source = new BitmapImage(new Uri(film.SciezkaPlakatu, UriKind.RelativeOrAbsolute));
+            RezyserTB.Text = "Reżyser: " + film.Rezyser;
+            ObsadaTB.Text = "Obsada: " + film.Obsada;
+            CzasTrwaniaTB.Text = "Czas trwania: " + film.CzasTrwania + " min";
         }
 
         private void StronaGlowna_Click(object sender, RoutedEventArgs e)

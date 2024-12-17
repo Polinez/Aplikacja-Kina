@@ -58,10 +58,17 @@ namespace AppKina.MainPage
 
         private void ZmienHaslo_click(object sender, RoutedEventArgs e)
         {
-            ZmianaHasla zmianaHasla = new ZmianaHasla();
-            zmianaHasla.Show();
-            ZmianaHasla.Email = UserEmail;  // Przypisz e-mail do zmiennej statycznej w ZmianaHasla
-            this.Close();
+            if (string.IsNullOrEmpty(UserEmail))
+            {
+                MessageBox.Show("Nie jestes zalogowany");
+            }
+            else
+            {
+                ZmianaHasla zmianaHasla = new ZmianaHasla();
+                zmianaHasla.Show();
+                ZmianaHasla.Email = UserEmail;  // Przypisz e-mail do zmiennej statycznej w ZmianaHasla
+                this.Close();
+            }
         }
 
         private void Wyloguj_click(object sender, RoutedEventArgs e)
@@ -79,4 +86,3 @@ namespace AppKina.MainPage
         }
     }
 }
-

@@ -38,15 +38,15 @@
                 <TextBlock Text=" | " 
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="5,0"/>
 
-                <TextBlock Text="Czas trwania: 122 min"
+                <TextBlock x:Name="CzasTrwaniaTB" Text="Czas trwania: 122 min"
                    FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
         </StackPanel>
             
             <TextBlock x:Name="OpisTB" Text="Opis: Arthur Fleck (Joaquin Phoenix) to nieudany komik, który prowadzi nędzne życie w Gotham City. Jego jedyne związki z rzeczywistością to praca jako klaun wynajmowany do różnych imprez oraz opieka nad starszą matką. Arthur marzy o karierze komika stand-upowca, ale jego poczynania spotykają się z drwinami i agresją ze strony innych ludzi. Wszystko się zmienia, gdy w wyniku serii zdarzeń Arthur zaczyna odkrywać swoje mroczne alter ego - Joker."
                        FontSize="15" Foreground="#FFBBBBBB" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap" Margin="5"/>
-            <TextBlock Text="Reżyseria: Todd Phillips"
+            <TextBlock x:Name="RezyserTB" Text="Reżyseria: Todd Phillips"
                         FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold"/>
-            <TextBlock Text="Obsada: Joaquin Phoenix, Robert De Niro, Zazie Beetz"
+            <TextBlock x:Name="ObsadaTB" Text="Obsada: Joaquin Phoenix, Robert De Niro, Zazie Beetz"
                        FontSize="15" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" TextWrapping="Wrap"/>
             <Button Content="Zobacz seanse"
                     Background="#FF530622" Foreground="White" Width="150" Height="35" FontSize="18" FontFamily="Segoe UI Variable Small Semibold" Margin="0,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="30,5" Click="click_zobacz_seanse"/>

@@ -24,8 +24,7 @@
         // Ścieżka do plakatu filmu
         public string SciezkaPlakatu { get; set; }
 
-        // Konstruktor bezparametrowy
-        public Film() { }
+
 
         // Konstruktor parametrowy
         public Film(string tytul, string gatunek, string rezyser, string obsada, int czasTrwania, string opis, string sciezkaPlakatu)
