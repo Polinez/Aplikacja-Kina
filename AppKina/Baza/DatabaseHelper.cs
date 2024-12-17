@@ -226,78 +226,8 @@ namespace WpfApp
                 ShowError($"Wystąpił błąd podczas tworzenia tabeli Seanse: {ex.Message}");
             }
         }
-        /// <summary>
-        /// Dodaje seans do tabeli Seanse.
-        /// </summary>
-        /// <param name="seans">Obiekt reprezentujący seans.</param>
-        /// <returns>True, jeśli dodano seans; w przeciwnym razie False.</returns>
-        /// 
 
-        public static bool AddSeans(Seans seans)
-        {
-            try
-            {
-                using (var connection = GetConnection())
-                {
-                    connection.Open();
-                    var command = connection.CreateCommand();
 
-                    command.CommandText = @"
-                INSERT INTO Seanse (MovieID, Date, StartTime, Format, Price)
-                VALUES (@MovieID, @Date, @StartTime, @Format, @Price);
-            ";
-
-                    command.Parameters.AddWithValue("@MovieID", seans.MovieID);
-                    command.Parameters.AddWithValue("@Date", seans.Date);
-                    command.Parameters.AddWithValue("@StartTime", seans.StartTime);
-                    command.Parameters.AddWithValue("@Format", seans.Format);
-                    command.Parameters.AddWithValue("@Price", seans.Price);
-
-                    command.ExecuteNonQuery();
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                ShowError($"Wystąpił błąd podczas dodawania seansu do bazy danych: {ex.Message}");
-                return false;
-            }
-        }
-        public static bool IsSeansTimeAvailable(int movieID, string date, TimeSpan startTime, TimeSpan movieDuration) //funckja rozwiązująca problemy z nakładaniem się seansów
-        {
-            try
-            {
-                using (var connection = GetConnection())
-                {
-                    connection.Open();
-                    var command = connection.CreateCommand();
-                    command.CommandText = @"
-                SELECT StartTime FROM Seanse
-                WHERE Date = @Date
-            ";
-                    command.Parameters.AddWithValue("@Date", date);
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            var existingStartTime = TimeSpan.Parse(reader.GetString(0));
-                            var existingEndTime = existingStartTime + movieDuration + TimeSpan.FromMinutes(20);
-
-                            if (startTime < existingEndTime && startTime + movieDuration > existingStartTime)
-                                return false; // Konflikt czasowy
-                        }
-                    }
-                }
-                return true; // Brak konfliktów
-            }
-            catch (Exception ex)
-            {
-                ShowError($"Wystąpił błąd podczas walidacji czasu: {ex.Message}");
-                return false;
-            }
-        }
         public static List<Film> GetAllMovies()
         {
             var movies = new List<Film>();
@@ -310,6 +240,7 @@ namespace WpfApp
                 {
                     while (reader.Read())
                     {
+                        int id = reader.GetInt32(0);
                         string tytul = reader.GetString(1);
                         string gatunek = reader.GetString(2);
                         string rezyser = reader.GetString(3);
@@ -320,7 +251,12 @@ namespace WpfApp
 
 
 
-                        movies.Add(new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu));
+                        var film = new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu)
+                        {
+                            ID = id // Ustawienie ID pobranego z bazy
+                        };
+
+                        movies.Add(film);
                     }
 
                 }
