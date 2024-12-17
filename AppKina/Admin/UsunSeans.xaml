@@ -20,11 +20,11 @@
                 <Button x:Name="usunSeans" Content="Usuń seans" HorizontalAlignment="Center" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Height="35" Width="140" Click="BTusun" />
             </UniformGrid>
 
-            <StackPanel VerticalAlignment="Center">
-                <StackPanel  Margin="40,0,0,0">
-                    <TextBlock Text="Lista seansów:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="0,0,0,0"/>
+            <StackPanel VerticalAlignment="Center" Margin="40,0,0,0">
+                <TextBlock Text="Lista seansów:" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Margin="0,0,0,0"/>
 
-                    <ListBox x:Name="LBSeans" Margin="10" MinHeight="200" SelectionChanged="SeansListBox_wybor" />
+                <StackPanel>
+                    <ListBox x:Name="LBSeans" Background="#FF530622" Margin="10" MinHeight="200" SelectionChanged="SeansListBox_wybor" />
                 </StackPanel>
             </StackPanel>
 
