@@ -263,6 +263,76 @@ namespace WpfApp
             }
             return movies;
         }
+        public static Film GetMovieById(int id)
+        {
+            try
+            {
+                // Połączenie z bazą danych (przykład SQL)
+                using (var connection = new SqliteConnection("Data Source=KinoDB.db"))
+                {
+                    connection.Open();
+                    var command = new SqliteCommand("SELECT * FROM Movies WHERE ID = @ID", connection);
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Tworzymy obiekt Film z danych z bazy
+                            return new Film
+                            {
+                                ID = Convert.ToInt32(reader["ID"]),
+                                Tytul = reader["Title"].ToString(),
+                                Gatunek = reader["Genre"].ToString(),
+                                Opis = reader["Description"].ToString(),
+                                SciezkaPlakatu = reader["PosterPath"].ToString(),
+                                Rezyser = reader["Director"].ToString(),
+                                Obsada = reader["Cast"].ToString(),
+                                CzasTrwania = Convert.ToInt32(reader["Duration"])
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas ładowania filmu: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+        }
+        public static int GetRandomMovieId()
+        {
+            try
+            {
+                using (var connection = new SqliteConnection("Data Source=KinoDB.db"))
+                {
+                    connection.Open();
+                    var command = new SqliteCommand("SELECT ID FROM Movies ORDER BY RANDOM() LIMIT 1", connection);
+
+                    var result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result); // Poprawione rzutowanie
+                    }
+                    else
+                    {
+                        return -1; // Brak wyników
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas losowania ID filmu: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return -1;
+            }
+        }
+
+
 
 
     }

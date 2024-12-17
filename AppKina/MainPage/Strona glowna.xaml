@@ -60,11 +60,11 @@
                     <!-- Film rekomendowany -->
                     <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
                         
-                        <Image Width="150" Height="220" HorizontalAlignment="Center" Source="pack://application:,,,/elementyGraficzne/venom.png" Stretch="Fill"/>
+                        <Image x:Name="plakat_image" Width="150" Height="220" HorizontalAlignment="Center" Source="pack://application:,,,/elementyGraficzne/venom.png" Stretch="Fill"/>
                         
-                        <TextBlock Text="VENOM 3" FontWeight="Bold" FontSize="18" Foreground="White" TextAlignment="Center"/>
-                        <TextBlock Text="Film akcji | Sci-Fi" Foreground="Gray" FontSize="14" TextAlignment="Center"/>
-                        <TextBlock Text="Eddie i Venom uciekają, ścigani przez siły z ich obu światów. Zacieśniająca się sieć niebezpieczeństw zmusza ich do podjęcia druzgocącej decyzji, która zakończy ich wspólną podróż." Foreground="White" FontSize="12" TextAlignment="Center" TextWrapping="Wrap"/>
+                        <TextBlock  x:Name="tytul_textblock" Text="VENOM 3" FontWeight="Bold" FontSize="18" Foreground="White" TextAlignment="Center"/>
+                        <TextBlock x:Name="gatunek_textblock" Text="Film akcji | Sci-Fi" Foreground="Gray" FontSize="14" TextAlignment="Center"/>
+                        <TextBlock x:Name="opis_textblock" Text="Eddie i Venom uciekają, ścigani przez siły z ich obu światów. Zacieśniająca się sieć niebezpieczeństw zmusza ich do podjęcia druzgocącej decyzji, która zakończy ich wspólną podróż." Foreground="White" FontSize="12" TextAlignment="Center" TextWrapping="Wrap"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

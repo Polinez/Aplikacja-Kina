@@ -38,6 +38,9 @@
             SciezkaPlakatu = sciezkaPlakatu;
         }
 
+        public Film() { }
+
+
         public override string ToString()
         {
             return $"Tytuł: {Tytul}, Gatunek: {Gatunek}, Reżyser: {Rezyser}, Obsada: {Obsada}, " +
