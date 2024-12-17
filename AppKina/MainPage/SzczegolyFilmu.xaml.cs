@@ -62,7 +62,7 @@ namespace AppKina
 
         private void click_zobacz_seanse(object sender, RoutedEventArgs e)
         {
-            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu("tytuł"); //dodać przekazywanie tytułu danego filmu
+            RezerwacjaSeansu rezerwacjaSeansu = new RezerwacjaSeansu(TytulTB.Text); //dodać przekazywanie tytułu danego filmu
             rezerwacjaSeansu.Show();
             this.Close();
         }
