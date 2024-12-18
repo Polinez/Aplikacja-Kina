@@ -48,6 +48,12 @@ namespace AppKina.Admin
                 }
                 var parsedDate = TBdata.SelectedDate.Value;
 
+                if (parsedDate < DateTime.Today)
+                {
+                    MessageBox.Show("Data seansu nie może być wcześniejsza niż dzisiejsza.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return; // Zakończenie w przypadku daty wstecznej
+                }
+
                 if (string.IsNullOrWhiteSpace(TBgodzina.Text) || !TimeSpan.TryParse(TBgodzina.Text, out var startTime))
                 {
                     MessageBox.Show("Wprowadź poprawną godzinę w formacie HH:MM!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -77,7 +83,7 @@ namespace AppKina.Admin
                 var movieDuration = TimeSpan.FromMinutes(selectedMovie.CzasTrwania);
                 var endTime = startTime.Add(movieDuration);
 
-                // Walidacja czasów seansów
+                // Walidacja czasów seansów (wywoływana dopiero po walidacji daty)
                 if (!IsSeansTimeAvailable(selectedMovie.ID, parsedDate.ToString("yyyy-MM-dd"), startTime, endTime))
                 {
                     MessageBox.Show("Czas seansu koliduje z innym seansem!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -91,9 +97,6 @@ namespace AppKina.Admin
                 double Price = price;
 
                 // Utworzenie obiektu seansu
-                //var seans = new Seans(MovieID, Date, StartTime, Format, Price);
-
-
                 var seans = new Seans
                 {
                     MovieID = MovieID,
@@ -102,6 +105,7 @@ namespace AppKina.Admin
                     Format = Format,
                     Price = Price
                 };
+
                 // Dodanie seansu do bazy
                 if (AddSeans(seans))
                 {
@@ -118,6 +122,7 @@ namespace AppKina.Admin
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void BTpowrot(object sender, RoutedEventArgs e)
         {
@@ -183,29 +188,45 @@ namespace AppKina.Admin
         {
             try
             {
+                // Parsowanie daty z formatu string do DateTime
+                if (!DateTime.TryParse(date, out var seansDate))
+                {
+                    MessageBox.Show("Nieprawidłowy format daty.");
+                    return false;
+                }
+
+                // Sprawdzenie, czy data seansu jest wcześniejsza niż dzisiejsza
+                DateTime dzienDzisiaj = DateTime.Today;
+                if (seansDate < dzienDzisiaj)
+                {
+                    MessageBox.Show("Data seansu nie może być wcześniejsza niż dzisiejsza.");
+                    return false; // Natychmiastowy zwrot z funkcji
+                }
+
+                // Logika sprawdzania konfliktów czasowych
                 using (var connection = GetConnection())
                 {
                     connection.Open();
                     var command = connection.CreateCommand();
 
-
                     command.CommandText = @"
-                            SELECT StartTime 
-                            FROM Seanse
-                            WHERE Date = @Date";
+                SELECT StartTime 
+                FROM Seanse
+                WHERE Date = @Date AND MovieID = @MovieID";
 
                     command.Parameters.AddWithValue("@Date", date);
+                    command.Parameters.AddWithValue("@MovieID", movieID);
 
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             var existingStartTime = TimeSpan.Parse(reader.GetString(0));
-                            var existingEndTime = existingStartTime + TimeSpan.FromMinutes(20);
+                            var existingEndTime = existingStartTime + TimeSpan.FromMinutes(20); // Przerwa między seansami
 
                             var newSeansEndTime = startTime + movieDuration;
 
-
+                            // Sprawdzenie konfliktu czasowego
                             if (startTime < existingEndTime && newSeansEndTime > existingStartTime)
                             {
                                 return false; // Konflikt czasowy
@@ -214,7 +235,7 @@ namespace AppKina.Admin
                     }
                 }
 
-                return true; // Brak konfliktów
+                return true; // Brak konfliktów czasowych
             }
             catch (Exception ex)
             {
