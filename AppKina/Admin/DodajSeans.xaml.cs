@@ -179,7 +179,7 @@ namespace AppKina.Admin
                 return false;
             }
         }
-        public static bool IsSeansTimeAvailable(int movieID, string date, TimeSpan startTime, TimeSpan movieDuration) //funckja rozwiązująca problemy z nakładaniem się seansów
+        public static bool IsSeansTimeAvailable(int movieID, string date, TimeSpan startTime, TimeSpan movieDuration)
         {
             try
             {
@@ -187,10 +187,13 @@ namespace AppKina.Admin
                 {
                     connection.Open();
                     var command = connection.CreateCommand();
+
+
                     command.CommandText = @"
-                SELECT StartTime FROM Seanse
-                WHERE Date = @Date
-            ";
+                            SELECT StartTime 
+                            FROM Seanse
+                            WHERE Date = @Date";
+
                     command.Parameters.AddWithValue("@Date", date);
 
                     using (var reader = command.ExecuteReader())
@@ -198,13 +201,19 @@ namespace AppKina.Admin
                         while (reader.Read())
                         {
                             var existingStartTime = TimeSpan.Parse(reader.GetString(0));
-                            var existingEndTime = existingStartTime + movieDuration + TimeSpan.FromMinutes(20);
+                            var existingEndTime = existingStartTime + TimeSpan.FromMinutes(20);
 
-                            if (startTime < existingEndTime && startTime + movieDuration > existingStartTime)
+                            var newSeansEndTime = startTime + movieDuration;
+
+
+                            if (startTime < existingEndTime && newSeansEndTime > existingStartTime)
+                            {
                                 return false; // Konflikt czasowy
+                            }
                         }
                     }
                 }
+
                 return true; // Brak konfliktów
             }
             catch (Exception ex)
@@ -213,6 +222,7 @@ namespace AppKina.Admin
                 return false;
             }
         }
+
     }
 
 }
