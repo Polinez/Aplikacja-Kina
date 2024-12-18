@@ -2,6 +2,7 @@
 {
     public class Seans
     {
+        public int ID { get; set; }
         public int MovieID { get; set; }
         public string Date { get; set; }
         public string StartTime { get; set; }
@@ -12,7 +13,7 @@
 
         public override string ToString()
         {
-            return $"ID filmu: {MovieID}, Data: {Date}, Godzina rozpoczęcia: {StartTime}, Format: {Format}, Cena: {Price}";
+            return $"ID seansu: {ID}, ID filmu: {MovieID}, Data: {Date}, Godzina rozpoczęcia: {StartTime}, Format: {Format}, Cena: {Price}";
         }
         //public Seans(int movieID, string date, string startTime, string format, double price)
         //{
