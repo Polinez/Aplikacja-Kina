@@ -2,6 +2,7 @@
 using AppKina.MainPage;
 using AppKina.Reservation;
 using Microsoft.Data.Sqlite;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp;
@@ -88,6 +89,7 @@ namespace AppKina
 
         private void loadProjectionDates(string title)
         {
+            DateTime todaysDate = DateTime.Now;
             try
             {
                 using (var connection = new SqliteConnection(databasePath))
@@ -103,6 +105,15 @@ namespace AppKina
                         {
                             string date = reader.GetString(0);
                             dates.Add(date);
+                        }
+
+                        for (int i = 0; i < dates.Count; i++)
+                        {
+                            DateTime date = DateTime.ParseExact(dates[i], "yyyy-mm-dd", CultureInfo.InvariantCulture);
+                            if (date < todaysDate)
+                            {
+                                dates.Remove(dates[i]);
+                            }
                         }
                         
                         dates.Sort();

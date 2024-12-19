@@ -94,7 +94,7 @@ namespace AppKina.Admin
                 {
                     polaczenie.Open();
 
-                    string zapytanie = "SELECT ID, MovieID, Date, StartTime, Format, Price FROM Seanse";
+                    string zapytanie = "SELECT Seanse.ID, Movies.Title, Seanse.Date, Seanse.StartTime, Seanse.Format, Seanse.Price FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID";
                     using (var komenda = new SqliteCommand(zapytanie, polaczenie))
                     using (var reader = komenda.ExecuteReader())
                     {
@@ -105,17 +105,17 @@ namespace AppKina.Admin
                             // Wyświetl odczytywane dane dla debugowania
                             //MessageBox.Show($"Odczytano: {reader.GetInt32(0)}, {reader.GetString(1)}, {reader.GetString(2)}, {reader.GetString(3)}, {reader.GetDouble(4)}");
 
-                            var seans = new Seans
+                            LBSeans.Items.Add(new Seans
                             {
                                 ID = reader.GetInt32(0),
-                                MovieID = reader.GetInt32(1),
+                                Title = reader.GetString(1),
                                 Date = reader.GetString(2),
                                 StartTime = reader.GetString(3),
                                 Format = reader.GetString(4),
                                 Price = reader.GetDouble(5)
-                            };
+                            });
 
-                            LBSeans.Items.Add(seans);
+                            //LBSeans.Items.Add(seans);
                             //licznik++;
                         }
 
@@ -138,5 +138,7 @@ namespace AppKina.Admin
         {
             usunSeans.IsEnabled = LBSeans.SelectedItem != null;
         }
+
+        
     }
 }
