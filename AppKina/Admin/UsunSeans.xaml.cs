@@ -25,9 +25,27 @@ namespace AppKina.Admin
                     using (var polaczenie = new SqliteConnection(SciezkaDoBazy))
                     {
                         polaczenie.Open();
-                        string zapytanie = "DELETE FROM Seanse WHERE MovieID = @MovieID AND Date = @Date AND StartTime = @StartTime";
+                        string queryReservations = "DELETE FROM Reservations WHERE ProjectionID=@ProjectionID";
+                        
+                        using (var komenda = new SqliteCommand(queryReservations, polaczenie))
+                        {
+                            komenda.Parameters.AddWithValue("@ProjectionID", wybranySeans.ID);
 
-                        using (var komenda = new SqliteCommand(zapytanie, polaczenie))
+                            int usuniete = komenda.ExecuteNonQuery();
+
+                            if (usuniete > 0)
+                            {
+                                MessageBox.Show("Rezerwacje na seans zostały usunięte.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Nie było rezerwacji na ten seans.");
+                            }
+                        }
+
+                        string querySeanse = "DELETE FROM Seanse WHERE MovieID = @MovieID AND Date = @Date AND StartTime = @StartTime";
+
+                        using (var komenda = new SqliteCommand(querySeanse, polaczenie))
                         {
                             komenda.Parameters.AddWithValue("@MovieID", wybranySeans.MovieID);
                             komenda.Parameters.AddWithValue("@Date", wybranySeans.Date);
@@ -45,6 +63,8 @@ namespace AppKina.Admin
                                 MessageBox.Show("Nie udało się usunąć seansu.");
                             }
                         }
+
+                        polaczenie.Close();
                     }
                 }
                 catch (Exception ex)
@@ -74,7 +94,7 @@ namespace AppKina.Admin
                 {
                     polaczenie.Open();
 
-                    string zapytanie = "SELECT MovieID, Date, StartTime, Format, Price FROM Seanse";
+                    string zapytanie = "SELECT Seanse.ID, Movies.Title, Seanse.Date, Seanse.StartTime, Seanse.Format, Seanse.Price FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID";
                     using (var komenda = new SqliteCommand(zapytanie, polaczenie))
                     using (var reader = komenda.ExecuteReader())
                     {
@@ -85,16 +105,17 @@ namespace AppKina.Admin
                             // Wyświetl odczytywane dane dla debugowania
                             //MessageBox.Show($"Odczytano: {reader.GetInt32(0)}, {reader.GetString(1)}, {reader.GetString(2)}, {reader.GetString(3)}, {reader.GetDouble(4)}");
 
-                            var seans = new Seans
+                            LBSeans.Items.Add(new Seans
                             {
-                                MovieID = reader.GetInt32(0),
-                                Date = reader.GetString(1),
-                                StartTime = reader.GetString(2),
-                                Format = reader.GetString(3),
-                                Price = reader.GetDouble(4)
-                            };
+                                ID = reader.GetInt32(0),
+                                Title = reader.GetString(1),
+                                Date = reader.GetString(2),
+                                StartTime = reader.GetString(3),
+                                Format = reader.GetString(4),
+                                Price = reader.GetDouble(5)
+                            });
 
-                            LBSeans.Items.Add(seans);
+                            //LBSeans.Items.Add(seans);
                             //licznik++;
                         }
 
@@ -117,5 +138,7 @@ namespace AppKina.Admin
         {
             usunSeans.IsEnabled = LBSeans.SelectedItem != null;
         }
+
+        
     }
 }

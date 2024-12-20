@@ -5,6 +5,7 @@ namespace AppKina
 {
     public partial class Rejestracja : Window
     {
+        private const string databasePath = $"Data Source=KinoDB.db";
         public Rejestracja()
         {
             InitializeComponent();
@@ -31,7 +32,17 @@ namespace AppKina
             // Pobieranie danych z formularza
             string imie = textBox_imie.Text.Trim();
             string nazwisko = textBox_nazwisko.Text.Trim();
-            string email = textBox_nowyEmail.Text.Trim();
+            string email;
+            List<string> emails = GetUsersEmails();
+            if (!emails.Contains(textBox_nowyEmail.Text.Trim()))
+            {
+                email = textBox_nowyEmail.Text.Trim();
+            }
+            else 
+            {
+                MessageBox.Show("Konto z takim adresem email już istnieje.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             string haslo = textBox_noweHaslo.Password.ToString();
             string powtorzHaslo = textBox_powtorzNoweHaslo.Password.ToString();
 
@@ -87,6 +98,38 @@ namespace AppKina
 
                 command.ExecuteNonQuery(); // Wykonanie komendy wstawiającej dane
                 connection.Close();
+            }
+        }
+
+        private List<string> GetUsersEmails()
+        {
+            List<string> emails = new List<string>();
+
+            try
+            {
+
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Users.Email FROM Users";
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            emails.Add(reader.GetString(0));
+                        }
+                    }
+                    connection.Close();
+
+                    return emails;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
     }

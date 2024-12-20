@@ -25,19 +25,23 @@
 
             <TextBlock Text="Tytuł:" 
            FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-            <TextBox x:Name="TBtytul" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+            <TextBox x:Name="TBtytul" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
 
             <TextBlock Text="Gatunek:" 
                 FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-            <TextBox x:Name="TBgatunek" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+            <TextBox x:Name="TBgatunek" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
 
             <TextBlock Text="Reżyser:" 
                 FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-            <TextBox x:Name="TBRezyser" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+            <TextBox x:Name="TBRezyser" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
 
             <TextBlock Text="Obsada:" 
-                FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-            <TextBox x:Name="TBObsada" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"/>
+                FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3" />
+            <TextBox x:Name="TBObsada" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White"
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
 
             <TextBlock Text="Czas Trwania Filmu:" 
                 FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
@@ -46,7 +50,8 @@
             <TextBlock Text="Opis:" 
                 FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
 
-            <TextBox x:Name="TBopis" Text="" Background="#FF530622" BorderThickness="0" Height="130" TextWrapping="Wrap" Foreground="White"/>
+            <TextBox x:Name="TBopis" Text="" Background="#FF530622" BorderThickness="0" Height="110" TextWrapping="Wrap"
+                     Foreground="White" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
         </StackPanel>
 
         <TextBlock Text="Dodaj plakat" FontSize="24" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50" Grid.ColumnSpan="2" />

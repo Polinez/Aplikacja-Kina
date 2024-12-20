@@ -25,6 +25,7 @@ namespace AppKina
             this.projectionID = projectionID;
             seats = null;
             GetUserID();
+            miejscaZarezerwowane();
         }
 
         private void GenerateSeats()
@@ -57,6 +58,23 @@ namespace AppKina
             // Obsługuje odznaczenie miejsca
             CheckBox checkBox = (CheckBox)sender;
             checkBox.Background = Brushes.Green;
+        }
+
+        private void miejscaZarezerwowane()
+        {
+            List<int> seatsFromReservations = GetSeatsFromReservations();
+            
+            foreach (CheckBox seat in SeatGrid.Children)
+            {
+                for (int i = 0; i < seatsFromReservations.Count; i++)
+                {
+                    if (seat.Content.ToString() == seatsFromReservations[i].ToString())
+                    {
+                        seat.IsEnabled = false;
+                        seat.Background = Brushes.DarkGray;
+                    }
+                }
+            }
         }
 
         private void Rezerwuj_click(object sender, RoutedEventArgs e)
@@ -173,6 +191,41 @@ namespace AppKina
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private List<int> GetSeatsFromReservations()
+        {
+            try
+            {
+                List<int> reservatedSeats = new List<int>();
+                
+                using (var connection = new SqliteConnection(databasePath))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT Reservations.Seats FROM Reservations WHERE ProjectionID={projectionID}"; //???????????? please check again
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string[] takenSeat = reader.GetString(0).Split(',');
+                            for (int i = 0; i < takenSeat.Length; i++)
+                            {
+                                reservatedSeats.Add(int.Parse(takenSeat[i].Trim()));
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+
+                return reservatedSeats;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
     }
