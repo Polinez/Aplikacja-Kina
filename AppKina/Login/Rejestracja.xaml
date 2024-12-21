@@ -55,9 +55,16 @@
             <PasswordBox x:Name="textBox_powtorzNoweHaslo" Background="White" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Height="30"
                      FontSize="15" FontFamily="Segoe UI Variable Small Semibold" VerticalContentAlignment="Center"/>
 
-            <CheckBox x:Name="checkbox_Regulamin" Content="Akceptuję regulamin" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"
+            <CheckBox x:Name="checkbox_Regulamin" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"
                       Background="#530622" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"
-                      Focusable="True" VerticalContentAlignment="Center" Margin="90,0,0,0"/>
+                      Focusable="True" VerticalContentAlignment="Center" Margin="90,0,0,0">
+                <TextBlock>
+                    Akceptuję
+                    <Hyperlink NavigateUri="regulamin" RequestNavigate="Hyperlink_RequestNavigate" Tag="regulamin" Foreground="White">
+                        regulamin
+                    </Hyperlink>
+                </TextBlock>
+            </CheckBox>
 
             <Button x:Name="buttom_zarejestruj" Content="Zarejestruj" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"
                     Width="200" Height="38" Background="#530622" Foreground="White" FontSize="25" Margin="0,0,95,0"
