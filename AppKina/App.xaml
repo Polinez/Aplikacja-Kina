@@ -81,40 +81,6 @@
             </Setter>
         </Style>
 
-
-        <Style TargetType="ScrollBar">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ScrollBar">
-                        <!-- Tutaj definiujesz wygląd scrollbara -->
-                        <Grid Background="Black">
-                            <Track Name="PART_Track" 
-                               Orientation="{TemplateBinding Orientation}">
-                                <!-- Kanał zmniejszania -->
-                                    <Track.DecreaseRepeatButton>
-                                        <RepeatButton Command="ScrollBar.PageUpCommand" 
-                                              Background="Transparent" 
-                                              IsTabStop="True" />
-                                    </Track.DecreaseRepeatButton>
-
-                                    <!-- Kanał zwiększania -->
-                                    <Track.IncreaseRepeatButton>
-                                        <RepeatButton Command="ScrollBar.PageDownCommand" 
-                                              Background="Transparent" 
-                                              IsTabStop="False" />
-                                    </Track.IncreaseRepeatButton>
-
-                                     <!--Uchwyt przewijania--> 
-                                    <Track.Thumb>
-                                    <Thumb Background="#FF530622" />
-                                    </Track.Thumb>
-                                </Track>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
         <!-- Styl globalny dla ComboBox --><!--
         <Style TargetType="ComboBox">
             <Setter Property="Foreground" Value="White"/>
