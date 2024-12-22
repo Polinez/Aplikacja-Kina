@@ -33,7 +33,7 @@ namespace AppKina
             {
                 // Ścieżka do wybranego pliku
                 sciezkaPlakatu = openFileDialog.FileName;
-
+                MessageBox.Show("Plakat został dodany pomyślnie");
             }
         }
 
