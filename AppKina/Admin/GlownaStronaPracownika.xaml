@@ -21,9 +21,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Image Source="C:\Users\ankaw\Desktop\projekt kino\Aplikacja-Kina\AppKina\elementyGraficzne\CzarneLogo.png" HorizontalAlignment="Center" Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" />
         <Image Source="pack://application:,,,/elementyGraficzne/górna fala.png" Stretch="Fill" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="4"/>
 
-        <Image Source="pack://application:,,,/elementyGraficzne/KinoLogo.png" HorizontalAlignment="Center" Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" />
 
         <Button Width="150" Height="100" Background="#FF530622" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Click="Dodaj_film_Click">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
