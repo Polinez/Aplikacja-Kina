@@ -29,17 +29,13 @@
         </Style>
 
 
-        <!-- Styl globalny dla ListBox -->
         <Style TargetType="ListBox">
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="Transparent"/>
         </Style>
 
-        <!-- Styl globalny dla ListBoxItem -->
         <Style TargetType="ListBoxItem">
-            <!-- Domyślne właściwości -->
             <Setter Property="Foreground" Value="White"/>
-            <!-- Biały tekst -->
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -47,33 +43,24 @@
             <Setter Property="Padding" Value="10"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 
-            <!-- Szablon -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
                         <Border x:Name="Border"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="1">
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
+                                      VerticalAlignment="Center"/>
                         </Border>
-
-                        <!-- Triggers -->
                         <ControlTemplate.Triggers>
-                            <!-- Na najechaniu myszką -->
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
-                                <!-- Biała ramka -->
                                 <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
-                                <!-- Czerwone tło -->
                             </Trigger>
-                            <!-- Na zaznaczeniu -->
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
-                                <!-- Biała ramka -->
                                 <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
-                                <!-- Czerwone tło -->
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -81,42 +68,49 @@
             </Setter>
         </Style>
 
-        <!-- Styl globalny dla ComboBox --><!--
+
+
+
+
+
+
         <Style TargetType="ComboBox">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF530622"/>
-            --><!-- Czerwone tło --><!--
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#FF530622" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
                         <Grid>
-                            --><!-- Główna ramka --><!--
-                            <Border x:Name="ComboBoxBorder"
-                      Background="{TemplateBinding Background}"
-                      BorderBrush="White"
-                      BorderThickness="1"/>
-                            --><!-- Wyświetlana zawartość --><!--
-                            <ContentPresenter HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="5"
-                                Content="{TemplateBinding SelectionBoxItem}"
-                                ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
-                            --><!-- Strzałka ComboBoxa --><!--
+                            <!-- ToggleButton dla głównego pola -->
+                            <ToggleButton Name="ToggleButton"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Focusable="False"
+                                  ClickMode="Press"
+                                  IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ContentPresenter Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                          Margin="4,2,0,2"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left" />
+                            </ToggleButton>
+
+                            <!-- Popup dla rozwijanej listy -->
                             <Popup Name="Popup"
-                     Placement="Bottom"
-                     IsOpen="{TemplateBinding IsDropDownOpen}"
-                     AllowsTransparency="True"
-                     Focusable="False">
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           PopupAnimation="Slide">
                                 <Border Background="#FF530622"
-                          BorderBrush="White"
-                          BorderThickness="1">
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1">
                                     <ScrollViewer>
-                                        <ItemsPresenter/>
+                                        <StackPanel IsItemsHost="True" 
+                                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}" />
                                     </ScrollViewer>
                                 </Border>
                             </Popup>
@@ -126,46 +120,41 @@
             </Setter>
         </Style>
 
-        --><!-- Styl globalny dla ComboBoxItem --><!--
         <Style TargetType="ComboBoxItem">
-            --><!-- Domyślne właściwości --><!--
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-
-            --><!-- Szablon --><!--
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBoxItem">
                         <Border x:Name="Border"
-                  Background="{TemplateBinding Background}"
-                  BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="1">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                VerticalAlignment="Center"/>
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="1">
+                            <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Margin="4" />
                         </Border>
-
-                        --><!-- Triggers --><!--
                         <ControlTemplate.Triggers>
-                            --><!-- Na najechaniu myszką --><!--
+                            <!-- Po najechaniu myszą -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
-                                <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
+                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
                             </Trigger>
-                            --><!-- Na zaznaczeniu --><!--
+                            <!-- Po zaznaczeniu -->
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
-                                <Setter TargetName="Border" Property="Background" Value="#FF530622"/>
+                                <Setter TargetName="Border" Property="Background" Value="#FF530622" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
+                                <Setter Property="Foreground" Value="White" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>-->
+        </Style>
+
+
 
 
     </Application.Resources>
