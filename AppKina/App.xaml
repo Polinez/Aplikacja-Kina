@@ -98,7 +98,7 @@
                                           ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                           Margin="4,2,0,2"
                                           VerticalAlignment="Center"
-                                          HorizontalAlignment="Left" />
+                                          HorizontalAlignment="Left"/>
                             </ToggleButton>
 
                             <!-- Popup dla rozwijanej listy -->
@@ -157,6 +157,11 @@
             </Setter>
         </Style>
 
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="black"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+
+        </Style>
 
 
 
