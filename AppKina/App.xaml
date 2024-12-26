@@ -160,10 +160,7 @@
         <Style TargetType="ScrollBar">
             <Setter Property="Background" Value="black"/>
             <Setter Property="BorderBrush" Value="Black"/>
-
         </Style>
-
-
 
     </Application.Resources>
 </Application>
