@@ -237,6 +237,7 @@
                                 <Style TargetType="CalendarItem">
                                     <Setter Property="Background" Value="#FF530622" />
                                     <Setter Property="Foreground" Value="white" />
+                                    
                                 </Style>
                             </Setter.Value>
                         </Setter>
@@ -266,14 +267,6 @@
             <Setter Property="CalendarButtonStyle">
                 <Setter.Value>
                     <Style TargetType="CalendarButton">
-                        <Setter Property="Background" Value="#FF530622" />
-                        <Setter Property="Foreground" Value="white" />
-                    </Style>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="CalendarItemStyle">
-                <Setter.Value>
-                    <Style TargetType="CalendarItem">
                         <Setter Property="Background" Value="#FF530622" />
                         <Setter Property="Foreground" Value="white" />
                     </Style>
