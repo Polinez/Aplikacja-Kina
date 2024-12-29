@@ -23,29 +23,7 @@
                     <ComboBox x:Name="LBMovies" DisplayMemberPath="Tytul" Background="#FF530622" Foreground="#FF530622" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
 
                     <TextBlock Text="Data:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
-                    <DatePicker x:Name="TBdata" Text="" BorderThickness="0" Height="25" Foreground="#FF530622" ToolTip="Wpisz datę w formacie: YYYY-MM-DD" Background="#FF530622">
-                        <DatePicker.CalendarStyle>
-                            <Style TargetType="Calendar">
-                                <Setter Property="Background" Value="#FF530622" />
-                                <Setter Property="Foreground" Value="white"/>
-                                <Setter Property="BorderBrush" Value="White" />
-                                <Setter Property="CalendarDayButtonStyle">
-                                    <Setter.Value>
-                                        <Style TargetType="CalendarDayButton">
-                                            <Setter Property="Background" Value="#FF530622" />
-                                            <Setter Property="Foreground" Value="white" />
-                                            <Style.Triggers>
-                                                <Trigger Property="IsSelected" Value="True">
-                                                    <Setter Property="Background" Value="white" />
-                                                    <Setter Property="Foreground" Value="#FF530622" />
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </DatePicker.CalendarStyle>
-                    </DatePicker>
+                    <DatePicker x:Name="TBdata" Text="" BorderThickness="0" Height="25" Foreground="white" ToolTip="Wpisz datę w formacie: YYYY-MM-DD" Background="#FF530622"/>
 
                     <TextBlock Text="Godzina rozpoczęcia:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
                     <TextBox x:Name="TBgodzina" Text="" Background="#FF530622" BorderThickness="0" Height="25" Foreground="White" ToolTip="Podaj godzinę w formacie: HH:MM"/>
