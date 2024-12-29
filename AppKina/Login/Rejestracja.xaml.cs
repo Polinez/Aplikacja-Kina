@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -37,13 +38,23 @@ namespace AppKina
             string nazwisko = textBox_nazwisko.Text.Trim();
             string email;
             List<string> emails = GetUsersEmails();
-            if (!emails.Contains(textBox_nowyEmail.Text.Trim()))
+            
+            Regex SprawdzKod = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+            if (SprawdzKod.IsMatch(textBox_nowyEmail.Text.Trim()))
             {
-                email = textBox_nowyEmail.Text.Trim();
+                if (!emails.Contains(textBox_nowyEmail.Text.Trim()))
+                {
+                    email = textBox_nowyEmail.Text.Trim();
+                }
+                else
+                {
+                    MessageBox.Show("Konto z takim adresem email już istnieje.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
-            else 
+            else
             {
-                MessageBox.Show("Konto z takim adresem email już istnieje.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Format adresu email jest niepoprawny", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             string haslo = textBox_noweHaslo.Password.ToString();
