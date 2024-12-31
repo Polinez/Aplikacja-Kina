@@ -1,5 +1,6 @@
 ﻿using AppKina.Admin;
 using AppKina.MainPage;
+using Microsoft.Data.Sqlite;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +26,7 @@ namespace AppKina
         /// </summary>
         private void LoadMovies()
         {
-            List<Film> films = DatabaseHelper.GetAllMovies();
+            List<Film> films = GetAllMoviesWithProjections();
 
             foreach (var film in films)
             {
@@ -182,6 +183,42 @@ namespace AppKina
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        public static List<Film> GetAllMoviesWithProjections()
+        {
+            var movies = new List<Film>();
+            using (var connection = new SqliteConnection("Data Source=KinoDB.db"))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT ID, Title, Genre, Director, \"Cast\", Duration, Description, PosterPath FROM Movies WHERE Movies.ID IN (SELECT Seanse.MovieID FROM Seanse) ";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string tytul = reader.GetString(1);
+                        string gatunek = reader.GetString(2);
+                        string rezyser = reader.GetString(3);
+                        string obsada = reader.GetString(4);
+                        int czasTrwania = reader.GetInt32(5);
+                        string opis = reader.GetString(6);
+                        string sciezkaPlakatu = reader.GetString(7);
+
+
+
+                        var film = new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu)
+                        {
+                            ID = id
+                        };
+
+                        movies.Add(film);
+                    }
+
+                }
+            }
+            return movies;
         }
     }
 }
