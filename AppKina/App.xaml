@@ -196,13 +196,14 @@
                                 <Style TargetType="CalendarDayButton">
                                     <Setter Property="Background" Value="#FF530622" />
                                     <Setter Property="Foreground" Value="White" />
+                                    <Setter Property="BorderBrush" Value="#FF530622"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="CalendarDayButton">
                                                 <Grid>
                                                     <!-- Dodanie odstępów między dniami -->
                                                     <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="#FF530622"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
                                                         BorderThickness="{TemplateBinding BorderThickness}"
                                                         Margin="5" 
                                                         CornerRadius="1">
@@ -229,8 +230,8 @@
                                             <Setter Property="FontWeight" Value="Bold" />
                                             <Setter Property="Foreground" Value="white" />
                                         </Trigger>
-                                        <Trigger Property="IsEnabled" Value="False">
-                                            <Setter Property="Foreground" Value="Gray" />
+                                        <Trigger Property="IsInactive" Value="True">
+                                            <Setter Property="Foreground" Value="DimGray" />
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
@@ -241,6 +242,25 @@
                                 <Style TargetType="CalendarButton">
                                     <Setter Property="Background" Value="#FF530622" />
                                     <Setter Property="Foreground" Value="white" />
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="CalendarButton">
+                                                <Grid>
+                                                    <Border Background="{TemplateBinding Background}" 
+                                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                                    BorderThickness="0" 
+                                                    CornerRadius="1">
+                                                        <ContentPresenter 
+                                                    HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center" 
+                                                    Content="{TemplateBinding Content}" 
+                                                    TextElement.Foreground="white" />
+                                                    </Border>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
                                 </Style>
                             </Setter.Value>
                         </Setter>
