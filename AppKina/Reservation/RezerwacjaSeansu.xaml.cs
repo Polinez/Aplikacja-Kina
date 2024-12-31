@@ -104,7 +104,11 @@ namespace AppKina
                         while (reader.Read())
                         {
                             string date = reader.GetString(0);
-                            dates.Add(date);
+                            var parsedDate = DateTime.Parse(date);
+                            if (parsedDate > DateTime.Now)
+                            {
+                                dates.Add(date);
+                            }
                         }
 
                         for (int i = 0; i < dates.Count; i++)
@@ -151,7 +155,11 @@ namespace AppKina
                         while (reader.Read())
                         {
                             string time = reader.GetString(0);
-                            times.Add(time);
+                            DateTime projectionDateTime = DateTime.Parse(string.Concat(date,'T', time));
+                            if (projectionDateTime > DateTime.Now)
+                            {
+                                times.Add(time);
+                            }
                         }
 
                         times.Sort();
