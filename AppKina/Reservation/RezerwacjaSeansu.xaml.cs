@@ -105,20 +105,20 @@ namespace AppKina
                         {
                             string date = reader.GetString(0);
                             var parsedDate = DateTime.Parse(date);
-                            if (parsedDate > DateTime.Now)
+                            if (parsedDate > DateTime.Today)
                             {
                                 dates.Add(date);
                             }
                         }
 
-                        for (int i = 0; i < dates.Count; i++)
-                        {
-                            DateTime date = DateTime.ParseExact(dates[i], "yyyy-mm-dd", CultureInfo.InvariantCulture);
-                            if (date < todaysDate)
-                            {
-                                dates.Remove(dates[i]);
-                            }
-                        }
+                        //for (int i = 0; i < dates.Count; i++)
+                        //{
+                        //    DateTime date = DateTime.ParseExact(dates[i], "yyyy-mm-dd", CultureInfo.InvariantCulture);
+                        //    if (date < todaysDate)
+                        //    {
+                        //        dates.Remove(dates[i]);
+                        //    }
+                        //}
                         
                         dates.Sort();
                         comboBox_date.ItemsSource= dates;

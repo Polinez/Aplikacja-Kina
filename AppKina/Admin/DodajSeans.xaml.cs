@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using WpfApp;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static WpfApp.DatabaseHelper;
 
 namespace AppKina.Admin
@@ -57,6 +58,14 @@ namespace AppKina.Admin
                 if (string.IsNullOrWhiteSpace(TBgodzina.Text) || !TimeSpan.TryParse(TBgodzina.Text, out var startTime))
                 {
                     MessageBox.Show("Wprowadź poprawną godzinę w formacie HH:MM!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var parsedDateTime = DateTime.Parse(string.Concat(parsedDate.ToString("yyyy-MM-dd"),'T',startTime));
+
+                if (parsedDateTime < DateTime.Now) 
+                {
+                    MessageBox.Show("Nie można dodawać seansów z przeszłą datą", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
