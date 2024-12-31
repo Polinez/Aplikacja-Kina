@@ -118,6 +118,18 @@
                                 </Border>
                             </Popup>
                         </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF530622" />
+                                <Setter Property="Foreground" Value="white" />
+                            </Trigger>
+                            <!-- Po zaznaczeniu -->
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="Background" Value="#FF530622" />
+                                <Setter Property="BorderBrush" Value="White" />
+                                <Setter Property="Foreground" Value="white" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -142,7 +154,7 @@
                         <ControlTemplate.Triggers>
                             <!-- Po najechaniu myszą -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                                <Setter TargetName="Border" Property="Background" Value="#FF530622" />
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White" />
                             </Trigger>
                             <!-- Po zaznaczeniu -->
