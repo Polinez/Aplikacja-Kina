@@ -92,6 +92,7 @@
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
                                   HorizontalContentAlignment="Left"
+                                  Foreground="white"
                                   Focusable="False"
                                   ClickMode="Press"
                                   IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
