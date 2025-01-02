@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using WpfApp;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AppKina
 {
@@ -38,7 +39,7 @@ namespace AppKina
                 };
 
                 // Obraz filmu
-                Image poster = new Image
+                System.Windows.Controls.Image poster = new System.Windows.Controls.Image
                 {
                     Width = 100,
                     Height = 150,
@@ -67,7 +68,7 @@ namespace AppKina
 
                 TextBlock description = new TextBlock
                 {
-                    Text = film.Opis,
+                    Text = film.Opis.Length > 200 ? film.Opis.Substring(0, 200) + "..." : film.Opis,
                     FontSize = 12,
                     Foreground = System.Windows.Media.Brushes.White,
                     TextWrapping = TextWrapping.Wrap,
