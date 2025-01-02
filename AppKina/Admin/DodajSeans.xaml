@@ -20,7 +20,7 @@
                 <UniformGrid Rows="10" Margin="40,40,0,40">
 
                     <TextBlock Text="Wybór filmu:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3" Margin="0,0,0,0"/>
-                    <ComboBox x:Name="LBMovies" DisplayMemberPath="Tytul" Background="#FF530622" Foreground="#FF530622" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                    <ComboBox x:Name="LBMovies" DisplayMemberPath="Tytul" Background="#FF530622" Foreground="white" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
 
                     <TextBlock Text="Data:" FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
                     <DatePicker x:Name="TBdata" Text="" BorderThickness="0" Height="25" Foreground="white" ToolTip="Wpisz datę w formacie: YYYY-MM-DD" Background="#FF530622"/>

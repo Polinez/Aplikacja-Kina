@@ -114,7 +114,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="1">
                                     <ScrollViewer>
-                                        <StackPanel IsItemsHost="True" 
+                                        <StackPanel IsItemsHost="True"
                                             Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}" />
                                     </ScrollViewer>
                                 </Border>
@@ -139,7 +139,7 @@
 
         <Style TargetType="ComboBoxItem">
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Background" Value="#FF530622" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Template">
@@ -151,13 +151,15 @@
                         BorderThickness="1">
                             <ContentPresenter VerticalAlignment="Center"
                                       HorizontalAlignment="Left"
-                                      Margin="4" />
+                                      Margin="4"
+                                      Content="{TemplateBinding Content}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <!-- Po najechaniu myszą -->
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FF530622" />
-                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <Setter Property="Foreground" Value="white"/>
                             </Trigger>
                             <!-- Po zaznaczeniu -->
                             <Trigger Property="IsSelected" Value="True">

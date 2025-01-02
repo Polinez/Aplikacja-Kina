@@ -19,7 +19,11 @@ namespace AppKina.Admin
             {
                 // Załaduj listę filmów
                 var movies = DatabaseHelper.GetAllMovies();
-                LBMovies.ItemsSource = movies;
+                List<string> titles = new List<string>();
+                for (int i = 0; i < movies.Count; i++) {
+                    titles.Add(movies[i].Tytul);
+                }
+                LBMovies.ItemsSource = titles;
 
                 // Formaty seansów
                 LBFormat.ItemsSource = new List<string> { "2D", "3D", "IMAX" };
