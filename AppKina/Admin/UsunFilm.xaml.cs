@@ -30,21 +30,31 @@ namespace AppKina.Admin
                 MessageBox.Show("Wybierz film do usunięcia.");
                 return;
             }
+            
             string wybranyFilm = FilmListBox.SelectedItem.ToString();
+            bool seanse = CzySaSeanse(wybranyFilm);
+            
             try
             {
-                using (var polaczenie = new SqliteConnection(SciezkaDoBazy))
+                if (seanse)
                 {
-                    polaczenie.Open();
-                    string zapytanie = "DELETE FROM Movies WHERE Title = @Title";
-                    using (var komenda = new SqliteCommand(zapytanie, polaczenie))
+                    using (var polaczenie = new SqliteConnection(SciezkaDoBazy))
                     {
-                        komenda.Parameters.AddWithValue("@Title", wybranyFilm);
-                        komenda.ExecuteNonQuery();
+                        polaczenie.Open();
+                        string zapytanie = "DELETE FROM Movies WHERE Title = @Title";
+                        using (var komenda = new SqliteCommand(zapytanie, polaczenie))
+                        {
+                            komenda.Parameters.AddWithValue("@Title", wybranyFilm);
+                            komenda.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show($"Film {wybranyFilm} zostal usunięty.");
+                    ZaladujFilmy();
                 }
-                MessageBox.Show($"Film {wybranyFilm} zostal usunięty.");
-                ZaladujFilmy();
+                else
+                {
+                    MessageBox.Show($"Nie można usunąć {wybranyFilm} ponieważ są na niego seanse.");
+                }
             }
             catch (Exception ex)
             {
@@ -81,6 +91,45 @@ namespace AppKina.Admin
         private void FilmListBox_wybor(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             usunFilm.IsEnabled = FilmListBox.SelectedItem != null;
+        }
+
+        private bool CzySaSeanse(string wybranyFilm)
+        {
+            List<int> seanse = new List<int>();
+            bool result = false;
+            try
+            {
+                using (var connection = new SqliteConnection(SciezkaDoBazy))
+                {
+                    connection.Open();
+                    string query = $"Select Seanse.ID FROM Seanse JOIN Movies ON Movies.ID=Seanse.MovieID WHERE Movies.Title='{wybranyFilm}'";
+                    using (var komenda = new SqliteCommand(query, connection))
+                    using (var reader = komenda.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idSeansu = reader.GetInt32(0);
+                            seanse.Add(idSeansu);
+                        }
+                    }
+                    connection.Close();
+                }
+                if (seanse.Count > 0)
+                {
+                    result = false;
+                }
+                else
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                result = false;
+            }
+
+            return result;
         }
     }
 }

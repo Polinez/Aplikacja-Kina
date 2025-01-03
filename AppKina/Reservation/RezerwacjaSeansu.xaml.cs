@@ -104,15 +104,10 @@ namespace AppKina
                         while (reader.Read())
                         {
                             string date = reader.GetString(0);
-                            dates.Add(date);
-                        }
-
-                        for (int i = 0; i < dates.Count; i++)
-                        {
-                            DateTime date = DateTime.ParseExact(dates[i], "yyyy-mm-dd", CultureInfo.InvariantCulture);
-                            if (date < todaysDate)
+                            var parsedDate = DateTime.Parse(date);
+                            if (parsedDate > DateTime.Today)
                             {
-                                dates.Remove(dates[i]);
+                                dates.Add(date);
                             }
                         }
                         
@@ -151,7 +146,11 @@ namespace AppKina
                         while (reader.Read())
                         {
                             string time = reader.GetString(0);
-                            times.Add(time);
+                            DateTime projectionDateTime = DateTime.Parse(string.Concat(date,'T', time));
+                            if (projectionDateTime > DateTime.Now)
+                            {
+                                times.Add(time);
+                            }
                         }
 
                         times.Sort();

@@ -50,7 +50,7 @@
             <TextBlock Text="Opis:" 
                 FontSize="18" Foreground="White" FontFamily="Segoe UI Variable Small Semibold" Padding="3"/>
 
-            <TextBox x:Name="TBopis" Text="" Background="#FF530622" BorderThickness="0" Height="110" TextWrapping="Wrap"
+            <TextBox x:Name="TBopis" Text="" Background="#FF530622" BorderThickness="0" Height="110" Padding="3,3,3,30" TextWrapping="Wrap"
                      Foreground="White" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
         </StackPanel>
 

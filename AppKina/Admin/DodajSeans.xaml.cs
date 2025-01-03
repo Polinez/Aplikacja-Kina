@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using WpfApp;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static WpfApp.DatabaseHelper;
 
 namespace AppKina.Admin
@@ -18,7 +19,11 @@ namespace AppKina.Admin
             {
                 // Załaduj listę filmów
                 var movies = DatabaseHelper.GetAllMovies();
-                LBMovies.ItemsSource = movies;
+                List<string> titles = new List<string>();
+                for (int i = 0; i < movies.Count; i++) {
+                    titles.Add(movies[i].Tytul);
+                }
+                LBMovies.ItemsSource = titles;
 
                 // Formaty seansów
                 LBFormat.ItemsSource = new List<string> { "2D", "3D", "IMAX" };
@@ -57,6 +62,14 @@ namespace AppKina.Admin
                 if (string.IsNullOrWhiteSpace(TBgodzina.Text) || !TimeSpan.TryParse(TBgodzina.Text, out var startTime))
                 {
                     MessageBox.Show("Wprowadź poprawną godzinę w formacie HH:MM!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var parsedDateTime = DateTime.Parse(string.Concat(parsedDate.ToString("yyyy-MM-dd"),'T',startTime));
+
+                if (parsedDateTime < DateTime.Now) 
+                {
+                    MessageBox.Show("Nie można dodawać seansów z przeszłą datą", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 

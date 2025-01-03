@@ -1,10 +1,12 @@
 ﻿using AppKina.Admin;
 using AppKina.MainPage;
+using Microsoft.Data.Sqlite;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using WpfApp;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AppKina
 {
@@ -25,7 +27,7 @@ namespace AppKina
         /// </summary>
         private void LoadMovies()
         {
-            List<Film> films = DatabaseHelper.GetAllMovies();
+            List<Film> films = GetAllMoviesWithProjections();
 
             foreach (var film in films)
             {
@@ -37,7 +39,7 @@ namespace AppKina
                 };
 
                 // Obraz filmu
-                Image poster = new Image
+                System.Windows.Controls.Image poster = new System.Windows.Controls.Image
                 {
                     Width = 100,
                     Height = 150,
@@ -66,7 +68,7 @@ namespace AppKina
 
                 TextBlock description = new TextBlock
                 {
-                    Text = film.Opis,
+                    Text = film.Opis.Length > 200 ? film.Opis.Substring(0, 200) + "..." : film.Opis,
                     FontSize = 12,
                     Foreground = System.Windows.Media.Brushes.White,
                     TextWrapping = TextWrapping.Wrap,
@@ -182,6 +184,42 @@ namespace AppKina
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        public static List<Film> GetAllMoviesWithProjections()
+        {
+            var movies = new List<Film>();
+            using (var connection = new SqliteConnection("Data Source=KinoDB.db"))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT ID, Title, Genre, Director, \"Cast\", Duration, Description, PosterPath FROM Movies WHERE Movies.ID IN (SELECT Seanse.MovieID FROM Seanse) ";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string tytul = reader.GetString(1);
+                        string gatunek = reader.GetString(2);
+                        string rezyser = reader.GetString(3);
+                        string obsada = reader.GetString(4);
+                        int czasTrwania = reader.GetInt32(5);
+                        string opis = reader.GetString(6);
+                        string sciezkaPlakatu = reader.GetString(7);
+
+
+
+                        var film = new Film(tytul, gatunek, rezyser, obsada, czasTrwania, opis, sciezkaPlakatu)
+                        {
+                            ID = id
+                        };
+
+                        movies.Add(film);
+                    }
+
+                }
+            }
+            return movies;
         }
     }
 }

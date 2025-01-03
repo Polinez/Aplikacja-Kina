@@ -91,6 +91,8 @@
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                  HorizontalContentAlignment="Left"
+                                  Foreground="white"
                                   Focusable="False"
                                   ClickMode="Press"
                                   IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
@@ -112,12 +114,24 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="1">
                                     <ScrollViewer>
-                                        <StackPanel IsItemsHost="True" 
+                                        <StackPanel IsItemsHost="True"
                                             Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}" />
                                     </ScrollViewer>
                                 </Border>
                             </Popup>
                         </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF530622" />
+                                <Setter Property="Foreground" Value="white" />
+                            </Trigger>
+                            <!-- Po zaznaczeniu -->
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="Background" Value="#FF530622" />
+                                <Setter Property="BorderBrush" Value="White" />
+                                <Setter Property="Foreground" Value="white" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -125,7 +139,7 @@
 
         <Style TargetType="ComboBoxItem">
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Background" Value="#FF530622" />
             <Setter Property="Padding" Value="4" />
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Template">
@@ -137,13 +151,15 @@
                         BorderThickness="1">
                             <ContentPresenter VerticalAlignment="Center"
                                       HorizontalAlignment="Left"
-                                      Margin="4" />
+                                      Margin="4"
+                                      Content="{TemplateBinding Content}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <!-- Po najechaniu myszą -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
-                                <Setter TargetName="Border" Property="BorderBrush" Value="White" />
+                                <Setter TargetName="Border" Property="Background" Value="#FF530622" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <Setter Property="Foreground" Value="white"/>
                             </Trigger>
                             <!-- Po zaznaczeniu -->
                             <Trigger Property="IsSelected" Value="True">
@@ -160,6 +176,138 @@
         <Style TargetType="ScrollBar">
             <Setter Property="Background" Value="black"/>
             <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="Background" Value="#FF530622"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF530622"/>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Background" Value="#FF530622"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF530622"/>
+            <Setter Property="CalendarStyle">
+                <Setter.Value>
+                    <Style TargetType="Calendar">
+                        <Setter Property="Background" Value="#FF530622" />
+                        <Setter Property="Foreground" Value="white"/>
+                        <Setter Property="BorderBrush" Value="White" />
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="CalendarDayButtonStyle">
+                            <Setter.Value>
+                                <Style TargetType="CalendarDayButton">
+                                    <Setter Property="Background" Value="#FF530622" />
+                                    <Setter Property="Foreground" Value="White" />
+                                    <Setter Property="BorderBrush" Value="#FF530622"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="CalendarDayButton">
+                                                <Grid>
+                                                    <!-- Dodanie odstępów między dniami -->
+                                                    <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        Margin="5" 
+                                                        CornerRadius="1">
+                                                        <!-- Zawartość dnia -->
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                RecognizesAccessKey="True"
+                                                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                                                    </Border>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="white" />
+                                            <Setter Property="Foreground" Value="#FF530622" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="white" />
+                                            <Setter Property="Foreground" Value="#FF530622" />
+                                        </Trigger>
+                                        <Trigger Property="IsToday" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                            <Setter Property="Foreground" Value="white" />
+                                        </Trigger>
+                                        <Trigger Property="IsInactive" Value="True">
+                                            <Setter Property="Foreground" Value="DimGray" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="CalendarButtonStyle">
+                            <Setter.Value>
+                                <Style TargetType="CalendarButton">
+                                    <Setter Property="Background" Value="#FF530622" />
+                                    <Setter Property="Foreground" Value="white" />
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="CalendarButton">
+                                                <Grid>
+                                                    <Border Background="{TemplateBinding Background}" 
+                                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                                    BorderThickness="0" 
+                                                    CornerRadius="1">
+                                                        <ContentPresenter 
+                                                    HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center" 
+                                                    Content="{TemplateBinding Content}" 
+                                                    TextElement.Foreground="white" />
+                                                    </Border>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="CalendarItemStyle">
+                            <Setter.Value>
+                                <Style TargetType="CalendarItem">
+                                    <Setter Property="Background" Value="#FF530622" />
+                                    <Setter Property="Foreground" Value="white" />
+                                    
+                                </Style>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Calendar">
+            <Setter Property="Background" Value="#FF530622" />
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="CalendarDayButtonStyle">
+                <Setter.Value>
+                    <Style TargetType="CalendarDayButton">
+                        <Setter Property="Background" Value="#FF530622" />
+                        <Setter Property="Foreground" Value="white" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="white" />
+                                <Setter Property="Foreground" Value="#FF530622" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CalendarButtonStyle">
+                <Setter.Value>
+                    <Style TargetType="CalendarButton">
+                        <Setter Property="Background" Value="#FF530622" />
+                        <Setter Property="Foreground" Value="white" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
         </Style>
 
     </Application.Resources>
