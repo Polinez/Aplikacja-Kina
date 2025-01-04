@@ -18,12 +18,12 @@ namespace AppKina.Admin
             try
             {
                 // Załaduj listę filmów
-                var movies = DatabaseHelper.GetAllMovies();
-                List<string> titles = new List<string>();
-                for (int i = 0; i < movies.Count; i++) {
-                    titles.Add(movies[i].Tytul);
-                }
-                LBMovies.ItemsSource = titles;
+                List<Film> movies = DatabaseHelper.GetAllMovies();
+                //List<string> titles = new List<string>();
+                //for (int i = 0; i < movies.Count; i++) {
+                //    titles.Add(movies[i].Tytul);
+                //}
+                LBMovies.ItemsSource = movies;
 
                 // Formaty seansów
                 LBFormat.ItemsSource = new List<string> { "2D", "3D", "IMAX" };
@@ -132,7 +132,7 @@ namespace AppKina.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Wystąpił błąd: {ex.StackTrace}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
