@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppKina"
         mc:Ignorable="d"
-        Title="Strona_glowna" Height="600" Width="800" MinWidth="800" MinHeight="450">
+        Title="Strona_glowna" Height="550" Width="950" MinWidth="800" MinHeight="450">
 
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <Grid Background="Black">

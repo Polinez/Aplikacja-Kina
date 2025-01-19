@@ -43,7 +43,7 @@ namespace AppKina.Admin
                             }
                         }
 
-                        string querySeanse = "DELETE FROM Seanse WHERE MovieID = @MovieID AND Date = @Date AND StartTime = @StartTime";
+                        string querySeanse = "DELETE FROM Seanse WHERE MovieID=@MovieID AND Date=@Date AND StartTime=@StartTime";
 
                         using (var komenda = new SqliteCommand(querySeanse, polaczenie))
                         {
