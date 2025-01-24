@@ -8,6 +8,9 @@
 
 [Plan Inżynieryjny](https://docs.google.com/document/d/1pygJBoeeNCG1zv98azIWQqD3U0pOZEZQltmLeD2ybUw/edit?usp=sharing)
 
+[Prezentacja](https://www.canva.com/design/DAGbJ5bLvho/Vph9NzE1OMoDjGWbOjMFpA/edit?utm_content=DAGbJ5bLvho&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+
 ---
 
 ## 🛠️ Instalacja
