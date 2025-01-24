@@ -5,7 +5,8 @@
 ## 📄 Opis
 
 **Projekt Uniwersytecki** mający na celu stworzenie aplikacji dla kina, aby usprawnić proces sprzedaży biletów.  
-**Status projektu:** W trakcie budowy.
+
+[Plan Inżynieryjny](https://docs.google.com/document/d/1pygJBoeeNCG1zv98azIWQqD3U0pOZEZQltmLeD2ybUw/edit?usp=sharing)
 
 ---
 
